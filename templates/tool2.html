@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>[Developing] Statistical Project</title>
+
+    {% load staticfiles %}
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}"rel="stylesheet">
+    <!-- DataTables CDN -->
+    <link href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel='stylesheet'>
+    <!-- Custom CSS -->
+    <link href="{% static "css/toolpage.css" %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id = 'doc-top' class="navbar navbar-default navbar-static-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">
+                    <span class="glyphicon glyphicon-education"></span> Statistical Project</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- vertical menu -->
+    <div id="vertical-menu" class="col-md-1 column navbar-fixed-top">
+        <ul class="nav nav-pills nav-stacked text-center" >
+            <li class="active"><a href="#"> TOP </a></li>
+            <li><a href="#doc-top"> 1 </a></li>
+            <li><a href="#fileSelect-table" class="active2"> 2 </a></li>
+            <li><a href="#chart02"> 3 </a></li>
+            <li><a href="#cal-result"> 4 </a></li>
+            <li><a href="#data-table"> 5 </a></li>
+
+        </ul>
+    </div>
+    <!-- State bottom -->
+    <div id="state-botom" class="col-md-12">
+        <ul class="nav nav-pills">
+            <li><a href="#"><span class="glyphicon glyphicon-menu-left"></span> Chart Settings</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-menu-down"></span> Calculated Result</a></li>
+        </ul>
+    </div>
+
+    <!-- Step1 : Data File Select -->
+    <div id="fileSelect-table" class="row ">
+            
+        <div class="col-md-10 col-md-offset-1">
+            <h1>Step1 : Data File Select</h1>
+            
+            <table class="table table-bordered table-condensed text-center">
+                <thead></thead>
+                <tbody></tbody>    
+            </table>
+            <p class="help-block">Show the data from file </p>
+            <button id="loadFilelist-button" class="btn btn-primary" type="button">Load Filelist</button>
+            <select id="SelectFileList" name="FileList">  
+                <option>Select File</option>  
+            </select>  
+            <p></p>
+            <button id="loadFile-button" class="btn btn-primary hidden" type="button">Load File...</button>
+            <p></p>
+        </div>
+    </div>
+
+    <!-- chart01 -->
+    <div class="container-fluid hidden">
+        <div id="chart01" class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h1>Chart1</h1>
+                <div class="chart">
+                </div>
+            </div>
+        </div>
+
+        <div id="chart02" class="row">
+            <div class=" col-md-5 col-md-offset-1">
+                <h1>Chart2</h1>
+                <div class="chart-left">
+                </div>
+            </div>
+            <div class="col-md-5 ">
+                <h1>Chart3</h1>
+                <div class="chart-right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div>    
+        <!-- data-table -->
+        <div id="data-table" class="row hidden">
+            
+            <div class="col-md-10 col-md-offset-1">
+            <h1>Step2 : Data Table</h1>
+                <table class="table table-bordered table-condensed text-center">
+                <thead></thead>
+                <tbody></tbody>             
+                </table>
+                <label class="radio-inline"><input type="radio" name="SelectType" value="0"checked>Select X and Y axis data</label>
+                <label class="radio-inline"><input type="radio" name="SelectType" value="1">Multi-dimenstion data</label>
+                 <br>
+                 <br>
+                 <form role="form">
+                    <div id="SelectXY-form" class="form-group">
+                      <label for="selX">Select X (select one):</label>
+                      <select class="form-control" id="selX">
+                        <option>1</option>
+                        <option>2</option>
+                      </select>
+                      <br>
+                        <label for="selY">Select Y (select one):</label>
+                      <select class="form-control" id="selY">
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                      <br>
+                      </div>
+                    <div id="SelectMulti-form" class="form-group hidden">
+                      <label for="selMulti">Select Multi-imenstion (hold shift to select more than one):</label>
+                      <select multiple class="form-control" id="selMulti">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </form>
+            </div>
+        </div>
+        
+        <!-- cal-result -->
+        <div id="cal-result" class="row hidden">    
+            <div class="col-md-10 col-md-offset-1">
+            <h1>Calculate Result</h1>
+                <table class="table table-bordered">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>       
+    </div>
+
+    <!-- Step3 : Show data option and Statistic result -->
+    <div id="ShowDataOption" class="container-fluid hidden">
+        <div class="col-md-10 col-md-offset-1">
+            <form class="form-horizontal">
+                <h1>Step3 : Show data option and Statistic result</h1>
+                <br>
+                <h4>Show Data option</h4>
+                <div class="has-default">
+                    <div id ="chart-chkbox" class="checkbox">
+                        <label>
+                            <input type="checkbox" id="chkC_Histgram" value="option1" checked> Histgram (直方圖)
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkC_Histgram_bar" value="option2" checked> Horizontal bar (橫條圖)
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkC_Line" value="option3" checked> Line (折線圖)
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkC_XYScatter" value="option4" checked> XY Scatter (XY散佈)
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkC_Radar" value="option5" checked> Radar (雷達圖)
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkC_Pie" value="option6" checked> Pie (圓餅圖)
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkC_Trend" value="option7" checked> Trend (趨勢圖)
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkC_Bubble" value="option8" checked> Bubble (泡泡圖)
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkC_Histgram_Fit" value="option9" checked> Histogram Fit
+                        </label>
+                    </div>
+                </div>
+                <h4>Statistic result</h4>
+                <div class="has-default">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="chkS_Avg" value="option1" checked> Average
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_Sum" value="option1" checked> Sum
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_StdDev" value="option1" checked> StdDev
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_Varrance" value="option1" checked> Varrance
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_Range" value="option1" checked> Range
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_Max" value="option1" checked> Max
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_Min" value="option1" checked> Min
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_SEM" value="option1" checked> SEM
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_Kurtosis" value="option1" checked> Kurtosis
+                        </label>
+                        <label>
+                            <input type="checkbox" id="chkS_Skewed" value="option1" checked> Skewed
+                        </label>
+                    </div>
+                </div>
+                <p class="help-block">Show the data from file </p>
+                <button id="SendBtn" type="submit" class="btn btn-success btn-lg">Send</button>
+                <p class="help-block"> </p>
+            </form>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Lab. 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static "js/jquery.js" %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
+    <script src="{% static "js/chart.js" %}"></script>
+    <script src="{% static "js/data.js" %}"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+</body>
+
+</html>

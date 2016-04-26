@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+    * {
+        font-family:\5FAE\8EDF\6B63\9ED1\9AD4,Time New Roman,Microsoft JhengHei,sans-serif;
+    }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Developer</title>
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    {% load staticfiles %}
+    <link href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel='stylesheet'>
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../index">SDV</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="../P1">檔案資料視覺化</a></li>
+                    <li><a href="../P2">資料庫資料視覺化</a></li>
+                    <li><a href="../P3">資料互動視覺化</a></li>
+                    <li class="active"><a href="../P4">動態資料視覺化</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tabbable" id="P4tabsSetting">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#P41panelFileSetting" data-toggle="tab">資料圖表設定</a>
+                        </li>
+                        <li>
+                            <a href="#P42panelShowChart" data-toggle="tab">圖表視覺化</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="P41panelFileSetting">
+                           <div class="row">
+                                <div class="col-md-6">
+                                    <h4>自動隨機產製資料(每秒產製一個15-35區間數值)</h4>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-primary btn-block btn-lg" id='P41btnLocalData'>展示隨機資料視覺化
+                                        </button>
+                                        <br></br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                             <p class="bg-info"><br></p>
+                                <div class="col-md-12">
+                                    <h3 class="text-center">
+                                    步驟1:顯示動態檔案列表
+                                    </h3>
+                                    <div id='P41tableFileList'>
+                                        <table class="table">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                            <tfoot></tfoot>
+                                        </table>
+                                    </div>
+                                    <br></br>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                 <p class="bg-info"><br></p>
+                                    <h3 class="text-center">
+                                    步驟2:選取動態檔案(目前由伺服器模擬成感應器，每秒產製檔案寫入)
+                                    </h3>
+                                   <div class="col-md-6">
+                                    <h4>讀取server端動態檔案資料</h4>
+                                    <div class="col-md-6">
+                                        <div class="btn-group">
+                                            <form role="form">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="P41listFileList">
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button id="P41btnFileLoading" type="button" class="btn btn-success btn-block btn-lg">讀取資料內容
+                                        </button>
+                                    </div>
+                                  </div>
+                                    <div id="P41tableFileContext">
+                                        <table class="table">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                            <tfoot></tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-lg" id='P41btnChart'>
+                                    繪圖
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="P42panelShowChart">
+                            <div class="row">
+                                <h3 class="text-center">動態資料視覺化圖表
+                                                </h3>
+                                <div class="col-md-10" id="P42chartInteractive">
+                                    <div class="StockChart">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery 
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Bootstrap Core JavaScript 
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <!--<script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <!--<script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>-->
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>  
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
+    <!-- <script src="{% static "js/data.js" %}"></script> -->
+    <script src="{% static "js/P4RTChart.js" %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,488 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sle",
+				"select"
+			],
+			[
+				"co",
+				"columns"
+			],
+			[
+				"sta",
+				"statistics	module"
+			],
+			[
+				"ur",
+				"urls"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"pa",
+				"padding-right"
+			],
+			[
+				"h",
+				"head	Tag"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"pro",
+				"progress"
+			],
+			[
+				"pr",
+				"progress"
+			],
+			[
+				"w",
+				"while"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/Git Project/src_django_1008/static/js/data.js",
+			"settings":
+			{
+				"buffer_size": 1708,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tool2.html",
+			"settings":
+			{
+				"buffer_size": 11410,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Anaconda Python Builder",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 219.0,
+		"last_filter": "githuba",
+		"selected_items":
+		[
+			[
+				"githuba",
+				"GitHub: Switch Accounts"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 160.0,
+		"history":
+		[
+			"from rpy2.robjects.packages import importr",
+			"x",
+			"123"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Git Project/src_django_1008/static/js/data.js",
+		"/D/Git Project/src/tool2.html",
+		"/D/Git Project/src_django_1008/templates/tool2.html",
+		"/D/Git Project/django_client.sublime-project",
+		"/D/Git Project/src/data/FileSet.json",
+		"/D/Git Project/src/js/data.js",
+		"/C/Users/MingHung.Hsieh/Desktop/VisioInformation",
+		"/C/Users/MingHung.Hsieh/Desktop/VisioDocument",
+		"/C/Users/MingHung.Hsieh/Desktop/[5]SummaryInformation",
+		"/C/Users/MingHung.Hsieh/Desktop/[5]DocumentSummaryInformation",
+		"/C/Users/MingHung.Hsieh/Desktop/src1007/AJAX_TEST.html",
+		"/D/Git Project/src/data/arrays.csv",
+		"/D/Git Project/src/data/arrays1.json",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/Sublime-HTMLPrettify-master/.jsbeautifyrc",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/Sublime-HTMLPrettify-master/HTMLPrettify.sublime-settings",
+		"/D/Git Project/src/data/arrays.txt",
+		"/D/Git Project/src/tool1.html",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1002/data/arrays.json",
+		"/D/Git Project/src/data/arrays.json",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1002/js/data.js",
+		"/D/Git Project/src/data/Noninstitutionalized Persons with Diagnosed Diabetes.json",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1003/tool1.html",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1003/js/data.js",
+		"/D/Git Project/src/datachart.html",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1001/js/data.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1003/js/chart/bubble.js",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/sublime-github/GitHub.sublime-settings",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/User/Git.sublime-settings",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1002/tool1.html",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1002/data/select_data.json",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1001/tool1.html",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1001/data/select_data.json",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1001/data/arrays.json",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1001/js/ids-arrays.php",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/Sublime-HTMLPrettify-master/Default (Windows).sublime-keymap",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1001/ajax/data/arrays.txt",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1001/js/jquery.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_1001/tool.html",
+		"/C/Users/MingHung.Hsieh/Downloads/ADAM-3600/ADAM3600SDK_1.0.2_20150318/README",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/histogram_fit.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/datachart.html",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/trend_chart.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/radar.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/bubble.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/scatter with regression line.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/pie.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/line_chart.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/XYscatter.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/histgram.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/horizontal_bar.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/bar.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/horizontalbar.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/column.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/Line chart.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/chart/histogram fit.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/js/Chart/bar.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src_0930/tool.html",
+		"/C/Users/MingHung.Hsieh/Google 雲端硬碟/0 Team Baymax/5.Django + python + R/Rpy2/R/Example/Project/Read csv.py",
+		"/C/Users/MingHung.Hsieh/Desktop/src/tool1.html",
+		"/C/Users/MingHung.Hsieh/Google 雲端硬碟/0 Team Baymax/5.Django + python + R/FrontEnd_Js/histogram fit.js",
+		"/C/Users/MingHung.Hsieh/Google 雲端硬碟/0 Team Baymax/5.Django + python + R/src/js/chart.js",
+		"/C/Users/MingHung.Hsieh/Google 雲端硬碟/0 Team Baymax/5.Django + python + R/Rpy2/R/Example/Project/Static_Calculate.py",
+		"/C/Users/MingHung.Hsieh/Desktop/src/js/data.js",
+		"/C/Users/MingHung.Hsieh/Google 雲端硬碟/0 Team Baymax/5.Django + python + R/FrontEnd_Js/bar.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src/js/chart.js",
+		"/C/Users/MingHung.Hsieh/Desktop/src/css/toolpage.css",
+		"/C/Users/MingHung.Hsieh/Desktop/src/css/landing-page.css",
+		"/C/Users/MingHung.Hsieh/Desktop/src/tool.html",
+		"/C/Users/MingHung.Hsieh/Desktop/src/js/jquery.js",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/Project/Read csv.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/Project/Static_Calculate.py",
+		"/C/Users/MingHung.Hsieh/Downloads/advcan_v1.09/include/advcan.h",
+		"/C/Users/MingHung.Hsieh/Downloads/advcan_v1.09/examples/README",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Examples/Creating an R vector or matrix/R_vector_matrix.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Examples/Creating an R vector or matrix/R_vector_matrix2.py",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Examples/Linear models/linear mode.py",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/C/python34/lib/site-packages/rpy2/robjects/packages.py",
+		"/C/Users/MingHung.Hsieh/AppData/Roaming/Sublime Text 3/Packages/anaconda-1.3.4/Anaconda.sublime-settings",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Examples/Linear models/PCA1.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Examples/Linear models/PCA2.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Examples/Linear models/Creating an R vector or matrix.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Examples/Graphics and plots/The setup specific to ggplot2.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Evaluating R code/general setup.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Evaluating R code/The setup specific to ggplot2.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/R_opject.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/1.Evaluating R code/Graphics and plots",
+		"/C/Users/MingHung.Hsieh/Downloads/advcan_v1.09/advcan_v1.09/README",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/installation.txt",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/R function as null.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/the instance of R/Removeglobalenv.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/as_null.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/globalenv.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/R_version.py",
+		"/C/Python34/Lib/distutils/dir_util.py",
+		"/C/Python34/Lib/distutils/dist.py",
+		"/C/Python34/Lib/distutils/dep_util.py",
+		"/C/Users/MingHung.Hsieh/Desktop/R/Example/First R.py",
+		"/C/Users/MingHung.Hsieh/Desktop/Bloger/windows environment",
+		"/D/00.Learning Tutorial/CodeSchool/JavaScript - Server/1 Real-time Web with Node.js/Lesson and Lab/Lab5/1.Express Routes/app.js",
+		"/C/Users/MingHung.Hsieh/Downloads/plotlyjs_basic/plotly_20150812a_basic/minimal.html",
+		"/C/Users/MingHung.Hsieh/Downloads/plotlyjs_basic/plotly_20150812a_basic/plotly.min.js",
+		"/C/Users/MingHung.Hsieh/Desktop/test.py",
+		"/C/Users/MingHung.Hsieh/Desktop/test2.py",
+		"/C/Users/MingHung.Hsieh/Desktop/DC.html",
+		"/C/Users/MingHung.Hsieh/Desktop/Bloger/$ git config help",
+		"/C/Users/MingHung.Hsieh/Desktop/Bloger/BS or MS in computer science & engineering, wi",
+		"/C/Users/MingHung.Hsieh/Desktop/R/R project.sublime-project",
+		"/C/Users/MingHung.Hsieh/Desktop/R/import rpy2.robjects as robjects",
+		"/C/Users/MingHung.Hsieh/Desktop/R/R prohect.sublime-project",
+		"/D/00.Learning Tutorial/tryDjango/firsproject/newletter/views.py",
+		"/D/00.Learning Tutorial/tryDjango/firsproject/firsproject/settings.py",
+		"/D/00.Learning Tutorial/tryDjango/firsproject/newletter/tests.py",
+		"/D/00.Learning Tutorial/tryDjango/firsproject/newletter/models.py",
+		"/D/00.Learning Tutorial/tryDjango/firsproject/newletter/admin.py",
+		"/D/00.Learning Tutorial/tryDjango/firsproject/firsproject/urls.py",
+		"/C/Users/MingHung.Hsieh/Desktop/Log Alphaville/alphaville_logs",
+		"/C/Users/MingHung.Hsieh/Downloads/Finall_chinesev2.ino",
+		"/C/Users/MingHung.Hsieh/Desktop/test.html",
+		"/C/Users/MingHung.Hsieh/Desktop/main.c",
+		"/C/Users/MingHung.Hsieh/Desktop/Code School/ExpressCourseDemo-master/ExpressCourseDemo-master/public/index.html",
+		"/C/Users/MingHung.Hsieh/Desktop/新增資料夾/Hudson.Riolino Hudson.Riolino@advantech.com.br/Pretest score.txt",
+		"/C/Users/MingHung.Hsieh/Desktop/Code School/ExpressCourseDemo-master/ExpressCourseDemo-master/public/style.css",
+		"/C/Users/MingHung.Hsieh/Desktop/Code School/ExpressCourseDemo-master/ExpressCourseDemo-master/Procfile"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"loadFilelist-button",
+			"tfoot",
+			"Trigger",
+			"1.11.3",
+			"year",
+			"jquery",
+			"hquery",
+			"cdn",
+			"chart01",
+			"chart11",
+			"data-table",
+			"show",
+			"data-table",
+			"Calculate",
+			"Calculate Result",
+			"about",
+			"interpreter",
+			"compiler = os.path.basename(sysconfig.get_config_var(\"CC\"))",
+			"follow_segment_turn",
+			"images",
+			"follow_segment",
+			"follow_segment_turn",
+			"0.03",
+			"0.0",
+			"0.025",
+			"follow_segment_turn",
+			"follow_segment",
+			"follow_segment_turn",
+			"select_turn",
+			"program.tool",
+			"2d 32",
+			"2d32",
+			"4e4f",
+			"4e 4f",
+			"55 4e",
+			"554e",
+			"55 4e",
+			"ModbusMasterTransaction",
+			"begin",
+			"baudrate",
+			"begin",
+			"MBSerial",
+			"_u8SerialPort",
+			"1680",
+			"32bit",
+			"VGA",
+			"8080",
+			"sleep",
+			"Thread",
+			"Threading",
+			"m_pwModulatorCtrl"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/Git Project/src_django_1008/static/js/data.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1708,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tool2.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "tool2.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\MingHung.Hsieh\\Desktop\\example\\Building Blocks of Express.js\\Building Blocks of Express"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 227.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

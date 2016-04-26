@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>[Developing] Statistical Project</title>
+
+    {% load staticfiles %}
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}"rel="stylesheet">
+    <!-- DataTables CDN -->
+    <link href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel='stylesheet'>
+    <!-- Custom CSS -->
+    <link href="{% static "css/toolpage.css" %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    
+
+</head>
+
+<body>
+<p id = 'Trigger'>點我展示</p>
+<!-- <form action="/add/" method="get">
+    a: <input type="text" id="a" name="a"> <br>
+    b: <input type="text" id="b" name="b"> <br>
+    <p>result: <span id='result'></span></p>
+    <button type="button" id='sum'>提交</button>
+</form> -->
+ 
+ 
+
+ 
+ <h1>Step : DataFiles Table</h1>
+<table id="data_fileselect" class="table table-bordered table-condensed text-center">
+<thead></thead>
+<tbody></tbody>
+</table>
+
+<table id="csvData" class="table table-bordered table-condensed text-center">
+<thead></thead>
+<tbody></tbody>
+</table>
+
+
+<div></div>
+
+ <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.js"></script>
+    <!-- jQuery -->
+    <script src="{% static "js/jquery.js" %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
+<script>
+    $("#Trigger").click(function(){ 
+        $.get('{% url 'ajax-fileList' %}'," ", function(Jdata){
+              qq = [];
+                for(x in Jdata["data"]){
+                    tt = [];
+                    for (y in Jdata["data"][x]){
+                        tt.push(Jdata["data"][x][y])
+                    }
+                    qq.push(tt)
+                };
+            thead=[];
+            for( y in Jdata["data"][0]){
+                thead.push({title:y});
+            }
+            var fileTable = $('#data_fileselect').DataTable({
+                data: qq,
+                columns: thead
+                } ); 
+           });
+        //{'fileName':'Noninstitutionalized Persons.csv'}  放入選擇哪個檔案
+        $.get('{% url 'ajax-selectFile' %}',{'fileName':'Noninstitutionalized Persons.csv'}, function(respons){
+            header = [];
+            for( y in respons["title"]){
+                header.push({title:y});
+            }
+            $('#csvData').DataTable({
+                data: respons['data'],
+                columns: header
+                } ); 
+
+        });
+    //   $.getJSON({
+    //     url: "{% url 'ajax-fileList' %}",
+    //     function(Jdata) {
+    //       $("div").html(Jdata);
+    //         alert("SUCCESS!!!");
+    //         console.log(Jdata);
+    //         dd = Jdata;
+            
+    // } );
+    //     },
+    // });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+    * {
+        font-family:\5FAE\8EDF\6B63\9ED1\9AD4,Time New Roman,Microsoft JhengHei,sans-serif;
+    }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Developer</title>
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!"> {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel='stylesheet'>
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../index">SDV</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="../P1">檔案資料視覺化</a></li>
+                    <li class="active"><a href="../P2">資料庫資料視覺化</a></li>
+                    <li><a href="../P3">資料互動視覺化</a></li>
+                    <li><a href="../P4">動態資料視覺化</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="tabbable" id="P1tabsSetting">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#P21panelFileSetting" data-toggle="tab">資料圖表設定</a>
+                    </li>
+                    <li>
+                        <a href="#P22panelShowChart" data-toggle="tab">圖表視覺化</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="P21panelFileSetting">
+                        <div id="P21tableFileList" class="row ">
+                            <div class="col-md-12">
+                                <h1 class="text-center">
+                                    步驟1:資料庫資料表列表
+                                </h1>
+                                <!-- 1019 Sam added : upload file-->
+                                <h4>從電腦上傳資料檔案(CSV檔)資料庫</h4>
+                                <form action="/uploadtoDB/" method="post" enctype="multipart/form-data" id="DB-upload-form">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="file" name="SQLfiles">
+                                        <br>
+                                        <button type="submit" class="btn btn-success btn-lg">上傳(CSV檔)檔案至資料庫</button>
+                                        <!-- multiple> -->
+                                    </div>
+                                </form>
+                                <!--  -->
+                                <br>
+                                <table class="table table-bordered table-condensed text-center">
+                                    <thead></thead>
+                                    <tbody></tbody>
+                                    <tfoot></tfoot>
+                                </table>
+                                
+                            </div>
+                        </div>
+                        <div id="P21tableFileContext" class="row ">
+                            <div class="col-md-12">
+                             <br>
+                                <p class="bg-info"><br></p>
+                                <h1 class="text-center">
+                                    步驟2:選取資料庫資料表
+                                    </h1>
+                                    <p class="help-block">顯示可使用資料表資料 </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="btn-group">
+                                                    <form role="form">
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="P21listFileList">
+                                                            </select>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button id="P21btnFileLoading" type="button" class="btn btn-success btn-lg">
+                                                    讀取資料庫資料表
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-condensed text-center">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                                <br>
+                                <p class="bg-info"><br></p>
+                                <button id="DataRearrabge" type="button" class="btn btn-success btn-lg">資料預處理(待設計中)<br>
+                                </button><br>
+                                <br>
+                                <p class="bg-info"><br></p>
+                                <br>     
+                            </div>
+                        </div>
+                        <h1 class="text-center">
+                            步驟3:選取統計量與圖表視覺化
+                         </h1>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>3.1 選取統計量(計算選擇資料所有欄位)</h2>
+                                
+                                <div class="has-default">
+                                    <div id="P21chkListStat" class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="chkS_Avg" value="0" checked> Average平均數
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_Sum" value="1" checked> Sum總和
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_StdDev" value="2" checked> StdDev標準差
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_Varrance" value="3" checked> Varrance變異數
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_Range" value="4" checked> Range區間
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_Max" value="5" checked> Max最大值
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_Min" value="6" checked> Min最小值
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_SEM" value="7" checked> SEM平均值標準誤
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_Kurtosis" value="8" checked> Kurtosis峰度
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkS_Skewed" value="9" checked> Skewed偏度
+                                        </label>
+                                    </div>
+                                    <button id="P21G0chkListToglle" type="button" class="btn btn-info btn-lg">取消全選</button>
+                                </div>
+                                <br>
+                                <p></p>
+                            </div>
+                        </div>
+                       <h5 class="text-danger">顯示資料欄位尺度</h5>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <table id='P21itemClassify' class="table table-bordered table-condensed text-center">
+                            
+                            </table>
+                            </div>
+                        </div>
+
+                        <div class="row" id="chartGroup1">
+                        <br>
+                        <p class="bg-info"><br></p>
+                            <div class="col-md-6">
+                                <h4>3.2 選取圖表視覺化(圖表類型一)</h2>
+                                <div class="has-default">
+                                    <div id="P21G1chkListChart" class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="chkC_Histgram" value="1" checked> Histogram chart (直方圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Histgram_bar" value="2" checked> Horizontal bar chart (橫條圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Line" value="3" checked> Line chart (折線圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Histgram_Fit" value="4" checked> Histogram Fit (混合直方圖)
+                                        </label>
+
+
+                                    </div>
+                                       <button id="P21G1chkListToglle" type="button" class="btn btn-info btn-lg">取消全選</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <span class="label label-primary">X軸</span>
+                                            <label for="P21listXCategory">選取種類:</label>
+                                            <select class="form-control" id="P21listXCategory">
+                                                <!-- <option>1</option> -->
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <span class="label label-primary">Y軸</span>
+                                            <label for="P21list1YTitle">輸入標題:</label>
+                                            <input class="form-control" id="P21list1YTitle">
+                                            <!-- <option>1</option> -->
+                                            </input>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <span class="label label-success">變數項目</span>
+                                            <label for="P21listDataSeries">選取多項變數(選取後顯示於下方):</label>
+                                            <select multiple class="form-control" id="P21listDataSeries">
+                                                <!-- <option>1</option> -->
+                                            </select>
+                                            <p id = "P21listDataSeriesSelect">選取</p>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <span class="label label-primary">圖表標題</span>
+                                            <label for="P21list1Title">輸入標題:</label>
+                                            <input class="form-control" id="P21list1Title">
+                                            <!-- <option>1</option> -->
+                                            </input>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                          
+                        </div>
+                         <br></br>
+                           
+                        <div class="row" id="chartGroup2">
+                       <br>
+                        <p class="bg-info"><br></p>
+                            <div class="col-md-6">
+                                <h4>3.3 選取圖表視覺化(圖表類型二)</h4>
+                                <div class="has-default">
+                                    <div id="P21G2chkListChart" class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="chkC_XYScatter" value="1" checked>Scatter Diagram (散佈圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Pie" value="2" checked> Pie Chart (圓餅圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Trend" value="3" checked> Trend Chart (趨勢圖)
+                                        </label>
+                                    </div>
+                                    <button id="P21G2chkListToglle" type="button" class="btn btn-info btn-lg">取消全選</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <span class="label label-primary">X軸</span>
+                                            <label for="P21list2XDim">選取X軸資料:</label>
+                                            <select class="form-control" id="P21list2XDim">
+                                                <!-- <option>1</option> -->
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <span class="label label-primary">Y軸</span>
+                                            <label for="P21list2YDim">選取Y軸資料:</label>
+                                            <select class="form-control" id="P21list2YDim">
+                                                <!-- <option>1</option> -->
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <br>
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <span class="label label-primary">圖表標題</span>
+                                            <label for="P21list2Title">輸入標題:</label>
+                                            <input class="form-control" id="P21list2Title">
+                                            <!-- <option>1</option> -->
+                                            </input>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <br></br>
+                        <div class="row hidden" id="chartGroup3">
+                            <div class="col-md-6">
+                                <span class="label label-default">選取圖表視覺化(圖表類型三)l</span>
+                                <div class="has-default">
+                                    <!-- 1019 Sam modify -->
+                                    <div id="P21G3chkListChart" class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="chkC_Histgram" value="option1" checked> Histgram (直方圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Histgram_bar" value="option2" checked> Horizontal bar (橫條圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Line" value="option3" checked> Line (折線圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_XYScatter" value="option4" checked> XY Scatter (XY散佈)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Radar" value="option5" checked> Radar (雷達圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Pie" value="option6" checked> Pie (圓餅圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Trend" value="option7" checked> Trend (趨勢圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Bubble" value="option8" checked> Bubble (泡泡圖)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="chkC_Histgram_Fit" value="option9" checked> Histogram Fit
+                                        </label>
+                                    </div>
+                                    <!--  -->
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <span class="label label-primary">X軸</span>
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="P21listXDim">選取X軸資料:</label>
+                                            <select class="form-control" id="P21listXDim">
+                                                <!-- <option>1</option> -->
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <span class="label label-primary">Y軸</span>
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="P21listYDim">選取Y軸資料:</label>
+                                            <select class="form-control" id="P21listYDim">
+                                                <!-- <option>1</option> -->
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <span class="label label-success">多軸</span>
+                                <div class="btn-group">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="P21listMulDim">選取多軸資料:</label>
+                                            <select multiple class="form-control" id="P21listMulDim">
+                                                <!-- <option>1</option> -->
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button id="P21btnChart" type="submit" class="btn btn-success btn-lg">繪圖與統計量計算</button>
+                                <p class="help-block"> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="P22panelShowChart">
+                        <div id="P22tableStat" class="row ">
+                            <div class="col-md-12">
+                                <h3 class="text-center">
+                                    視覺化圖表
+                                </h3>
+                               <br>
+                               <p class="bg-info"><br></p>
+                                <!-- chart series -->
+                                <div id="ChartSeries" class="row">
+                                    <div class="row">
+                                        <div class="col-md-6" id="P22chartHistgram">
+                                            <h3>Histogram chart (直方圖) </h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="P22chartHorizontalBar">
+                                            <h3>Horizontal bar chart (橫條圖</h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="P22chartLine">
+                                            <h3>Line chart (折線圖) </h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="P22chartHistogramFit">
+                                            <h3>Histogram Fit (混合直方圖)</h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="P22chartXYScatter">
+                                            <h3>Scatter Diagram (散佈圖)</h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="P22chartPie">
+                                            <h3>Pie Chart (圓餅圖)</h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="P22chartTrend">
+                                            <h3>Trend Chart (趨勢圖) </h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 hidden" id="P22chartBubble">
+                                            <h3>Bubble (泡泡圖)</h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 hidden" id="P22chartRadar">
+                                            <h3>Radar (雷達圖) </h3>
+                                            <div class="chart">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <br>
+                               <p class="bg-info"><br></p>
+                            </div>
+                            <h3 class="text-center">
+                                    資料統計量表
+                                </h3>
+                            <table class="table table-bordered table-condensed text-center">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/scripts.js" %}"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
+<!--     這邊必須讀取對應的data.js P2 for data_P2 -->
+    <script src="{% static "js/data_P2.js" %}"></script>
+    <script src="{% static "js/chart_P2/histgram.js" %}"></script>
+    <script src="{% static "js/chart_P2/horizontalbar.js" %}"></script>
+    <script src="{% static "js/chart_P2/linechart.js" %}"></script>
+    <script src="{% static "js/chart_P2/XYscatter.js" %}"></script>
+    <script src="{% static "js/chart_P2/pie.js" %}"></script>
+    <script src="{% static "js/chart_P2/radar.js" %}"></script>
+    <script src="{% static "js/chart_P2/trendchart.js" %}"></script>
+    <script src="{% static "js/chart_P2/bubble.js" %}"></script>
+    <script src="{% static "js/chart_P2/histogramfit.js" %}"></script>
+
+</html>

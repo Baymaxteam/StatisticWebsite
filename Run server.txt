@@ -1,0 +1,11 @@
+Start mysql service
+my sql db account:sam  password:123
+
+cd C:\Users\alfredo\Desktop\StatisticWebsiteProject_2.0
+
+python manage.py runserver
+
+
+cd C:\Users\alfredo\Desktop\StatisticWebsiteProject_2.0\Streamfile
+python realtimeData.py realtime.csv
+
