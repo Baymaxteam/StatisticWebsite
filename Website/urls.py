@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^P2/', calResultMySQL),
     url(r'^P3/', calIDVChart),
     url(r'^P4/', calRTChart),
+    url(r'^P5/', calDisease),
     url(r'^donorschoose_AJAX/', donorschoose_AJAX),
     url(r'^ajax_filelist/$', 'statisticData.views.ajax_fileList', name='ajax-fileList'),
     url(r'^ajax_selectFile/$', 'statisticData.views.ajax_selectFile', name='ajax-selectFile'),

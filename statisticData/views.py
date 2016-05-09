@@ -85,6 +85,9 @@ def calIDVChart(request):
 def calRTChart(request):
 	return render(request,'LayoutP4.html')
 
+def calDisease(request):
+	return render(request,'LayoutP5.html')
+
 def calIndex(request):
 	return render(request,'index.html')
 
