@@ -88,6 +88,14 @@ def calRTChart(request):
 def calDisease(request):
 	return render(request,'LayoutP5.html')
 
+# part 2 django 0510
+def calBike(request):
+	return render(request,'LayoutBike.html')
+def calFactory(request):
+	return render(request,'LayoutFactory.html')
+def calPM25(request):
+	return render(request,'LayoutPM25.html')
+
 def calIndex(request):
 	return render(request,'index.html')
 
@@ -101,6 +109,26 @@ def ajax_selectFile(request):
 	respons = request.GET #return QueryDict
 	fileName = respons.get('fileName') #return value
 	CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfile",fileName)
+	# 先嘗試UTF-8去讀 出錯則換成Big5
+	try:
+		f = open(CSVfile_Path,  encoding = 'Big5')
+		reader = csv.reader(f)
+		data = [row for row in reader]
+	except UnicodeDecodeError:
+		f = open(CSVfile_Path)
+		reader = csv.reader(f)
+		data = [row for row in reader]
+	header = data.pop(0) #取出header
+	wholeData = [list(map(num,row)) for row in data ] # transfer to 2D array
+	wholeData = [x for x in wholeData if len(x)>0]
+	statList = calStatistics(wholeData)
+	return JsonResponse({'title':header, 'data':wholeData , 'statList': statList})
+
+# django part2 0510 
+def ajax_selectFile(request):
+	respons = request.GET #return QueryDict
+	fileName = respons.get('fileName') #return value
+	CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfileP2",fileName)
 	# 先嘗試UTF-8去讀 出錯則換成Big5
 	try:
 		f = open(CSVfile_Path,  encoding = 'Big5')
