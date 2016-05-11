@@ -20,45 +20,175 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!-- part2 -->
     <link href="{% static "css/CssPM25/TWmap.css" %}" rel="stylesheet">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="../index">SDV</a>
+    <main>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="../index">SDV</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="../PM25">PM25</a></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="../PM25">PM25</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div id="container"></div>
-        </div>
-    </div>
-    <footer>
+        </nav>
+        <!--    part1 -->
+        <h1 class="text-center">城市PM2.5資訊</h1>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-4">
+                    <div id="container" style="height: 
+                        500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+                </div>
+                <div class="col-md-8">
+                    <div id="result"></div>
+                    <table id="table-sparkline">
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Income</th>
+                                <th>Income per quarter</th>
+                                <th>Costs</th>
+                                <th>Costs per quarter</th>
+                                <th>Result</th>
+                                <th>Result per quarter</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-sparkline">
+                            <tr>
+                                <th>Alabama</th>
+                                <td>254</td>
+                                <td data-sparkline="71, 78, 39, 66 " />
+                                <td>296</td>
+                                <td data-sparkline="68, 52, 80, 96 " />
+                                <td>-42</td>
+                                <td data-sparkline="3, 26, -41, -30 ; column" />
+                            </tr>
+                            <tr>
+                                <th>Alaska</th>
+                                <td>246</td>
+                                <td data-sparkline="87, 44, 74, 41 " />
+                                <td>181</td>
+                                <td data-sparkline="29, 54, 73, 25 " />
+                                <td>65</td>
+                                <td data-sparkline="58, -10, 1, 16 ; column" />
+                            </tr>
+                            <tr>
+                                <th>Arizona</th>
+                                <td>101</td>
+                                <td data-sparkline="56, 12, 8, 25 " />
+                                <td>191</td>
+                                <td data-sparkline="69, 14, 53, 55 " />
+                                <td>-90</td>
+                                <td data-sparkline="-13, -2, -45, -30 ; column" />
+                            </tr>
+                            <tr>
+                                <th>Arkansas</th>
+                                <td>303</td>
+                                <td data-sparkline="81, 50, 78, 94 " />
+                                <td>76</td>
+                                <td data-sparkline="36, 15, 14, 11 " />
+                                <td>227</td>
+                                <td data-sparkline="45, 35, 64, 83 ; column" />
+                            </tr>
+                            <tr>
+                                <th>California</th>
+                                <td>200</td>
+                                <td data-sparkline="61, 80, 10, 49 " />
+                                <td>217</td>
+                                <td data-sparkline="100, 8, 52, 57 " />
+                                <td>-17</td>
+                                <td data-sparkline="-39, 72, -42, -8 ; column" />
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </footer>
+        <br>
+        <p class="bg-info">
+            <br>
+        </p>
+        <br>
+        <h1 class="text-center">PM2.5氣體城市資訊</h1>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-9">
+                    <div id="container1" style="height: 400px; min-width: 310px"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="btn-group">
+                        <form role="form">
+                            <div class="form-group">
+                                <span class="label label-primary">城市</span>
+                                <label for="P11list2XDim">選取對應城市:</label>
+                                <select class="form-control" id="P11list2XDim">
+                                    <!-- <option>1</option> -->
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--    part2 -->
+        <br>
+        <p class="bg-info">
+            <br>
+        </p>
+        <br>
+        <!--    part3 -->
+        <h1 class="text-center">PM2.5氣體時間資訊</h1>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-9">
+                    <div id="container2" sclass="chartsynchronize"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="btn-group">
+                        <form role="form">
+                            <div class="form-group">
+                                <span class="label label-primary">時間</span>
+                                <label for="P11list2XDim">選取對應時間:</label>
+                                <select class="form-control" id="P11list2XDim">
+                                    <!-- <option>1</option> -->
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
+        </footer>
+    </main>
+
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/scripts.js" %}"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="http://code.highcharts.com/highcharts-more.js"></script>
-    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <!-- highstock API, it contains highchart -->
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
     <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
-    <!-- part2 start -->
-    <!-- <script src="https://code.highcharts.com/maps/highmaps.js"></script> -->
+    <!-- highmap -->
+    <script src="//code.highcharts.com/maps/modules/map.js"></script>
     <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/mapdata/countries/tw/tw-all.js"></script>
-    <script src="{% static "js/chartPM25/highchartTWMap.js" %}"></script>
+    <!-- extra chart api -->
     <script src="{% static "js/chartPM25/TWmap.js" %}"></script>
+    <script src="{% static "js/chartPM25/SparkLine.js" %}"></script>
+    <script src="{% static "js/chartPM25/MultiCompareChart.js" %}"></script>
+    <script src="{% static "js/chartPM25/synchronize.js" %}"></script>
 
 </body>
 

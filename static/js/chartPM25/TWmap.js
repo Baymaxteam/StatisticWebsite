@@ -96,7 +96,7 @@ $(function () {
     $('#container').highcharts('Map', {
 
         title : {
-            text : 'Highmaps basic demo'
+            text : 'PM2.5 氣體分布資訊'
         },
 
         subtitle : {
