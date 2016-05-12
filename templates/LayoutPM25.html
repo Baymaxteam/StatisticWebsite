@@ -45,66 +45,85 @@
                     <div id="container" style="height: 
                         500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
                 </div>
-                <div class="col-md-8">
-                    <div id="result"></div>
-                    <table id="table-sparkline">
+                <div class="col-md-4">
+                    <h4 class="text-center">本年度資訊</h4>
+                    <table id="table-sparkline1" align="center" >
                         <thead>
                             <tr>
-                                <th>State</th>
-                                <th>Income</th>
-                                <th>Income per quarter</th>
-                                <th>Costs</th>
-                                <th>Costs per quarter</th>
-                                <th>Result</th>
-                                <th>Result per quarter</th>
+                                <th>城市</th>
+                                <th>氣體種類</th>
+                                <th>資訊</th>
                             </tr>
                         </thead>
                         <tbody id="tbody-sparkline">
                             <tr>
-                                <th>Alabama</th>
-                                <td>254</td>
-                                <td data-sparkline="71, 78, 39, 66 " />
-                                <td>296</td>
-                                <td data-sparkline="68, 52, 80, 96 " />
-                                <td>-42</td>
-                                <td data-sparkline="3, 26, -41, -30 ; column" />
+                                <th>忠明</th>
+                                <th>Temp</th>
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                            </tr>
+                                                        <tr>
+                                                        <th></th>
+                                <th>PM10</th>
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                            </tr>
+                                                        <tr>
+                                                        <th></th>
+                                <th>PM2.5</th>
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                            </tr>
+                                                        <tr>
+                                                        <th></th>
+                                <th>RH</th>
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14" />
                             </tr>
                             <tr>
-                                <th>Alaska</th>
-                                <td>246</td>
-                                <td data-sparkline="87, 44, 74, 41 " />
-                                <td>181</td>
-                                <td data-sparkline="29, 54, 73, 25 " />
-                                <td>65</td>
-                                <td data-sparkline="58, -10, 1, 16 ; column" />
+                            <th></th>
+                                <th>Wind</th>
+
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-center">去年度資訊</h4>
+                    <table id="table-sparkline2" align="center" >
+                        <thead>
+                            <tr>
+                                <th>城市</th>
+                                <th>氣體種類</th>
+                                <th>資訊</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-sparkline">
+                            <tr>
+                                <th>忠明</th>
+                                <th>Temp</th>
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                            </tr>
+                                                        <tr>
+                                                        <th></th>
+                                <th>PM10</th>
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                            </tr>
+                                                        <tr>
+                                                        <th></th>
+                                <th>PM2.5</th>
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                            </tr>
+                                                        <tr>
+                                                        <th></th>
+                                <th>RH</th>
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
                             </tr>
                             <tr>
-                                <th>Arizona</th>
-                                <td>101</td>
-                                <td data-sparkline="56, 12, 8, 25 " />
-                                <td>191</td>
-                                <td data-sparkline="69, 14, 53, 55 " />
-                                <td>-90</td>
-                                <td data-sparkline="-13, -2, -45, -30 ; column" />
+                            <th></th>
+                                <th>Wind</th>
+
+                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
                             </tr>
-                            <tr>
-                                <th>Arkansas</th>
-                                <td>303</td>
-                                <td data-sparkline="81, 50, 78, 94 " />
-                                <td>76</td>
-                                <td data-sparkline="36, 15, 14, 11 " />
-                                <td>227</td>
-                                <td data-sparkline="45, 35, 64, 83 ; column" />
-                            </tr>
-                            <tr>
-                                <th>California</th>
-                                <td>200</td>
-                                <td data-sparkline="61, 80, 10, 49 " />
-                                <td>217</td>
-                                <td data-sparkline="100, 8, 52, 57 " />
-                                <td>-17</td>
-                                <td data-sparkline="-39, 72, -42, -8 ; column" />
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -119,7 +138,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-9">
-                    <div id="container1" style="height: 400px; min-width: 310px"></div>
+                    <div id="container1" style="height: 600px; min-width: 310px"></div>
                 </div>
                 <div class="col-md-3">
                     <div class="btn-group">
@@ -128,7 +147,9 @@
                                 <span class="label label-primary">城市</span>
                                 <label for="P11list2XDim">選取對應城市:</label>
                                 <select class="form-control" id="P11list2XDim">
-                                    <!-- <option>1</option> -->
+                                    <option value="0">忠明</option>
+                                    <option value="1">埔里</option>
+                                    <option value="2">線西</option>
                                 </select>
                             </div>
                         </form>
@@ -156,6 +177,8 @@
                                 <span class="label label-primary">時間</span>
                                 <label for="P11list2XDim">選取對應時間:</label>
                                 <select class="form-control" id="P11list2XDim">
+                                    <option value="0">周資料</option>
+                                    <option value="1">小時資料</option>
                                     <!-- <option>1</option> -->
                                 </select>
                             </div>

@@ -35,7 +35,7 @@ $(function() {
 
 
         // create the chart
-        $('#container1').highcharts('StockChart', {
+        $('#container22').highcharts('StockChart', {
             exporting: {
                 enabled: false
             },
@@ -64,7 +64,7 @@ $(function() {
                         x: -3
                     },
                     title: {
-                        text: 'Temp',
+                        text: '溫度',
                         rotation: 0
                     },
 
@@ -78,7 +78,7 @@ $(function() {
                         x: -3
                     },
                     title: {
-                        text: 'PM10',
+                        text: '濕度',
                         rotation: 0
                     },
                     top: '20%',
@@ -92,12 +92,12 @@ $(function() {
                         x: -3
                     },
                     title: {
-                        text: 'PM2.5',
+                        text: '濕度',
                         rotation: 0
                     },
                     top: '40%',
                     height: '20%',
-                    offset: 0,
+                    offset: 10,
                     lineWidth: 2
                 },
                               {
@@ -106,7 +106,7 @@ $(function() {
                         x: -3
                     },
                     title: {
-                        text: 'RH',
+                        text: '能見度',
                         rotation: 0
                     },
                     top: '60%',
@@ -120,7 +120,7 @@ $(function() {
                         x: -3
                     },
                     title: {
-                        text: 'Wind',
+                        text: '風速',
                         rotation: 0
                     },
                     top: '80%',
@@ -174,8 +174,8 @@ $(function() {
                 },
 
                 {
-                    type: 'column',
-                    name: 'Wind',
+                    type: 'line',
+                    name: 'Market at Sansome',
                     data: volume,
                     yAxis: 4,
                     dataGrouping: {

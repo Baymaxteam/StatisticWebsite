@@ -13,8 +13,8 @@ $(function () {
                     borderWidth: 0,
                     type: 'area',
                     margin: [2, 0, 2, 0],
-                    width: 120,
-                    height: 20,
+                    width: 400,
+                    height: 40,
                     style: {
                         overflow: 'visible'
                     },
