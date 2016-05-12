@@ -16,7 +16,7 @@
     {% load staticfiles %}
     <link href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel='stylesheet'>
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">    
 
 </head>
 
@@ -62,6 +62,12 @@
                                         <br></br>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="container"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="container1" style="height: 400px; min-width: 310px"></div>
                             </div>
                             <div class="row">
                              <p class="bg-info"><br></p>
@@ -155,6 +161,14 @@
     <script src="http://code.highcharts.com/stock/highstock.js"></script>
     <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
     <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
+
+    <script src="{% static "js/taiwan.js" %}"></script>  
+    <script src="//code.highcharts.com/maps/modules/map.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/tw/tw-all.js"></script>
+    <script src="{% static "js/tacampare.js" %}"></script>  
+    
+
     <!-- <script src="{% static "js/data.js" %}"></script> -->
     <script src="{% static "js/P4RTChart.js" %}"></script>
 </body>
