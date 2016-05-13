@@ -42,20 +42,17 @@
             <div class="col-md-10 col-md-offset-1">
                 <a href="http://www.accuweather.com/en/us/san-francisco-ca/94103/weather-forecast/347629" class="aw-widget-legal">
                 </a>
-                <h1 class="text-center">Bike-即時數據</h1>
+                
                 <div id="awcc1463128460742" class="aw-widget-current" data-locationkey="347629" data-unit="c" data-language="zh-tw" data-useip="false" data-uid="awcc1463128460742"></div>
-                <div class="col-md-4">
+                    <center> 
+                    <h2 class="text-center">Bike-即時數據</h2>
+                    <input id="pac-input" class="mapcontrols" type="text" placeholder="Indicate a city">
+                    <div id="map" style="width: 90%; height: 800px;"></div>
+                    </center>
+            <!--     <div class="col-md-4">
                     <div id="container11" style="height: 
                         500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-center">本年度資訊</h4>
-
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-center">去年度資訊</h4>
-
-                </div>
+                </div> -->
             </div>
         </div>
         <br>
@@ -165,6 +162,10 @@
     <script src="{% static "js/chartBike/MultiLineChart.js" %}"></script>
     <script src="{% static "js/chartBike/MultiLineStock.js" %}"></script>
     <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+    <!-- google map -->
+    <script src="{% static "js/chartBike/BikeMap.js" %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    
 
 </body>
 
