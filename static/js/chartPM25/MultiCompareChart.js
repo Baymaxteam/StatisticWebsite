@@ -49,7 +49,7 @@ $(function() {
             },
 
             title: {
-                text: 'AAPL Historical'
+                text: 'PM2.5氣體'
             },
 
             // yAxis: [
@@ -64,8 +64,9 @@ $(function() {
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: 'Temp',
-                        rotation: 0
+                        rotation: 0,
                     },
 
                     height: '20%',
@@ -78,6 +79,7 @@ $(function() {
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: 'PM10',
                         rotation: 0
                     },
@@ -92,6 +94,7 @@ $(function() {
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: 'PM2.5',
                         rotation: 0
                     },
@@ -106,6 +109,7 @@ $(function() {
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: 'RH',
                         rotation: 0
                     },
@@ -120,6 +124,7 @@ $(function() {
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: 'Wind',
                         rotation: 0
                     },

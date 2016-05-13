@@ -35,7 +35,7 @@ $(function() {
 
 
         // create the chart
-        $('#container22').highcharts('StockChart', {
+        $('#container31').highcharts('StockChart', {
             exporting: {
                 enabled: false
             },
@@ -49,7 +49,7 @@ $(function() {
             },
 
             title: {
-                text: 'AAPL Historical'
+                text: '自行車租借站環境資訊'
             },
 
             // yAxis: [
@@ -64,6 +64,7 @@ $(function() {
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: '溫度',
                         rotation: 0
                     },
@@ -72,12 +73,13 @@ $(function() {
                     offset: 0,
                     lineWidth: 2
                 },
-                            {
+                {
                     labels: {
                         align: 'right',
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: '濕度',
                         rotation: 0
                     },
@@ -88,16 +90,18 @@ $(function() {
                 },
                               {
                     labels: {
+                        textAlign: 'left',
                         align: 'right',
                         x: -3
                     },
                     title: {
-                        text: '濕度',
+                        textAlign: 'left',
+                        text: '氣壓',
                         rotation: 0
                     },
                     top: '40%',
                     height: '20%',
-                    offset: 10,
+                    offset: 0,
                     lineWidth: 2
                 },
                               {
@@ -106,6 +110,7 @@ $(function() {
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: '能見度',
                         rotation: 0
                     },
@@ -120,6 +125,7 @@ $(function() {
                         x: -3
                     },
                     title: {
+                        textAlign: 'left',
                         text: '風速',
                         rotation: 0
                     },
@@ -141,7 +147,7 @@ $(function() {
                 // }, 
                 {
                     type: 'column',
-                    name: 'Temp',
+                    name: '溫度',
                     data: volume,
                     yAxis: 0,
                     dataGrouping: {
@@ -149,7 +155,7 @@ $(function() {
                     }
                 }, {
                     type: 'column',
-                    name: 'PM10',
+                    name: '濕度',
                     data: volume,
                     yAxis: 1,
                     dataGrouping: {
@@ -157,7 +163,7 @@ $(function() {
                     }
                 }, {
                     type: 'column',
-                    name: 'PM2.5',
+                    name: '氣壓',
                     data: volume,
                     yAxis: 2,
                     dataGrouping: {
@@ -165,7 +171,7 @@ $(function() {
                     }
                 }, {
                     type: 'column',
-                    name: 'RH',
+                    name: '能見度',
                     data: volume,
                     yAxis: 3,
                     dataGrouping: {
@@ -175,7 +181,7 @@ $(function() {
 
                 {
                     type: 'line',
-                    name: 'Market at Sansome',
+                    name: '風速',
                     data: volume,
                     yAxis: 4,
                     dataGrouping: {
