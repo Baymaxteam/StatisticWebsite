@@ -5,7 +5,7 @@ $(function () {
             type: 'pie'
         },
         title: {
-            text: 'Browser market shares. January, 2015 to May, 2015'
+            text: '門診申報件數'
         },
         subtitle: {
             text: 'Click the slices to view versions. Source: netmarketshare.com.'
@@ -24,98 +24,81 @@ $(function () {
             pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
         },
         series: [{
-            name: 'Brands',
+            name: '縣市',
             colorByPoint: true,
             data: [{
-                name: 'Microsoft Internet Explorer',
-                y: 56.33,
-                drilldown: 'Microsoft Internet Explorer'
+                name: '新北市',
+                y: 26.80,
+                drilldown: '新北市'
             }, {
-                name: 'Chrome',
-                y: 24.03,
-                drilldown: 'Chrome'
+                name: '台北市',
+                y: 17.96,
+                drilldown: '台北市'
             }, {
-                name: 'Firefox',
-                y: 10.38,
-                drilldown: 'Firefox'
+                name: '台中市',
+                y: 20.60,
+                drilldown: '台中市'
             }, {
-                name: 'Safari',
-                y: 4.77,
-                drilldown: 'Safari'
+                name: '台南市',
+                y: 13.86,
+                drilldown: '台南市'
             }, {
-                name: 'Opera',
-                y: 0.91,
-                drilldown: 'Opera'
-            }, {
-                name: 'Proprietary or Undetectable',
-                y: 0.2,
-                drilldown: null
+                name: '高雄市',
+                y: 20.77,
+                drilldown: '高雄市'
             }]
         }],
         drilldown: {
             series: [{
-                name: 'Microsoft Internet Explorer',
-                id: 'Microsoft Internet Explorer',
+                name: '新北市',
+                id: '新北市',
                 data: [
-                    ['v11.0', 24.13],
-                    ['v8.0', 17.2],
-                    ['v9.0', 8.11],
-                    ['v10.0', 5.33],
-                    ['v6.0', 1.06],
-                    ['v7.0', 0.5]
+                    ['傳染病與寄生蟲病及其之後期影響', 19.92],
+                    ['惡性腫瘤', 13.63],
+                    ['其他腫瘤', 5.76],
+                    ['內分泌、營養及新陳代謝疾病與免疫性疾患', 36.6],
+                    ['精神疾患', 24.08]
                 ]
             }, {
-                name: 'Chrome',
-                id: 'Chrome',
+                name: '台北市',
+                id: '台北市',
                 data: [
-                    ['v40.0', 5],
-                    ['v41.0', 4.32],
-                    ['v42.0', 3.68],
-                    ['v39.0', 2.96],
-                    ['v36.0', 2.53],
-                    ['v43.0', 1.45],
-                    ['v31.0', 1.24],
-                    ['v35.0', 0.85],
-                    ['v38.0', 0.6],
-                    ['v32.0', 0.55],
-                    ['v37.0', 0.38],
-                    ['v33.0', 0.19],
-                    ['v34.0', 0.14],
-                    ['v30.0', 0.14]
+                    ['傳染病與寄生蟲病及其之後期影響', 19.12],
+                    ['惡性腫瘤', 15.50],
+                    ['其他腫瘤', 6.46],
+                    ['內分泌、營養及新陳代謝疾病與免疫性疾患', 36.08],
+                    ['精神疾患', 22.84]
                 ]
             }, {
-                name: 'Firefox',
-                id: 'Firefox',
+                name: '台中市',
+                id: '台中市',
                 data: [
-                    ['v35', 2.76],
-                    ['v36', 2.32],
-                    ['v37', 2.31],
-                    ['v34', 1.27],
-                    ['v38', 1.02],
-                    ['v31', 0.33],
-                    ['v33', 0.22],
-                    ['v32', 0.15]
+                    ['傳染病與寄生蟲病及其之後期影響', 23.56],
+                    ['惡性腫瘤', 13.27],
+                    ['其他腫瘤', 5.40],
+                    ['內分泌、營養及新陳代謝疾病與免疫性疾患', 33.43],
+                    ['精神疾患', 24.34]
                 ]
             }, {
-                name: 'Safari',
-                id: 'Safari',
+                name: '台南市',
+                id: '台南市',
                 data: [
-                    ['v8.0', 2.56],
-                    ['v7.1', 0.77],
-                    ['v5.1', 0.42],
-                    ['v5.0', 0.3],
-                    ['v6.1', 0.29],
-                    ['v7.0', 0.26],
-                    ['v6.2', 0.17]
+                    ['傳染病與寄生蟲病及其之後期影響', 22.17],
+                    ['惡性腫瘤', 14.57],
+                    ['其他腫瘤', 5.76],
+                    ['內分泌、營養及新陳代謝疾病與免疫性疾患', 34.49],
+                    ['精神疾患', 23.02]
+
                 ]
             }, {
-                name: 'Opera',
-                id: 'Opera',
+                name: '高雄市',
+                id: '高雄市',
                 data: [
-                    ['v12.x', 0.34],
-                    ['v28', 0.24],
-                    ['v27', 0.17],
-                    ['v29', 0.16]
+                    ['傳染病與寄生蟲病及其之後期影響', 20.87],
+                    ['惡性腫瘤', 13.64],
+                    ['其他腫瘤', 5.39],
+                    ['內分泌、營養及新陳代謝疾病與免疫性疾患', 32.82],
+                    ['精神疾患', 27.28]
                 ]
             }]
         }
