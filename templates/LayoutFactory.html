@@ -21,90 +21,84 @@
 </head>
 
 <body>
-    <main>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="../index">SDV</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="../Factory">FACTORY</a></li>
-                    </ul>
-                </div>
+<main>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../index">SDV</a>
             </div>
-        </nav>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <!-- <div class="tabbable" id="P1tabsSetting"> -->
-                <div class="tabbable" id="P4tabsSetting">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a href="#P11panelFileSetting" data-toggle="tab">Sensor資料</a>
-                        </li>
-                        <li>
-                            <a href="#P12panelShowChart" data-toggle="tab">各Sensor資料</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="P11panelFileSetting">
-                            <div class="row">
-                            <h3 class="text-center">Total Sensor</h3>
-                            <div class="col-md-12">
-                                <div id="container" style="height: 600px; min-width: 600px"></div>
-                                <table class="table table-bordered table-condensed text-center">
-                                    <thead></thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="P12panelShowChart">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="text-center">Sensor 1</h3>
-                                    <div id="container1" style="height: 600px; min-width: 600px"></div>
-                                </div>
-                                <div class="col-md-12">
-                                <h3 class="text-center">Sensor 2</h3>
-                                <div id="container2" style="height: 600px; min-width: 600px"></div>
-                                
-                                </div>
-                                <div class="col-md-12">
-                                <h3 class="text-center">Sensor 3</h3>
-                                <div id="container3" style="height: 600px; min-width: 600px"></div>
-                                
-                                </div>
-                                <div class="col-md-12">
-                                <h3 class="text-center">Sensor 4</h3>
-                                <div id="container4" style="height: 600px; min-width: 600px"></div>
-                                
-                                </div>
-                                <div class="col-md-12">
-                                <h3 class="text-center">Sensor 5</h3>
-                                <div id="container5" style="height: 600px; min-width: 600px"></div>
-                                
-                                </div>
-                                <table class="table table-bordered table-condensed text-center">
-                                    <thead></thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../Factory">FACTORY</a></li>
+                </ul>
             </div>
         </div>
-        <!--  </div> -->
-        </div>
-        </div>
-        <footer>
-            <div class="row">
+    </nav>
+    <div class="col-md-10 col-md-offset-1">
+        <!-- <div class="tabbable" id="P1tabsSetting"> -->
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#P11panelFileSetting" data-toggle="tab">Sensor資料</a>
+            </li>
+            <li>
+                <a href="#P12panelShowChart" data-toggle="tab">各Sensor資料</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane in active" id="P11panelFileSetting">
+                <h3 class="text-center">Total Sensor</h3>
                 <div class="col-md-12">
+                    <div id="container"></div>
+                    <table class="table table-bordered table-condensed text-center">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
-        </footer>
-    </main>
+            <div class="tab-pane" id="P12panelShowChart">
+                <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Sensor 1</h3>
+                    <div align="center" id="container1"></div>
+                    <br>
+                </div>
+                <div class="col-md-12">
+                    <h3 class="text-center">Sensor 2</h3>
+                    <div align="center" id="container2"></div>
+                    <br>
+                </div>
+                <div class="col-md-12">
+                    <h3 class="text-center">Sensor 3</h3>
+                    <div align="center" id="container3"></div>
+                    <br>
+                </div>
+                <div class="col-md-12">
+                    <h3 class="text-center">Sensor 4</h3>
+                    <div align="center" id="container4"></div>
+                    <br>
+                </div>
+                <div class="col-md-12">
+                    <h3 class="text-center">Sensor 5</h3>
+                    <div align="center" id="container5"></div>
+                    <br>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-bordered table-condensed text-center">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+    </footer>
+</main>
 
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

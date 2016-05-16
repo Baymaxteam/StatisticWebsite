@@ -34,7 +34,7 @@ $(function() {
             },
 
             title: {
-                text: 'concentration change '
+                text: ''
             },
 
             yAxis: {
@@ -69,18 +69,20 @@ $(function() {
             }]
         });
         $('#container1').highcharts('StockChart', {
-
+            exporting: {
+                enabled: false
+            },
             rangeSelector: {
                 selected: 1
             },
 
             title: {
-                text: 'concentration change '
+                text: ' '
             },
 
             yAxis: {
                 title: {
-                    text: 'Exchange rate'
+                    text: 'sensor1'
                 },
                 plotLines: [{
                     value: minRate,
@@ -110,18 +112,20 @@ $(function() {
             }]
         });
         $('#container2').highcharts('StockChart', {
-
+            exporting: {
+                enabled: false
+            },
             rangeSelector: {
                 selected: 1
             },
 
             title: {
-                text: 'concentration change '
+                text: ' '
             },
 
             yAxis: {
                 title: {
-                    text: 'Exchange rate'
+                    text: 'sensor2'
                 },
                 plotLines: [{
                     value: minRate,
@@ -151,13 +155,15 @@ $(function() {
             }]
         });
         $('#container3').highcharts('StockChart', {
-
+            exporting: {
+                enabled: false
+            },
             rangeSelector: {
                 selected: 1
             },
 
             title: {
-                text: 'concentration change '
+                text: ' '
             },
 
             yAxis: {
@@ -192,13 +198,15 @@ $(function() {
             }]
         });
         $('#container4').highcharts('StockChart', {
-
+            exporting: {
+                enabled: false
+            },
             rangeSelector: {
                 selected: 1
             },
 
             title: {
-                text: 'concentration change '
+                text: ' '
             },
 
             yAxis: {
@@ -233,13 +241,15 @@ $(function() {
             }]
         });
         $('#container5').highcharts('StockChart', {
-
+            exporting: {
+                enabled: false
+            },
             rangeSelector: {
                 selected: 1
             },
 
             title: {
-                text: 'concentration change '
+                text: ' '
             },
 
             yAxis: {
