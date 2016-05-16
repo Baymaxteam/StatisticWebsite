@@ -36,7 +36,7 @@ $(function () {
         },
         {
             "hc-key": "tw-tw",
-            "value": 8
+            "value": 20
         },
         {
             "hc-key": "tw-cs",
@@ -96,7 +96,7 @@ $(function () {
     $('#container').highcharts('Map', {
 
         title : {
-            text : 'Highmaps basic demo'
+            text : '26縣市流感併發重症'
         },
 
         subtitle : {
@@ -118,7 +118,7 @@ $(function () {
             data : data,
             mapData: Highcharts.maps['countries/tw/tw-all'],
             joinBy: 'hc-key',
-            name: 'Random data',
+            name: '重症人數',
             states: {
                 hover: {
                     color: '#BADA55'

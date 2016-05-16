@@ -5,7 +5,7 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Browser market shares. January, 2015 to May, 2015'
+            text: '服務量'
         },
         subtitle: {
             text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
@@ -41,212 +41,77 @@ $(function () {
             name: 'Brands',
             colorByPoint: true,
             data: [{
-                name: 'Microsoft Internet Explorer',
-                y: 56.33,
-                drilldown: 'Microsoft Internet Explorer'
+                name: '台北市',
+                y: 37.01,
+                drilldown: '台北市'
             }, {
-                name: 'Chrome',
-                y: 24.03,
-                drilldown: 'Chrome'
+                name: '台中市',
+                y: 23.75,
+                drilldown: '台中市'
             }, {
-                name: 'Firefox',
-                y: 10.38,
-                drilldown: 'Firefox'
+                name: '台南市',
+                y: 13.94,
+                drilldown: '台南市'
             }, {
-                name: 'Safari',
-                y: 4.77,
-                drilldown: 'Safari'
+                name: '高雄市',
+                y: 22.83,
+                drilldown: '高雄市'
             }, {
-                name: 'Opera',
-                y: 0.91,
-                drilldown: 'Opera'
-            }, {
-                name: 'Proprietary or Undetectable',
-                y: 0.2,
-                drilldown: null
+                name: '基隆市',
+                y: 2.47,
+                drilldown: '基隆市'
             }]
         }],
         drilldown: {
             series: [{
-                name: 'Microsoft Internet Explorer',
-                id: 'Microsoft Internet Explorer',
+                name: '台北市',
+                id: '台北市',
                 data: [
-                    [
-                        'v11.0',
-                        24.13
-                    ],
-                    [
-                        'v8.0',
-                        17.2
-                    ],
-                    [
-                        'v9.0',
-                        8.11
-                    ],
-                    [
-                        'v10.0',
-                        5.33
-                    ],
-                    [
-                        'v6.0',
-                        1.06
-                    ],
-                    [
-                        'v7.0',
-                        0.5
-                    ]
+                    ['出院人次', 39.93],
+                    ['住院健檢人次', 1.32],
+                    ['手術人次', 29.37],
+                    ['門診手術人次', 13.14],
+                    ['住院手術人次', 16.23]   
                 ]
             }, {
-                name: 'Chrome',
-                id: 'Chrome',
+                name: '台中市',
+                id: '台中市',
                 data: [
-                    [
-                        'v40.0',
-                        5
-                    ],
-                    [
-                        'v41.0',
-                        4.32
-                    ],
-                    [
-                        'v42.0',
-                        3.68
-                    ],
-                    [
-                        'v39.0',
-                        2.96
-                    ],
-                    [
-                        'v36.0',
-                        2.53
-                    ],
-                    [
-                        'v43.0',
-                        1.45
-                    ],
-                    [
-                        'v31.0',
-                        1.24
-                    ],
-                    [
-                        'v35.0',
-                        0.85
-                    ],
-                    [
-                        'v38.0',
-                        0.6
-                    ],
-                    [
-                        'v32.0',
-                        0.55
-                    ],
-                    [
-                        'v37.0',
-                        0.38
-                    ],
-                    [
-                        'v33.0',
-                        0.19
-                    ],
-                    [
-                        'v34.0',
-                        0.14
-                    ],
-                    [
-                        'v30.0',
-                        0.14
-                    ]
+                    ['出院人次', 44.62],
+                    ['住院健檢人次', 0.88],
+                    ['手術人次', 27.25],
+                    ['門診手術人次', 10.82],
+                    ['住院手術人次', 16.43]   
                 ]
             }, {
-                name: 'Firefox',
-                id: 'Firefox',
+                name: '台南市',
+                id: '台南市',
                 data: [
-                    [
-                        'v35',
-                        2.76
-                    ],
-                    [
-                        'v36',
-                        2.32
-                    ],
-                    [
-                        'v37',
-                        2.31
-                    ],
-                    [
-                        'v34',
-                        1.27
-                    ],
-                    [
-                        'v38',
-                        1.02
-                    ],
-                    [
-                        'v31',
-                        0.33
-                    ],
-                    [
-                        'v33',
-                        0.22
-                    ],
-                    [
-                        'v32',
-                        0.15
-                    ]
+                    ['出院人次', 44.52],
+                    ['住院健檢人次', 0.59],
+                    ['手術人次', 27.45],
+                    ['門診手術人次', 12.48],
+                    ['住院手術人次', 14.97]   
                 ]
             }, {
-                name: 'Safari',
-                id: 'Safari',
+                name: '高雄市',
+                id: '高雄市',
                 data: [
-                    [
-                        'v8.0',
-                        2.56
-                    ],
-                    [
-                        'v7.1',
-                        0.77
-                    ],
-                    [
-                        'v5.1',
-                        0.42
-                    ],
-                    [
-                        'v5.0',
-                        0.3
-                    ],
-                    [
-                        'v6.1',
-                        0.29
-                    ],
-                    [
-                        'v7.0',
-                        0.26
-                    ],
-                    [
-                        'v6.2',
-                        0.17
-                    ]
+                    ['出院人次', 46.92],
+                    ['住院健檢人次', 0.84],
+                    ['手術人次', 26.13],
+                    ['門診手術人次', 10.36],
+                    ['住院手術人次', 15.76]   
                 ]
             }, {
-                name: 'Opera',
-                id: 'Opera',
+                name: '基隆市',
+                id: '基隆市',
                 data: [
-                    [
-                        'v12.x',
-                        0.34
-                    ],
-                    [
-                        'v28',
-                        0.24
-                    ],
-                    [
-                        'v27',
-                        0.17
-                    ],
-                    [
-                        'v29',
-                        0.16
-                    ]
+                    ['出院人次', 43.51],
+                    ['住院健檢人次', 0.00],
+                    ['手術人次', 28.25],
+                    ['門診手術人次', 15.01],
+                    ['住院手術人次', 13.24]   
                 ]
             }]
         }

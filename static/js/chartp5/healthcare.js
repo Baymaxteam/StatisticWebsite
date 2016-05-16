@@ -4,15 +4,15 @@ $(function () {
             type: 'bar'
         },
         title: {
-            text: 'Stacked bar chart'
+            text: '醫事人員數目'
         },
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+            categories: ['醫師', '中醫師', '牙醫師', '藥師', '藥劑生']
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
+                text: '(人)'
             }
         },
         legend: {
@@ -24,14 +24,20 @@ $(function () {
             }
         },
         series: [{
-            name: 'John',
-            data: [5, 3, 4, 7, 2]
+            name: '台北市',
+            data: [9021, 860, 2932, 2380,214]
         }, {
-            name: 'Jane',
-            data: [2, 2, 3, 2, 1]
+            name: '台中市',
+            data: [5590, 1257, 1792, 2002, 329]
         }, {
-            name: 'Joe',
-            data: [3, 4, 4, 2, 5]
+            name: '台南市',
+            data: [3290, 478, 961, 1249, 144]
+        },{
+            name: '高雄市',
+            data: [5764, 714, 1680, 2157, 363]
+        },{
+            name: '基隆市',
+            data: [705, 70, 145, 181, 42]
         }]
     });
 });

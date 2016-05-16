@@ -4,38 +4,31 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Monthly Average Rainfall'
+            text: '病床數量'
         },
         subtitle: {
             text: 'Source: WorldClimate.com'
         },
         xAxis: {
             categories: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
+                '病床合計',
+                '一般病床',
+                '特殊病床',
+                '急性一般病床',
+                '精神急性一般病床',
             ],
             crosshair: true
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Rainfall (mm)'
+                text: '病床數 (張)'
             }
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} 張</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -47,20 +40,24 @@ $(function () {
             }
         },
         series: [{
-            name: 'Tokyo',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            name: '台北市',
+            data: [20257, 14705, 5552, 12864, 1222]
 
         }, {
-            name: 'New York',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+            name: '台中市',
+            data: [17765, 13048, 4717, 9933, 858]
 
         }, {
-            name: 'London',
-            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+            name: '台南市',
+            data: [9401, 6667, 2734, 5148, 433]
 
         }, {
-            name: 'Berlin',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+            name: '高雄市',
+            data: [16915, 12022, 4890, 9445, 1085]
+
+        }, {
+            name: '基隆市',
+            data: [2387, 1776, 611, 1246, 156]
 
         }]
     });

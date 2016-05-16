@@ -11,7 +11,7 @@ $(function () {
         },
 
         title: {
-            text: 'Speedometer'
+            text: '救護車數量'
         },
 
         pane: {
@@ -54,7 +54,7 @@ $(function () {
 
             minorTickInterval: 'auto',
             minorTickWidth: 1,
-            minorTickLength: 10,
+            minorTickLength: 5,
             minorTickPosition: 'inside',
             minorTickColor: '#666',
 
@@ -68,28 +68,28 @@ $(function () {
                 rotation: 'auto'
             },
             title: {
-                text: 'km/h'
+                text: '新北市'
             },
             plotBands: [{
                 from: 0,
-                to: 120,
-                color: '#DF5353' // green
+                to: 115,
+                color: '#DF5353' // red
             }, {
-                from: 120,
-                to: 160,
+                from: 115,
+                to: 120,
                 color: '#DDDF0D' // yellow
             }, {
-                from: 160,
+                from: 120,
                 to: 200,
-                color: '#55BF3B' // red
+                color: '#55BF3B' // green
             }]
         },
 
         series: [{
-            name: 'Speed',
+            name: '救護車數量',
             data: [80],
             tooltip: {
-                valueSuffix: ' km/h'
+                valueSuffix: '輛'
             }
         }]
 
