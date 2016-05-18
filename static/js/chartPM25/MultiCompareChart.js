@@ -1,6 +1,23 @@
+var test = [
+    [Date.UTC(2015, 1, 1), 15],
+    [Date.UTC(2015, 1, 2), 15],
+    [Date.UTC(2015, 1, 3), 15],
+    [Date.UTC(2015, 1, 4), 14],
+    [Date.UTC(2015, 1, 5), 14],
+    [Date.UTC(2015, 1, 6), 14],
+    [Date.UTC(2015, 1, 7), 13]
+
+];
+
+
+
+
 $(function() {
     $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-ohlcv.json&callback=?', function(data) {
 
+        var dt = new Date();
+        var timenow = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+        console.log(timenow);
         // split the data set into ohlc and volume
         var ohlc = [],
             volume = [],
@@ -57,83 +74,77 @@ $(function() {
             //         text: null
             //     }}
             // ],
-            yAxis: [
-                {
-                    labels: {
-                        align: 'right',
-                        x: -3
-                    },
-                    title: {
-                        textAlign: 'left',
-                        text: 'Temp',
-                        rotation: 0,
-                    },
+            yAxis: [{
+                labels: {
+                    align: 'right',
+                    x: -3
+                },
+                title: {
+                    textAlign: 'left',
+                    text: 'Temp',
+                    rotation: 0,
+                },
 
-                    height: '20%',
-                    offset: 0,
-                    lineWidth: 2
+                height: '20%',
+                offset: 0,
+                lineWidth: 2
+            }, {
+                labels: {
+                    align: 'right',
+                    x: -3
                 },
-                            {
-                    labels: {
-                        align: 'right',
-                        x: -3
-                    },
-                    title: {
-                        textAlign: 'left',
-                        text: 'PM10',
-                        rotation: 0
-                    },
-                    top: '20%',
-                    height: '20%',
-                    offset: 0,
-                    lineWidth: 2
+                title: {
+                    textAlign: 'left',
+                    text: 'PM10',
+                    rotation: 0
                 },
-                              {
-                    labels: {
-                        align: 'right',
-                        x: -3
-                    },
-                    title: {
-                        textAlign: 'left',
-                        text: 'PM2.5',
-                        rotation: 0
-                    },
-                    top: '40%',
-                    height: '20%',
-                    offset: 0,
-                    lineWidth: 2
+                top: '20%',
+                height: '20%',
+                offset: 0,
+                lineWidth: 2
+            }, {
+                labels: {
+                    align: 'right',
+                    x: -3
                 },
-                              {
-                    labels: {
-                        align: 'right',
-                        x: -3
-                    },
-                    title: {
-                        textAlign: 'left',
-                        text: 'RH',
-                        rotation: 0
-                    },
-                    top: '60%',
-                    height: '20%',
-                    offset: 0,
-                    lineWidth: 2
+                title: {
+                    textAlign: 'left',
+                    text: 'PM2.5',
+                    rotation: 0
                 },
-                {
-                    labels: {
-                        align: 'right',
-                        x: -3
-                    },
-                    title: {
-                        textAlign: 'left',
-                        text: 'Wind',
-                        rotation: 0
-                    },
-                    top: '80%',
-                    height: '20%',
-                    offset: 0,
-                    lineWidth: 2
-                }
-            ],
+                top: '40%',
+                height: '20%',
+                offset: 0,
+                lineWidth: 2
+            }, {
+                labels: {
+                    align: 'right',
+                    x: -3
+                },
+                title: {
+                    textAlign: 'left',
+                    text: 'RH',
+                    rotation: 0
+                },
+                top: '60%',
+                height: '20%',
+                offset: 0,
+                lineWidth: 2
+            }, {
+                labels: {
+                    align: 'right',
+                    x: -3
+                },
+                title: {
+                    textAlign: 'left',
+                    text: 'Wind',
+                    rotation: 0
+                },
+                top: '80%',
+                height: '20%',
+                offset: 0,
+                lineWidth: 2
+            }],
 
             series: [
                 // {
