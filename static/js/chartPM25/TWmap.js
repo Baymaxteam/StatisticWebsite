@@ -50,7 +50,15 @@ $(function() {
                             // alert(this.name);
                             selectCityName = this.name;
                             console.log(selectCityName);
+                            if (selectCityName === "Nantou") {
+                                selectCityName = "埔里";
+                            } else if (selectCityName === "Changhua") {
+                                selectCityName = "線西";
+                            } else {
+                                selectCityName = "忠明";
+                            }
 
+                            $('#selectCityName').text("本年度資訊 : " + selectCityName);
                         }
 
                     }
