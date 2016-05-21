@@ -13,15 +13,13 @@ var test = [
 
 
 $(function() {
-    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-ohlcv.json&callback=?', function(data) {
 
         var dt = new Date();
         var timenow = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
         console.log(timenow);
         // split the data set into ohlc and volume
-        var ohlc = [],
-            volume = [],
-            dataLength = data.length,
+        var data = test;
+        var volume = [],
             // set the allowed units for data grouping
             groupingUnits = [
                 [
@@ -31,22 +29,14 @@ $(function() {
                 [
                     'month', [1, 2, 3, 4, 6]
                 ]
-            ],
+            ];
 
-            i = 0;
 
-        for (i; i < dataLength; i += 1) {
-            ohlc.push([
-                data[i][0], // the date
-                data[i][1], // open
-                data[i][2], // high
-                data[i][3], // low
-                data[i][4] // close
-            ]);
+        for ( var i = 0 ; i < data.length; i += 1) {
 
             volume.push([
                 data[i][0], // the date
-                data[i][5] // the volume
+                data[i][1] // the volume
             ]);
         }
 
@@ -200,5 +190,5 @@ $(function() {
                 }
             ]
         });
-    });
+
 });
