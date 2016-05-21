@@ -1447,13 +1447,8 @@ var m5 = [
 ]
 
 var sensordata = [m1, m2, m3, m4, m5];
-var updateFlag = false;
 $(function() {
 
-    $("#btnUpdateFlag").click(function() {
-        updateFlag = ~updateFlag;
-        console.log(updateFlag)
-    });
 
     var startDate = new Date(sensordata[sensordata.length - 1][0]), // Get year of last data point
         minRate = 1,
@@ -1486,37 +1481,12 @@ $(function() {
 
         seriesOptions[i] = {
             name: names[i],
-            data: get50dataPoint(sensordata[i])
+            data: sensordata[i]
         };
     }
     // Create the chart
-
-    var addPointIndex = 101;
     $('#container').highcharts('StockChart', {
-        chart: {
-            events: {
-                load: function() {
 
-                    // set up the updating of the chart each second
-                    // console.log("reload");
-                    var series = [];
-                    for (var i = 0; i < 5; i++) {
-                        series[i] = this.series[i]
-                    }
-                    // console.log(series);
-                    setInterval(function() {
-                        if (updateFlag) {
-                            series[0].addPoint(m1[addPointIndex], false, false);
-                            series[1].addPoint(m2[addPointIndex], false, false);
-                            series[2].addPoint(m3[addPointIndex], false, false);
-                            series[3].addPoint(m4[addPointIndex], false, false);
-                            series[4].addPoint(m5[addPointIndex], true, false);
-                        }
-
-                    }, 1000);
-                }
-            }
-        },
         rangeSelector: {
             selected: 1
         },
@@ -1548,25 +1518,16 @@ $(function() {
             }]
         },
         series: seriesOptions
-
+            // series: [{
+            //     name: 'Molar',
+            //     data: sensordata,
+            //     tooltip: {
+            //         valueDecimals: 4
+            //     }
+            // }]
     });
     $('#container1').highcharts('StockChart', {
-        chart: {
-            events: {
-                load: function() {
 
-                    // set up the updating of the chart each second
-                    var series = this.series[0];
-
-                    setInterval(function() {
-                        if (updateFlag) {
-                            series.addPoint(m1[addPointIndex], true, false);
-                            addPointIndex++;
-                        }
-                    }, 1000);
-                }
-            }
-        },
         rangeSelector: {
             selected: 1
         },
@@ -1600,28 +1561,14 @@ $(function() {
 
         series: [{
             name: 'Molar',
-            data: get50dataPoint(m1),
+            data: m1,
             tooltip: {
                 valueDecimals: 4
             }
         }]
     });
     $('#container2').highcharts('StockChart', {
-        chart: {
-            events: {
-                load: function() {
 
-                    // set up the updating of the chart each second
-                    var series = this.series[0];
-
-                    setInterval(function() {
-                        if (updateFlag) {
-                            series.addPoint(m2[addPointIndex], true, false);
-                        }
-                    }, 1000);
-                }
-            }
-        },
         rangeSelector: {
             selected: 1
         },
@@ -1655,28 +1602,14 @@ $(function() {
 
         series: [{
             name: 'Molar',
-            data: get50dataPoint(m2),
+            data: m2,
             tooltip: {
                 valueDecimals: 4
             }
         }]
     });
     $('#container3').highcharts('StockChart', {
-        chart: {
-            events: {
-                load: function() {
 
-                    // set up the updating of the chart each second
-                    var series = this.series[0];
-
-                    setInterval(function() {
-                        if (updateFlag) {
-                            series.addPoint(m3[addPointIndex], true, false);
-                        }
-                    }, 1000);
-                }
-            }
-        },
         rangeSelector: {
             selected: 1
         },
@@ -1710,28 +1643,14 @@ $(function() {
 
         series: [{
             name: 'Molar',
-            data: get50dataPoint(m3),
+            data: m3,
             tooltip: {
                 valueDecimals: 4
             }
         }]
     });
     $('#container4').highcharts('StockChart', {
-        chart: {
-            events: {
-                load: function() {
 
-                    // set up the updating of the chart each second
-                    var series = this.series[0];
-
-                    setInterval(function() {
-                        if (updateFlag) {
-                            series.addPoint(m4[addPointIndex], true, false);
-                        }
-                    }, 1000);
-                }
-            }
-        },
         rangeSelector: {
             selected: 1
         },
@@ -1765,27 +1684,14 @@ $(function() {
 
         series: [{
             name: 'Molar',
-            data: get50dataPoint(m4),
+            data: m4,
             tooltip: {
                 valueDecimals: 4
             }
         }]
     });
     $('#container5').highcharts('StockChart', {
-        chart: {
-            events: {
-                load: function() {
-                    // set up the updating of the chart each second
-                    var series = this.series[0];
-                    setInterval(function() {
-                        if (updateFlag) {
-                            series.addPoint(m5[addPointIndex], true, false);
-                        }
 
-                    }, 1000);
-                }
-            }
-        },
         rangeSelector: {
             selected: 1
         },
@@ -1819,26 +1725,10 @@ $(function() {
 
         series: [{
             name: 'Molar',
-            data: get50dataPoint(m5),
+            data: m5,
             tooltip: {
                 valueDecimals: 4
             }
         }]
     });
 });
-
-
-function get50dataPoint(mdata) {
-    // generate an array of random data
-    var data = [],
-        i;
-
-    for (i = 0; i <= 50; i += 1) {
-        data.push([
-            mdata[i][0],
-            mdata[i][1]
-        ]);
-    }
-    // console.log(data);
-    return data;
-}
