@@ -127,9 +127,6 @@
                 
                 <div class="col-md-10 col-md-offset-1">
                     <a href="http://www.accuweather.com/en/us/san-francisco-ca/94103/weather-forecast/347629" class="aw-widget-legal">
-                        <!--
-                    By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
-                    -->
                     </a>
                     <div align="center" id="awtd1463128460742" class="aw-widget-36hour" data-locationkey="347629" data-unit="c" data-language="zh-tw" data-useip="false" data-uid="awtd1463128460742" data-editlocation="false"></div>
                 </div>
@@ -145,7 +142,6 @@
 
 
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/scripts.js" %}"></script>
     <!-- highstock API, it contains highchart -->
@@ -157,14 +153,15 @@
     <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/mapdata/countries/tw/tw-all.js"></script>
     <!-- extra chart api -->
-    <script src="{% static "js/chartBike/MultiCompareChart.js" %}"></script>
+    <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+    <!-- google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+        <script src="{% static "js/chartBike/MultiCompareChart.js" %}"></script>
     <script src="{% static "js/chartBike/synchronize.js" %}"></script>
     <script src="{% static "js/chartBike/MultiLineChart.js" %}"></script>
     <script src="{% static "js/chartBike/MultiLineStock.js" %}"></script>
-    <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
-    <!-- google map -->
     <script src="{% static "js/chartBike/BikeMap.js" %}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     
 
 </body>

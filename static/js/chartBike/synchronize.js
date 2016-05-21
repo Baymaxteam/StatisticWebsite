@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function() {
 
     /**
      * In order to synchronize tooltips and crosshairs, override the
