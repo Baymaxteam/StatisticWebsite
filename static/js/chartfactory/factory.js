@@ -1491,7 +1491,7 @@ $(function() {
     }
     // Create the chart
 
-    var addPointIndex = 101;
+    var addPointIndex = 51;
     $('#container').highcharts('StockChart', {
         chart: {
             events: {
