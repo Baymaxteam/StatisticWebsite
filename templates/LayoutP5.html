@@ -23,38 +23,38 @@
 
 
 <body>
-<main>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="../index">SDV</a>
-            </div>
-            <div>
-                <ul class="nav navbar-nav">
-                    <li><a href="../P1">檔案資料視覺化</a></li>
-                    <li><a href="../P2">資料庫資料視覺化</a></li>
-                    <li><a href="../P3">資料互動視覺化</a></li>
-                    <li><a href="../P4">動態資料視覺化</a></li>
-                    <li class="active"><a href="../P5">疾病衛生</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="col-md-10 col-md-offset-1">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="tabbable" id="P4tabsSetting">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a href="#P51tab1" data-toggle="tab">急診資訊</a>
-                        </li>
-                        <li>
-                            <a href="#P42panelShowChart" data-toggle="tab">醫護資訊</a>
-                        </li>
+    <main>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="../index">SDV</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="../P1">檔案資料視覺化</a></li>
+                        <li><a href="../P2">資料庫資料視覺化</a></li>
+                        <li><a href="../P3">資料互動視覺化</a></li>
+                        <li><a href="../P4">動態資料視覺化</a></li>
+                        <li class="active"><a href="../P5">疾病衛生</a></li>
                     </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="P51tab1">
-                            <!-- <div class="row">
+                </div>
+            </div>
+        </nav>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tabbable" id="P4tabsSetting">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#P51tab1" data-toggle="tab">急診資訊</a>
+                            </li>
+                            <li>
+                                <a href="#P42panelShowChart" data-toggle="tab">醫護資訊</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="P51tab1">
+                                <!-- <div class="row">
                                         <div class="col-md-6">
                                             <h4>自動隨機產製資料(每秒產製一個15-35區間數值)</h4>
                                             <div class="col-md-6">
@@ -64,6 +64,33 @@
                                             </div>
                                         </div>
                                     </div> -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div id="container"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="container1" style="height: 400px; min-width: 310px"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-2">
+                                        <div id="container2" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="container3" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div id="container4" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="container5" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="container6" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                    </div>
+                                </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div id="container"></div>
@@ -73,23 +100,36 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-2">
-                                    <div id="container2" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                <div class="col-md-4">
+                                <div id="container2" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto; "></div>
                                 </div>
                                 <div class="col-md-2">
-                                    <div id="container3" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                <div class="col-md-4">
+                                <div id="container3" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
                                 </div>
                                 <div class="col-md-2">
-                                    <div id="container4" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                <div class="col-md-4">
+                                <div id="container4" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
                                 </div>
                                 <div class="col-md-2">
-                                    <div id="container5" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                <div id="container5" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
                                 </div>
                                 <div class="col-md-2">
-                                    <div id="container6" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                <div class="col-md-4">
+                                <div id="container6" style="min-width: 150px; max-width: 400px; height: 300px; margin: 0 auto"></div>
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-md-12">
+                                    <div id="container7" style="height: 400px; min-width: 310px"></div>
+
+
+                                    <div id="container7" style="height: 400px; min-width: 310px" ></div>
+
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="container7" style="height: 400px; min-width: 310px"></div>
@@ -115,6 +155,59 @@
                                         <div id="container11" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
                                     </div>
                                 </div>
+                                <!-- <div class="row">
+                                     <p class="bg-info"><br></p>
+                                        <div class="col-md-12">
+                                            <h3 class="text-center">
+                                            步驟1:顯示動態檔案列表
+                                            </h3>
+                                            <div id='P41tableFileList'>
+                                                <table class="table">
+                                                    <thead></thead>
+                                                    <tbody></tbody>
+                                                    <tfoot></tfoot>
+                                                </table>
+                                            </div>
+                                            <br></br>
+                                        </div>
+                                    </div> -->
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                    <!-- <div class="col-md-12">
+                                         <p class="bg-info"><br></p>
+                                            <h3 class="text-center">
+                                            步驟2:選取動態檔案(目前由伺服器模擬成感應器，每秒產製檔案寫入)
+                                            </h3>
+                                           <div class="col-md-6">
+                                            <h4>讀取server端動態檔案資料</h4>
+                                            <div class="col-md-6">
+                                                <div class="btn-group">
+                                                    <form role="form">
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="P41listFileList">
+                                                            </select>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button id="P41btnFileLoading" type="button" class="btn btn-success btn-block btn-lg">讀取資料內容
+                                                </button>
+                                            </div>
+                                          </div>
+                                            <div id="P41tableFileContext">
+                                                <table class="table">
+                                                    <thead></thead>
+                                                    <tbody></tbody>
+                                                    <tfoot></tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success btn-lg" id='P41btnChart'>
+                                            繪圖
+                                        </button> -->
+                                </div>
                             </div>
                             <div class="tab-pane" id="P42panelShowChart">
                                 <div class="row">
@@ -137,7 +230,7 @@
                 </div>
             </div>
         </footer>
-</main>
+    </main>
 
     <!-- jQuery 
     <script src="{% static "js/jquery.js" %}"></script>
