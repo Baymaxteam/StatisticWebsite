@@ -92,7 +92,7 @@ $(function () {
 
         series: [{
             name: '救護車數量',
-            data: [80],
+            data: [0],
             tooltip: {
                 valueSuffix: '輛'
             }
