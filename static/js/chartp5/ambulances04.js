@@ -1,7 +1,9 @@
 $(function () {
 
     $('#container5').highcharts({
-
+        exporting: { 
+            enabled: false 
+        },
         chart: {
             type: 'gauge',
             plotBackgroundColor: null,
@@ -11,7 +13,7 @@ $(function () {
         },
 
         title: {
-            text: 'Speedometer'
+            text: '彰化縣'
         },
 
         pane: {
@@ -68,7 +70,10 @@ $(function () {
                 rotation: 'auto'
             },
             title: {
-                text: 'km/h'
+                text: '輛',
+                style: {
+                  fontSize: '16px'
+              }
             },
             plotBands: [{
                 from: 0,

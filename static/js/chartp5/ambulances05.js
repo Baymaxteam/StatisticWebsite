@@ -1,7 +1,9 @@
 $(function () {
 
     $('#container6').highcharts({
-
+        exporting: { 
+            enabled: false 
+        },
         chart: {
             type: 'gauge',
             plotBackgroundColor: null,
@@ -11,7 +13,9 @@ $(function () {
         },
 
         title: {
-            text: 'Speedometer'
+
+            text: '花蓮縣'
+
         },
 
         pane: {
@@ -68,7 +72,10 @@ $(function () {
                 rotation: 'auto'
             },
             title: {
-                text: 'km/h'
+                text: '輛',
+                style: {
+                  fontSize: '16px'
+              }
             },
             plotBands: [{
                 from: 0,
