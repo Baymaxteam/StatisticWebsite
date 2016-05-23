@@ -70,10 +70,7 @@ $(function () {
                 rotation: 'auto'
             },
             title: {
-                text: '輛',
-                style: {
-                  fontSize: '16px'
-              }
+                text: '輛'
             },
             plotBands: [{
                 from: 0,
