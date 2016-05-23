@@ -91,10 +91,10 @@ $(function () {
         },
 
         series: [{
-            name: 'Speed',
+            name: '救護車數量',
             data: [80],
             tooltip: {
-                valueSuffix: ' km/h'
+                valueSuffix: '輛'
             }
         }]
 
