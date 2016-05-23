@@ -70,7 +70,7 @@ $(function () {
                 rotation: 'auto'
             },
             title: {
-                text: '輛'
+                text: '救護車數量'
             },
             plotBands: [{
                 from: 0,
