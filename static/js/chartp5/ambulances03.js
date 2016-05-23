@@ -52,7 +52,7 @@ $(function () {
         // the value axis
         yAxis: {
             min: 0,
-            max: 200,
+            max: 100,
 
             minorTickInterval: 'auto',
             minorTickWidth: 1,
@@ -74,15 +74,15 @@ $(function () {
             },
             plotBands: [{
                 from: 0,
-                to: 120,
+                to: 37,
                 color: '#DF5353' // green
             }, {
-                from: 120,
-                to: 160,
+                from: 37,
+                to: 52,
                 color: '#DDDF0D' // yellow
             }, {
-                from: 160,
-                to: 200,
+                from: 52,
+                to: 100,
                 color: '#55BF3B' // red
             }]
         },
@@ -98,19 +98,49 @@ $(function () {
     },
     // Add some life
     function (chart) {
+        var data1 =
+        [
+            [   37  ],
+            [   38  ],
+            [   39  ],
+            [   44  ],
+            [   43  ],
+            [   47  ],
+            [   44  ],
+            [   42  ],
+            [   43  ],
+            [   51  ],
+            [   53  ],
+            [   53  ],
+            [   53  ],
+            [   55  ],
+            [   51  ],
+            [   52  ],
+            [   57  ],
+            [   59  ],
+            [   51  ],
+            [   51  ],
+            [   52  ],
+            [   55  ],
+            [   0   ],
+            [   0   ],
+            [   0   ],
+            [   0   ],
+            [   0   ],
+            [   0   ],
+            [   0   ],
+
+
+        ];
         if (!chart.renderer.forExport) {
             setInterval(function () {
                 var point = chart.series[0].points[0],
-                    newVal,
-                    inc = Math.round((Math.random() - 0.5) * 20);
-
-                newVal = point.y + inc;
-                if (newVal < 0 || newVal > 200) {
-                    newVal = point.y - inc;
-                }
-
+                    newVal;
+                newVal = data1[count];
                 point.update(newVal);
-
+                count ++;
+                if (count ==29)
+                    count = 0;
             }, 3000);
         }
     });

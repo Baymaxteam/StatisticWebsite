@@ -54,7 +54,7 @@ $(function () {
         // the value axis
         yAxis: {
             min: 0,
-            max: 200,
+            max: 100,
 
             minorTickInterval: 'auto',
             minorTickWidth: 1,
@@ -72,22 +72,19 @@ $(function () {
                 rotation: 'auto'
             },
             title: {
-                text: '輛',
-                style: {
-                  fontSize: '16px'
-              }
+                text: '救護車數量'
             },
             plotBands: [{
                 from: 0,
-                to: 120,
+                to: 23,
                 color: '#DF5353' // green
             }, {
-                from: 120,
-                to: 160,
+                from: 23,
+                to: 24,
                 color: '#DDDF0D' // yellow
             }, {
-                from: 160,
-                to: 200,
+                from: 24,
+                to: 100,
                 color: '#55BF3B' // red
             }]
         },
@@ -103,19 +100,49 @@ $(function () {
     },
     // Add some life
     function (chart) {
+        var data1 =
+        [
+            [   22  ],
+            [   19  ],
+            [   19  ],
+            [   23  ],
+            [   22  ],
+            [   24  ],
+            [   22  ],
+            [   24  ],
+            [   24  ],
+            [   26  ],
+            [   26  ],
+            [   25  ],
+            [   19  ],
+            [   19  ],
+            [   19  ],
+            [   19  ],
+            [   19  ],
+            [   19  ],
+            [   22  ],
+            [   22  ],
+            [   22  ],
+            [   22  ],
+            [   26  ],
+            [   24  ],
+            [   24  ],
+            [   24  ],
+            [   26  ],
+            [   29  ],
+            [   32  ],
+
+
+        ];
         if (!chart.renderer.forExport) {
             setInterval(function () {
                 var point = chart.series[0].points[0],
-                    newVal,
-                    inc = Math.round((Math.random() - 0.5) * 20);
-
-                newVal = point.y + inc;
-                if (newVal < 0 || newVal > 200) {
-                    newVal = point.y - inc;
-                }
-
+                    newVal;
+                newVal = data1[count];
                 point.update(newVal);
-
+                count ++;
+                if (count ==29)
+                    count = 0;
             }, 3000);
         }
     });

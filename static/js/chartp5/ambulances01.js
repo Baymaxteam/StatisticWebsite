@@ -1,3 +1,4 @@
+var count = 0;
 $(function () {
 
     $('#container2').highcharts({
@@ -97,20 +98,50 @@ $(function () {
 
     },
     // Add some life
+
     function (chart) {
+        var data1 =
+        [
+            [   100 ],
+            [   100 ],
+            [   100 ],
+            [   100 ],
+            [   100 ],
+            [   99  ],
+            [   93  ],
+            [   97  ],
+            [   97  ],
+            [   109 ],
+            [   115 ],
+            [   115 ],
+            [   120 ],
+            [   140 ],
+            [   152 ],
+            [   156 ],
+            [   119 ],
+            [   119 ],
+            [   119 ],
+            [   119 ],
+            [   119 ],
+            [   120 ],
+            [   129 ],
+            [   122 ],
+            [   120 ],
+            [   120 ],
+            [   116 ],
+            [   116 ],
+            [   116 ],
+
+        ];
         if (!chart.renderer.forExport) {
             setInterval(function () {
                 var point = chart.series[0].points[0],
-                    newVal,
-                    inc = Math.round((Math.random() - 0.5) * 20);
-
-                newVal = point.y + inc;
-                if (newVal < 0 || newVal > 200) {
-                    newVal = point.y - inc;
-                }
-
+                    newVal;
+                newVal = data1[count];
                 point.update(newVal);
-
+                count ++;
+                if (count ==29)
+                    count = 0;
             }, 3000);
         }
     });
