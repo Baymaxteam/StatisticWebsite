@@ -13,7 +13,7 @@ $(function () {
         },
 
         title: {
-            text: '高雄縣'
+            text: '花蓮縣'
         },
 
         pane: {
