@@ -124,7 +124,7 @@ $(function () {
             },
 
             series : [{
-                name : 'AAPL Stock Price',
+                name : '急診數量',
                 data : data1,
                 tooltip: {
                     valueDecimals: 2
