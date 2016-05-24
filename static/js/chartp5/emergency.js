@@ -78,7 +78,9 @@ $(function () {
 
         // Create the chart
         $('#container7').highcharts('StockChart', {
-
+            exporting: { 
+                enabled: false 
+            },
 
             rangeSelector : {
                 selected : 5

@@ -1,5 +1,8 @@
 $(function () {
     $('#container11').highcharts({
+        exporting: { 
+            enabled: false 
+        },
         chart: {
             type: 'bar'
         },

@@ -1,14 +1,14 @@
 $(function () {
     // Create the chart
     $('#container10').highcharts({
+        exporting: { 
+            enabled: false 
+        },
         chart: {
             type: 'column'
         },
         title: {
             text: '服務量'
-        },
-        subtitle: {
-            text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
         },
         xAxis: {
             type: 'category'
