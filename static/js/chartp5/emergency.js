@@ -74,8 +74,7 @@ var data5 =
 
 ];
 $(function () {
-    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
-
+    
         // Create the chart
         $('#container7').highcharts('StockChart', {
             exporting: { 
@@ -94,7 +93,8 @@ $(function () {
                 enabled : false
             },
 
-            series : [{
+            series : 
+            [{
                 name : '台北市',
                 data : data1,
                 tooltip: {
@@ -126,5 +126,4 @@ $(function () {
                 }
             }]
         });
-    });
 });
