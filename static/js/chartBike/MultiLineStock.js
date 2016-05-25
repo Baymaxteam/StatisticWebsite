@@ -267,7 +267,7 @@ $(document).ready(function() {
             valueDecimals: 2
         },
 
-        series: seriesOptions
+        series: seriesOptionsBike
     });
     $('#container23').highcharts('StockChart', {
 
@@ -299,7 +299,7 @@ $(document).ready(function() {
             valueDecimals: 2
         },
 
-        series: seriesOptions
+        series: seriesOptionsBike
     });
     $('#container24').highcharts('StockChart', {
 
@@ -334,7 +334,7 @@ $(document).ready(function() {
             valueDecimals: 2
         },
 
-        series: seriesOptions
+        series: seriesOptionsBike
     });
     $('#container25').highcharts('StockChart', {
 
@@ -369,7 +369,7 @@ $(document).ready(function() {
             valueDecimals: 2
         },
 
-        series: seriesOptions
+        series: seriesOptionsBike
     });
     $('#container26').highcharts('StockChart', {
 
@@ -403,7 +403,7 @@ $(document).ready(function() {
             valueDecimals: 2
         },
 
-        series: seriesOptions
+        series: seriesOptionsBike
 
     });
 

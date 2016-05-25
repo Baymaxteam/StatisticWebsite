@@ -125,7 +125,7 @@ def ajax_selectFile(request):
 	return JsonResponse({'title':header, 'data':wholeData , 'statList': statList})
 
 # django part2 0510 
-def ajax_selectFile(request):
+def ajax_selectFilePart2(request):
 	respons = request.GET #return QueryDict
 	fileName = respons.get('fileName') #return value
 	CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfileP2",fileName)
