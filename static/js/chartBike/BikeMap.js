@@ -1,26 +1,14 @@
 $(document).ready(function() {
     var locations = [
-        ['Mountain View Caltrain Station', 4, 40.1143528, -74.1059731],
-        ['Beale at Market', 4, 40.2143528, -74.2059731],
-        ['2nd at Townsend', 4, 40.3143528, -74.3059731],
-        ['Embarcadero at Sansome', 4, 40.7143528, -74.0059731],
-        ['Market at Sansome', 4, 40.4143528, -74.4059731]
+        ['San Francisco', 4, 37.7621, -122.3971],
+        ['San Jose', 4, 37.33939, -121.89496]
     ];
 
     var bikenumber = [{
-        name: 'Mountain View Caltrain Station',
+        name: 'San Francisco',
         data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6, 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
     }, {
-        name: 'Beale at Market',
-        data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5,-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-    }, {
-        name: '2nd at Townsend',
-        data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0,-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-    }, {
-        name: 'Embarcadero at Sansome',
-        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8,3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-    },{
-        name: 'Market at Sansome',
+        name: 'San Jose',
         data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8,3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
     }];
 
@@ -28,10 +16,10 @@ $(document).ready(function() {
 
     iw = new google.maps.InfoWindow();
     // var geneve = new google.maps.LatLng(46.201221, 6.142187);
-    var geneve = new google.maps.LatLng(40.7143528, -74.0059731);
-
+    var geneve = new google.maps.LatLng(37.5507, -122.1460);
+       
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+        zoom: 10,
         center: new google.maps.LatLng(0.0, 0.0),
         mapTypeId: google.maps.MapTypeId.ROADMAP, // Type de carte, diff�rentes valeurs possible HYBRID, ROADMAP, SATELLITE, TERRAIN
         streetViewControl: false,

@@ -73,7 +73,7 @@ $(function() {
                                 putSparkdata = sparkDataSet3;
                                
                             }
-                            doChunk()
+                            doChunk();
 
                             $('#selectCityName').text("本年度資訊 : " + selectCityName);
                         }
