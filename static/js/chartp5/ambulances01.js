@@ -1,6 +1,6 @@
-var count = 0;
-$(function () {
 
+$(function () {
+var count = 0;
     $('#container2').highcharts({
         exporting: { 
             enabled: false 
