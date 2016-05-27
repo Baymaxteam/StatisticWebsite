@@ -1,5 +1,5 @@
 $(function () {
-
+var count = 0;
     $('#container6').highcharts({
         exporting: { 
             enabled: false 
