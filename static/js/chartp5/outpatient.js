@@ -1,14 +1,14 @@
 $(function () {
     // Create the chart
     $('#container9').highcharts({
+        exporting: { 
+            enabled: false 
+        },
         chart: {
             type: 'pie'
         },
         title: {
             text: '門診申報件數'
-        },
-        subtitle: {
-            text: 'Click the slices to view versions. Source: netmarketshare.com.'
         },
         plotOptions: {
             series: {

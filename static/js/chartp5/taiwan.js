@@ -1,3 +1,5 @@
+
+
 $(function () {
 
     // Prepare demo data
@@ -98,11 +100,6 @@ $(function () {
         title : {
             text : '26縣市流感併發重症'
         },
-
-        subtitle : {
-            text : 'Source map: <a href="https://code.highcharts.com/mapdata/countries/tw/tw-all.js">Taiwan</a>'
-        },
-
         mapNavigation: {
             enabled: true,
             buttonOptions: {

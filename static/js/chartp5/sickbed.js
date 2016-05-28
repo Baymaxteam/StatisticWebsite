@@ -1,13 +1,13 @@
 $(function () {
     $('#container8').highcharts({
+        exporting: { 
+            enabled: false 
+        },
         chart: {
             type: 'column'
         },
         title: {
             text: '病床數量'
-        },
-        subtitle: {
-            text: 'Source: WorldClimate.com'
         },
         xAxis: {
             categories: [
