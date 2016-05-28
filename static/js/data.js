@@ -199,6 +199,9 @@ $(document).ready(function() {
                 title: '統計量'
             });
             //畫統計量表格
+            console.log("test");
+            console.log(respons['statList']);
+            console.log(SelectTableHeader);
             $('#P12tableStat table').DataTable({
                 data: respons['statList'],
                 columns: SelectTableHeader,
