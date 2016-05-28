@@ -1447,288 +1447,261 @@ var m5 = [
 ]
 
 var sensordata = [m1, m2, m3, m4, m5];
+var updateFlag = false;
+var DEBUG_Log = true;
+var addPointIndex = 50;
+var mm1 = [],
+    mm2 = [],
+    mm3 = [],
+    mm4 = [],
+    mm5 = [],
+    allSensor = [];
+
 $(function() {
 
+    $("#btnUpdateFlag").click(function() {
+        updateFlag = ~updateFlag;
+        console.log(updateFlag)
+    });
 
-    var startDate = new Date(sensordata[sensordata.length - 1][0]), // Get year of last data point
-        minRate = 1,
-        maxRate = 2,
-        startPeriod,
-        date,
-        rate,
-        index;
-    var seriesOptions = [],
-        names = ['Sensor1', 'Sensor2', 'Sensor3', 'Sensor4', 'Sensor5'];
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'Control_Sensors.csv'
+    }, function(respons) {
+        DEBUG("Server response the json data : ");
+        DEBUG(respons);
+        var len = respons.data.length;
+        // get current time, and the start time is the fifth point 
+        // so startTime = currentTime - 50 point *1000ms;
+        var currentTime = new Date().getTime();
+        var startTime = currentTime - 50 * 1000;
+        mm1 = [],
+            mm2 = [],
+            mm3 = [],
+            mm4 = [],
+            mm5 = [],
+            allSensor = [];
+        var sensor1 = respons.data;
+        for (i = 0; i < len; i++) {
+            sensor1[i][5] = startTime + i * 1000;
+            mm1.push([sensor1[i][5], sensor1[i][0]]);
+            mm2.push([sensor1[i][5], sensor1[i][1]]);
+            mm3.push([sensor1[i][5], sensor1[i][2]]);
+            mm4.push([sensor1[i][5], sensor1[i][3]]);
+            mm5.push([sensor1[i][5], sensor1[i][4]]);
 
-    startDate.setMonth(startDate.getMonth() - 3); // a quarter of a year before last data point
-    startPeriod = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
 
-    for (index = sensordata.length - 1; index >= 0; index = index - 1) {
-        date = sensordata[index][0]; // data[i][0] is date
-        rate = sensordata[index][1]; // data[i][1] is exchange rate
-        if (date < startPeriod) {
-            break; // stop measuring highs and lows
-        }
-        if (rate > maxRate) {
-            maxRate = rate;
-        }
-        if (rate < minRate) {
-            minRate = rate;
-        }
-    }
-
-    for (i = 0; i < 5; i++) {
-
-        seriesOptions[i] = {
-            name: names[i],
-            data: sensordata[i]
         };
-    }
-    // Create the chart
-    $('#container').highcharts('StockChart', {
+        allSensor.push(mm1, mm2, mm3, mm4, mm5);
 
-        rangeSelector: {
-            selected: 1
-        },
+        DEBUG("get sensor1 data : ");
+        DEBUG(sensor1);
+        DEBUG(allSensor);
 
-        title: {
-            text: 'concentration change '
-        },
+        addPointIndex = plotSensorChart($('#container1'), mm1, addPointIndex, 1);
+        addPointIndex = plotSensorChart($('#container2'), mm2, addPointIndex, 2);
+        addPointIndex = plotSensorChart($('#container3'), mm3, addPointIndex, 3);
+        addPointIndex = plotSensorChart($('#container4'), mm4, addPointIndex, 4);
+        addPointIndex = plotSensorChart($('#container5'), mm5, addPointIndex, 5);
 
-        yAxis: {
-            title: {
-                text: 'Exchange rate'
-            },
-            plotLines: [{
-                value: minRate,
-                color: 'green',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter minimum'
-                }
-            }, {
-                value: maxRate,
-                color: 'red',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter maximum'
-                }
-            }]
-        },
-        series: seriesOptions
-            // series: [{
-            //     name: 'Molar',
-            //     data: sensordata,
-            //     tooltip: {
-            //         valueDecimals: 4
-            //     }
-            // }]
+        var minRate = 4.975,
+            maxRate = 4.985,
+            seriesOptions = [],
+            names = ['Sensor1', 'Sensor2', 'Sensor3', 'Sensor4', 'Sensor5'];
+
+
+        for (i = 0; i < 5; i++) {
+            seriesOptions[i] = {
+                name: names[i],
+                data: get50dataPoint(allSensor[i])
+            };
+        }
+
+        DEBUG("all senseor data : ");
+        DEBUG(seriesOptions);
+        DEBUG("plot all senseor data : ");
+        addPointIndex = plotAllSensorChart($('#container'), seriesOptions, addPointIndex);
+
     });
-    $('#container1').highcharts('StockChart', {
 
-        rangeSelector: {
-            selected: 1
-        },
 
-        title: {
-            text: 'concentration change '
-        },
-
-        yAxis: {
-            title: {
-                text: 'Exchange rate'
-            },
-            plotLines: [{
-                value: minRate,
-                color: 'green',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter minimum'
-                }
-            }, {
-                value: maxRate,
-                color: 'red',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter maximum'
-                }
-            }]
-        },
-
-        series: [{
-            name: 'Molar',
-            data: m1,
-            tooltip: {
-                valueDecimals: 4
-            }
-        }]
-    });
-    $('#container2').highcharts('StockChart', {
-
-        rangeSelector: {
-            selected: 1
-        },
-
-        title: {
-            text: 'concentration change '
-        },
-
-        yAxis: {
-            title: {
-                text: 'Exchange rate'
-            },
-            plotLines: [{
-                value: minRate,
-                color: 'green',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter minimum'
-                }
-            }, {
-                value: maxRate,
-                color: 'red',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter maximum'
-                }
-            }]
-        },
-
-        series: [{
-            name: 'Molar',
-            data: m2,
-            tooltip: {
-                valueDecimals: 4
-            }
-        }]
-    });
-    $('#container3').highcharts('StockChart', {
-
-        rangeSelector: {
-            selected: 1
-        },
-
-        title: {
-            text: 'concentration change '
-        },
-
-        yAxis: {
-            title: {
-                text: 'Exchange rate'
-            },
-            plotLines: [{
-                value: minRate,
-                color: 'green',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter minimum'
-                }
-            }, {
-                value: maxRate,
-                color: 'red',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter maximum'
-                }
-            }]
-        },
-
-        series: [{
-            name: 'Molar',
-            data: m3,
-            tooltip: {
-                valueDecimals: 4
-            }
-        }]
-    });
-    $('#container4').highcharts('StockChart', {
-
-        rangeSelector: {
-            selected: 1
-        },
-
-        title: {
-            text: 'concentration change '
-        },
-
-        yAxis: {
-            title: {
-                text: 'Exchange rate'
-            },
-            plotLines: [{
-                value: minRate,
-                color: 'green',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter minimum'
-                }
-            }, {
-                value: maxRate,
-                color: 'red',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter maximum'
-                }
-            }]
-        },
-
-        series: [{
-            name: 'Molar',
-            data: m4,
-            tooltip: {
-                valueDecimals: 4
-            }
-        }]
-    });
-    $('#container5').highcharts('StockChart', {
-
-        rangeSelector: {
-            selected: 1
-        },
-
-        title: {
-            text: 'concentration change '
-        },
-
-        yAxis: {
-            title: {
-                text: 'Exchange rate'
-            },
-            plotLines: [{
-                value: minRate,
-                color: 'green',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter minimum'
-                }
-            }, {
-                value: maxRate,
-                color: 'red',
-                dashStyle: 'shortdash',
-                width: 2,
-                label: {
-                    text: 'Last quarter maximum'
-                }
-            }]
-        },
-
-        series: [{
-            name: 'Molar',
-            data: m5,
-            tooltip: {
-                valueDecimals: 4
-            }
-        }]
-    });
 });
+
+
+function get50dataPoint(mdata) {
+    // generate an array of random data
+    var data = [],
+        i;
+
+    for (i = 0; i < 50; i += 1) {
+        data.push([
+            mdata[i][0],
+            mdata[i][1]
+        ]);
+    }
+    // console.log(data);
+    return data;
+}
+
+function DEBUG(printData) {
+    if (DEBUG_Log === true) {
+        console.log(printData)
+    }
+
+
+}
+
+
+
+function plotSensorChart(DOM, plotdata, addPointIndex, updateindex) {
+
+    DOM.highcharts('StockChart', {
+        chart: {
+            events: {
+                load: function() {
+                    // set up the updating of the chart each second
+                    var series = this.series[0];
+                    setInterval(function() {
+                        if (updateFlag) {
+                            if (updateindex == 1) {
+                                
+                                series.addPoint(mm1[addPointIndex], true, false);
+                            } else if (updateindex == 2) {
+                                series.addPoint(mm2[addPointIndex], true, false);
+                            } else if (updateindex == 3) {
+                                series.addPoint(mm3[addPointIndex], true, false);
+                            } else if (updateindex == 4) {
+                                series.addPoint(mm4[addPointIndex], true, false);
+                            } else {
+                                series.addPoint(mm5[addPointIndex], true, false);
+                            }
+                            addPointIndex++;
+                           
+                        }
+
+                    }, 1000);
+                }
+            }
+        },
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: ''
+        },
+
+        yAxis: {
+            title: {
+                text: 'Data'
+            },
+            plotLines: [{
+                value: 4.98,
+                color: 'blue',
+                dashStyle: 'shortdash',
+                width: 2,
+                label: {
+                    text: '尺寸中心'
+                }
+            }, {
+                value: 4.975,
+                color: 'green',
+                dashStyle: 'shortdash',
+                width: 2,
+                label: {
+                    text: '下界'
+                }
+            }, {
+                value: 4.985,
+                color: 'red',
+                dashStyle: 'shortdash',
+                width: 2,
+                label: {
+                    text: '上界'
+                }
+            }]
+        },
+
+        series: [{
+            name: 'Data',
+            data: get50dataPoint(plotdata),
+            tooltip: {
+                valueDecimals: 4
+            }
+        }]
+    });
+    return(addPointIndex);
+}
+
+
+function plotAllSensorChart(DOM, plotdata, addPointIndex) {
+
+    DOM.highcharts('StockChart', {
+        chart: {
+            events: {
+                load: function() {
+
+                    // set up the updating of the chart each second
+                    // console.log("reload");
+                    var series = [];
+                    for (var i = 0; i < 5; i++) {
+                        series[i] = this.series[i]
+                    }
+                    // console.log(series);
+                    setInterval(function() {
+                        if (updateFlag) {
+                            series[0].addPoint(mm1[addPointIndex], false, false);
+                            series[1].addPoint(mm2[addPointIndex], false, false);
+                            series[2].addPoint(mm3[addPointIndex], false, false);
+                            series[3].addPoint(mm4[addPointIndex], false, false);
+                            series[4].addPoint(mm5[addPointIndex], true, false);
+                            addPointIndex++;
+                        }
+
+                    }, 1000);
+                }
+            }
+        },
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: ''
+        },
+
+        yAxis: {
+            title: {
+                text: 'Data'
+            },
+            plotLines: [{
+                value: 4.98,
+                color: 'blue',
+                dashStyle: 'shortdash',
+                width: 2,
+                label: {
+                    text: '尺寸中心'
+                }
+            }, {
+                value: 4.975,
+                color: 'green',
+                dashStyle: 'shortdash',
+                width: 2,
+                label: {
+                    text: '下界'
+                }
+            }, {
+                value: 4.985,
+                color: 'red',
+                dashStyle: 'shortdash',
+                width: 2,
+                label: {
+                    text: '上界'
+                }
+            }]
+        },
+
+        series: plotdata
+    });
+
+    return addPointIndex;
+}
