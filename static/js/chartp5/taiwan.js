@@ -10,87 +10,87 @@ $(function () {
         },
         {
             "hc-key": "tw-tw",
-            "value": 1
+            "value": 0
         },
         {
             "hc-key": "tw-tp",
-            "value": 2
+            "value": 0
         },
         {
             "hc-key": "tw-ty",
-            "value": 3
+            "value": 0
         },
         {
             "hc-key": "tw-hs",
-            "value": 4
+            "value": 0
         },
         {
             "hc-key": "tw-hh",
-            "value": 5
+            "value": 0
         },
         {
             "hc-key": "tw-ml",
-            "value": 6
+            "value": 0
         },
         {
             "hc-key": "tw-th",
-            "value": 7
+            "value": 0
         },
         {
             "hc-key": "tw-nt",
-            "value": 8
+            "value": 0
         },
         {
             "hc-key": "tw-cg",
-            "value": 9
+            "value": 0
         },
         {
             "hc-key": "tw-yl",
-            "value": 10
+            "value": 0
         },
         {
             "hc-key": "tw-cs",
-            "value": 11
+            "value": 0
         },
         {
             "hc-key": "tw-ch",
-            "value": 12
+            "value": 0
         },
         {
             "hc-key": "tw-tn",
-            "value": 13
+            "value": 0
         },
         {
             "hc-key": "tw-kh",
-            "value": 14
+            "value": 0
         },
         {
             "hc-key": "tw-pt",
-            "value": 15
+            "value": 0
         },
         {
             "hc-key": "tw-il",
-            "value": 2
+            "value": 0
         },
         {
             "hc-key": "tw-hl",
-            "value": 20
+            "value": 0
         },
         {
             "hc-key": "tw-tt",
-            "value": 4
+            "value": 0
         },
         {
             "hc-key": "tw-km",
-            "value": 6
+            "value": 0
         },
         {
             "hc-key": "tw-lk",
-            "value": 7
+            "value": 0
         },
         {
             "hc-key": "tw-ph",
-            "value": 5
+            "value": 0
         }
     ];
 
