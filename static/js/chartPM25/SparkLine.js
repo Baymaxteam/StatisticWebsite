@@ -131,7 +131,7 @@ $(function() {
             arr,
             data,
             chart;
-        console.log(len);
+        // console.log(len);
         for (i = 0; i < len; i += 1) {
             $td = $($tds[i]);
             stringdata = putSparkdata[i];
@@ -157,10 +157,10 @@ $(function() {
                 },
                 chart: chart
             });
-            console.log(stringdata);
-            console.log(arr);
+            // console.log(stringdata);
+            // console.log(arr);
 
-            console.log(data);
+            // console.log(data);
 
 
             n += 1;

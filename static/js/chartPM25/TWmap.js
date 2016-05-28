@@ -1,36 +1,42 @@
 var sparkDataSet1 = [" 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
- " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"];
+    " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"
+];
 
 var sparkDataSet2 = [" 0, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
- " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"];
+    " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
+];
 
 var sparkDataSet3 = [" 0, 0, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
- " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"];
+    " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
+];
 
 var putSparkdata = sparkDataSet1;
 
+var DEBUG_Log = true;
 
 $(function() {
 
     // Prepare demo data
-    var data = [
-
-        {
+    var data = [{
             "hc-key": "tw-th",
             "value": 10
         },
-
         {
             "hc-key": "tw-cg",
             "value": 19
         },
-
         {
             "hc-key": "tw-nt",
             "value": 21
         }
     ];
 
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'PM2.5_data_2015.csv'
+    }, function(respons) {
+        DEBUG("Server response the json data : ");
+        DEBUG(respons);
+    });
     var selectCityName = "Taichung City"; // default city = Taichung City
 
     // Initiate the chart
@@ -71,7 +77,7 @@ $(function() {
                             } else {
                                 selectCityName = "忠明";
                                 putSparkdata = sparkDataSet3;
-                               
+
                             }
                             doChunk();
 
@@ -102,7 +108,7 @@ $(function() {
 
     // interactive with sparklines
 
-   Highcharts.SparkLine = function(a, b, c) {
+    Highcharts.SparkLine = function(a, b, c) {
         var hasRenderToArg = typeof a === 'string' || a.nodeName,
             options = arguments[hasRenderToArg ? 1 : 0],
             defaultOptions = {
@@ -234,7 +240,7 @@ $(function() {
                 series: [{
                     data: data,
                     pointStart: 1,
-                    color: Highcharts.getOptions().colors[i+5],
+                    color: Highcharts.getOptions().colors[i + 5],
                 }],
                 tooltip: {
                     headerFormat: '<span style="font-size: 10px">' + $td.parent().find('th').html() + ', point{point.x}:</span><br/>',
@@ -265,18 +271,13 @@ $(function() {
             // }
         }
     }
-   
+
     doChunk();
 
 });
 
-
-// if (cityName == "Taichung City") {
-//     selectCityName = 
-// } else if (cityName == "Nantou") {
-
-// } else if (cityName == "Changhua") {
-
-// } else {
-
-// }
+function DEBUG(printData) {
+    if (DEBUG_Log === true) {
+        console.log(printData)
+    }
+}
