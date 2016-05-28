@@ -196,7 +196,7 @@ def ajax_selectStreamFile(request):
 
 
 def calStatistics(wholeData):
-	statList = [["Average"], ["Sum"], ["StdDev"], ["Varrance"], ["Range"],["Max"],["Min"],["SEM"],["Kurtosis"],["Skewed"]]
+	statList = [["平均 Average"], ["總和 Sum"], ["標準差 StdDev"], ["變異數 Varrance"], ["區間 Range"],["最大值 Max"],["最小值 Min"],["平均值標準誤 SEM"],["峰度 Kurtosis"],["偏度 Skewed"]]
 	for x in range(len(wholeData[0])):
 		select_item = [row[x] for row in wholeData]
 		select_item = list(map(checkNum, select_item))

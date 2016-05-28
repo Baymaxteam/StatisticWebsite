@@ -22,19 +22,11 @@ $(function() {
         DEBUG(respons);
         var len = respons.data.length;
         // get current time, and the start time is the fifth point 
-        // so startTime = currentTime - 50 point *1000ms;
-        var currentTime = new Date().getTime();
-        var startTime = currentTime - 50 * 1000;
-        mm1 = [],
-            mm2 = [],
-            mm3 = [],
-            mm4 = [],
-            mm5 = [],
-            allSensor = [];
+        // so startTime = currentTime - 50 point *1000ms + (UTC+8);
+        var currentTime = new Date().getTime() + 8*3600*1000;
+        var startTime = currentTime - 50 * 1000 ;
         var sensorData = respons.data;
         var sensorStatList = respons.statList;
-
-
 
         // 整理sensor data
         for (i = 0; i < len; i++) {
@@ -44,11 +36,13 @@ $(function() {
             mm3.push([sensorData[i][5], sensorData[i][2]]);
             mm4.push([sensorData[i][5], sensorData[i][3]]);
             mm5.push([sensorData[i][5], sensorData[i][4]]);
-
-
         };
         allSensor.push(mm1, mm2, mm3, mm4, mm5);
 
+        DEBUG("currentTime");
+        DEBUG(currentTime);
+        DEBUG("startTime");
+        DEBUG(startTime);
         DEBUG("get sensor1 data : ");
         DEBUG(sensorData);
         DEBUG("get StatList : ");

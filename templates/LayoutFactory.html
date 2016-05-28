@@ -46,46 +46,44 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane in active" id="P11panelSensorSum">
-                    <h3 class="text-center">
-                                               資料統計量表
-                                            </h3>
-                    <div id="tableStat" class="col-md-12">
-                        <table cellspacing="0" width="100%"class="display table-bordered table-condensed text-center">
-                            
-                        </table>
-                    </div>
-                    <h3 class="text-center">Total Sensor</h3>
-                    <div class="col-md-12">
+                    <div class="row">
+                        <h3 class="text-center">資料統計量表</h3>
+                        <div class="col-md-12" id="tableStat">
+                            <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
+                            </table>
+                        </div>
+                        <h3 class="text-center">Total Sensor</h3>
                         <button id="btnUpdateFlag" class="btn btn-success btn-lg">資料更新</button>
-                        <div id="container" style="width: 100%; height: 800px;"></div>
-                       
+                        <div class="col-md-12">
+                            <div align="center" id="container" style="width: 80%; "></div>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane" id="P12panelSensors">
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="text-center">Sensor 1</h3>
-                            <div align="center" id="container1"></div>
+                            <div align="center" id="container1" style="width: 80%; "></div>
                             <br>
                         </div>
                         <div class="col-md-12">
                             <h3 class="text-center">Sensor 2</h3>
-                            <div align="center" id="container2"></div>
+                            <div align="center" id="container2" style="width: 80%;"></div>
                             <br>
                         </div>
                         <div class="col-md-12">
                             <h3 class="text-center">Sensor 3</h3>
-                            <div align="center" id="container3"></div>
+                            <div align="center" id="container3" style="width: 80%;"></div>
                             <br>
                         </div>
                         <div class="col-md-12">
                             <h3 class="text-center">Sensor 4</h3>
-                            <div align="center" id="container4"></div>
+                            <div align="center" id="container4" style="width: 80%;"></div>
                             <br>
                         </div>
                         <div class="col-md-12">
                             <h3 class="text-center">Sensor 5</h3>
-                            <div align="center" id="container5"></div>
+                            <div align="center" id="container5" style="width: 80%;"></div>
                             <br>
                         </div>
                         <div class="col-md-12">
@@ -97,7 +95,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <footer>
             <div class="row">
@@ -106,7 +103,6 @@
             </div>
         </footer>
     </main>
-
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
