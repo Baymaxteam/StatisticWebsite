@@ -10,6 +10,7 @@ var mm1 = [],
 
 $(function() {
 
+
     $("#btnUpdateFlag").click(function() {
         updateFlag = ~updateFlag;
         console.log(updateFlag)
