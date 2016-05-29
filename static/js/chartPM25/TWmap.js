@@ -1,16 +1,27 @@
-var sparkDataSet1 = [" 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
+var DataSet1ThisYear = [" 14, 14, 13, 13, 14 ", " 14, 14, 13, 13, 14 ; column",
     " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"
 ];
 
-var sparkDataSet2 = [" 0, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
+var DataSet2ThisYear = [" 100, 14, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
     " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
 ];
 
-var sparkDataSet3 = [" 0, 0, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
+var DataSet3ThisYear = [" 1, 0, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
     " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
 ];
 
-var putSparkdata = sparkDataSet1;
+var DataSet1LastYear = [" 14, 14, 13, 13, 14 ", " 14, 14, 13, 13, 14 ; column",
+    " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"
+];
+
+var DataSet2LastYear = [" 100, 14, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
+    " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
+];
+
+var DataSet3LastYear = [" 1, 0, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
+    " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
+];
+
 var DEBUG_Log = true;
 
 $(function() {
@@ -21,12 +32,143 @@ $(function() {
     }, function(respons) {
         DEBUG("Server response the json data : ");
         DEBUG(respons);
+
+        var i, j, temp1 = [],temp2 = [],temp3 = [];
+        var len = respons['data'].length;
+        var tmpdata = respons['data'];
+        for (i = 0; i < 5; i++) { 
+            for (j = 0; j < 48; j++) {
+                temp1.push(' ' + tmpdata[j][i+4].toString());
+                temp2.push(' ' + tmpdata[j][i+11].toString());
+                temp3.push(' ' + tmpdata[j][i+18].toString());
+            }
+            // DEBUG(temp.join());
+            DataSet1LastYear[i] = temp1.join() + ' ; column';
+            DataSet2LastYear[i] = temp2.join() + ' ; column';
+            DataSet3LastYear[i] = temp3.join() + ' ; column';
+            temp1 = [];
+            temp2 = [];
+            temp3 = [];
+        }
+        // interactive with sparklines
+        doChunk($('td[data-sparkline2]'),DataSet1LastYear);
+    });
+
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'PM2.5_data_2016.csv'
+    }, function(respons) {
+        DEBUG("Server response the json data : ");
+        DEBUG(respons);
+
+        var i, j, temp1 = [],temp2 = [],temp3 = [];
+        var len = respons['data'].length;
+        var tmpdata = respons['data'];
+        for (i = 0; i < 5; i++) { 
+            for (j = 0; j < 48; j++) {
+                temp1.push(' ' + tmpdata[j][i+4].toString());
+                temp2.push(' ' + tmpdata[j][i+11].toString());
+                temp3.push(' ' + tmpdata[j][i+18].toString());
+            }
+            // DEBUG(temp.join());
+             
+            DataSet1ThisYear[i] = temp1.join() + ' ; column';
+            DataSet2ThisYear[i] = temp2.join() + ' ; column';
+            DataSet3ThisYear[i] = temp3.join() + ' ; column';
+            temp1 = [];
+            temp2 = [];
+            temp3 = [];
+        }
+        // interactive with sparklines
+        doChunk($('td[data-sparkline1]'),DataSet1ThisYear);
     });
 
 
     plotTWMapChart($('#containerTWMap'));
 
-    // interactive with sparklines
+
+
+});
+
+function DEBUG(printData) {
+    if (DEBUG_Log === true) {
+        console.log(printData)
+    }
+}
+
+function plotTWMapChart(DOM) {
+    var data = [{
+        "hc-key": "tw-th",
+        // "value": 10
+    }, {
+        "hc-key": "tw-cg",
+        // "value": 19
+    }, {
+        "hc-key": "tw-nt",
+        // "value": 21
+    }];
+
+    DOM.highcharts('Map', {
+        title: {
+            text: 'PM2.5 氣體分布資訊'
+        },
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0
+        },
+        plotOptions: {
+            series: {
+                point: {
+                    events: {
+                        click: function() {
+                            // alert(this.name);
+                            var CityName = this.name;
+                            console.log(CityName);
+                            if (CityName === "Nantou") {
+                                doChunk(sparkDataSet1);
+                                CityName = "埔里";
+                            } else if (CityName === "Changhua") {
+                                doChunk(sparkDataSet2);
+                                CityName = "線西";
+                            } else {
+                                doChunk(sparkDataSet3);
+                                CityName = "彰化";
+                            }
+                            $('#thisYearCityName').text("本年度資訊 : " + CityName);
+                            $('#lastYearCityName').text("去年度資訊 : " + CityName);
+                        }
+
+                    }
+                }
+            }
+        },
+
+        series: [{
+            data: data,
+            mapData: Highcharts.maps['countries/tw/tw-all'],
+            joinBy: 'hc-key',
+            name: 'PM25',
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }]
+    });
+
+}
+
+function doChunk(DOM, selectCityData) {
+
     Highcharts.SparkLine = function(a, b, c) {
         var hasRenderToArg = typeof a === 'string' || a.nodeName,
             options = arguments[hasRenderToArg ? 1 : 0],
@@ -126,111 +268,35 @@ $(function() {
             new Highcharts.Chart(options, b);
     };
 
-    doChunk(sparkDataSet1);
 
-    // Creating 153 sparkline charts is quite fast in modern browsers, but IE8 and mobile
-    // can take some seconds, so we split the input into chunks and apply them in timeouts
-    // in order avoid locking up the browser process and allow interaction.
-
-
-});
-
-function DEBUG(printData) {
-    if (DEBUG_Log === true) {
-        console.log(printData)
-    }
-}
-
-function plotTWMapChart(DOM) {
-    var data = [{
-        "hc-key": "tw-th",
-        // "value": 10
-    }, {
-        "hc-key": "tw-cg",
-        // "value": 19
-    }, {
-        "hc-key": "tw-nt",
-        // "value": 21
-    }];
-
-    DOM.highcharts('Map', {
-        title: {
-            text: 'PM2.5 氣體分布資訊'
-        },
-        mapNavigation: {
-            enabled: true,
-            buttonOptions: {
-                verticalAlign: 'bottom'
-            }
-        },
-
-        colorAxis: {
-            min: 0
-        },
-        plotOptions: {
-            series: {
-                point: {
-                    events: {
-                        click: function() {
-                            // alert(this.name);
-                            var selectCityName = this.name;
-                            console.log(selectCityName);
-                            if (selectCityName === "Nantou") {
-                                doChunk(sparkDataSet1);
-                            } else if (selectCityName === "Changhua") {
-                                doChunk(sparkDataSet2);
-                            } else {
-                                doChunk(sparkDataSet3);
-                            }
-                            $('#selectCityName').text("本年度資訊 : " + selectCityName);
-                        }
-
-                    }
-                }
-            }
-        },
-
-        series: [{
-            data: data,
-            mapData: Highcharts.maps['countries/tw/tw-all'],
-            joinBy: 'hc-key',
-            name: 'PM25',
-            states: {
-                hover: {
-                    color: '#BADA55'
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                format: '{point.name}'
-            }
-        }]
-    });
-
-}
-
-function doChunk(selectCityData) {
     var start = +new Date(),
-        $tds = $('td[data-sparkline]'),
-        fullLen = $tds.length,
+        $tds1 = DOM,
+        fullLen = $tds1.length,
         n = 0;
+
     var time = +new Date(),
         i,
-        len = $tds.length,
+        len = $tds1.length,
         $td,
-        stringdata,
+        stringdata = "",
         arr,
         data,
         chart;
 
-
+    // DEBUG("$tds1");
+    // DEBUG($tds1);
     for (i = 0; i < len; i += 1) {
 
-        $td = $($tds[i]);
+        $td = $($tds1[i]);
         stringdata = selectCityData[i];
         arr = stringdata.split('; ');
         data = $.map(arr[0].split(', '), parseFloat);
         chart = {};
+        // DEBUG("stringdata");
+        // DEBUG(stringdata);
+        // DEBUG(arr);
+        // DEBUG("data");
+        // DEBUG(data);
 
         if (arr[1]) {
             chart.type = arr[1];
@@ -239,10 +305,10 @@ function doChunk(selectCityData) {
             series: [{
                 data: data,
                 pointStart: 1,
-                color: Highcharts.getOptions().colors[i + 5],
+                color: Highcharts.getOptions().colors[i],
             }],
             tooltip: {
-                headerFormat: '<span style="font-size: 10px">' + $td.parent().find('th').html() + ', point{point.x}:</span><br/>',
+                headerFormat: '<span style="font-size: 10px">' + $td.parent().find('th').html() + ', hr{point.x}:</span><br/>',
                 pointFormat: '<b>{point.y}.0</b>'
             },
             exporting: {
@@ -258,8 +324,8 @@ function doChunk(selectCityData) {
         n += 1;
 
         // If the process takes too much time, run a timeout to allow interaction with the browser
-        if (new Date() - time > 500) {
-            $tds.splice(0, i + 1);
+        if (new Date() - time > 1000) {
+            $tds1.splice(0, i + 1);
             setTimeout(doChunk, 0);
             break;
         }
