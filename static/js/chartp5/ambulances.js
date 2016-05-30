@@ -1,3 +1,7 @@
+
+
+
+$(function () {
 var updateFlag = false;
 var DEBUG_Log = true;
 var addPointIndex = 50;
@@ -6,9 +10,6 @@ var mm1 = [],
     mm3 = [],
     mm4 = [],
     mm5 = [];
-
-$(function () {
-
 
 function DEBUG(printData) {
     if (DEBUG_Log === true) {
