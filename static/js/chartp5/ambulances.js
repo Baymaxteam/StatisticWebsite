@@ -1,6 +1,4 @@
 
-
-
 $(function () {
 var updateFlag = false;
 var DEBUG_Log = true;
@@ -25,7 +23,7 @@ $.get('/ajax_selectFilePart2/', {
     }, function(respons) {
         DEBUG("Server response the json data : ");
         DEBUG(respons);
-        var len = respons.data.length;
+        var len = respons.data[0].length;
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
         
@@ -34,14 +32,13 @@ $.get('/ajax_selectFilePart2/', {
 
         // 整理sensor data
         for (i = 0; i < len; i++) {
-            mm1.push([sensorData[i][0]]);
-            mm2.push([sensorData[i][1]]);
-            mm3.push([sensorData[i][2]]);
-            mm4.push([sensorData[i][3]]);
-            mm5.push([sensorData[i][4]]);
+            mm1.push([sensorData[0][i]]);
+            mm2.push([sensorData[1][i]]);
+            mm3.push([sensorData[2][i]]);
+            mm4.push([sensorData[3][i]]);
+            mm5.push([sensorData[4][i]]);
         };
         DEBUG(mm1);
-        DEBUG(mm2);
         ambulance1($('#container2'), mm1);
         ambulance2($('#container3'), mm2);
         ambulance3($('#container4'), mm3);

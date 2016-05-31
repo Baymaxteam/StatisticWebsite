@@ -232,7 +232,7 @@ $(function () {
                 }
 
 
-                if (count ==84)
+                if (count ==83)
                     count = 0;
                 else
                     count ++;
