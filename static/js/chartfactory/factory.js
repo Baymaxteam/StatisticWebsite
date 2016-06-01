@@ -208,7 +208,7 @@ function plotAllSensorChart(DOM, plotdata, addPointIndex) {
                     // console.log(series);
                     setInterval(function() {
                         // enable the update button and the addpoint is less than the dataset length.
-                        if (updateFlag || (addPointIndex <= mm1.length)) {
+                        if (updateFlag && (addPointIndex <= mm1.length)) {
                             series[0].addPoint(mm1[addPointIndex], false, false);
                             series[1].addPoint(mm2[addPointIndex], false, false);
                             series[2].addPoint(mm3[addPointIndex], false, false);

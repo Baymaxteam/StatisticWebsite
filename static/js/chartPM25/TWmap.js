@@ -1,3 +1,4 @@
+// 宗明、埔里、線西
 var DataSet1ThisYear = [" 14, 14, 13, 13, 14 ", " 14, 14, 13, 13, 14 ; column",
     " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"
 ];
@@ -26,7 +27,8 @@ var DEBUG_Log = true;
 
 $(function() {
 
-    // Prepare demo data
+
+    // Prepare demo data 2015 and 2016
     $.get('/ajax_selectFilePart2/', {
         'fileName': 'PM2.5_data_2015.csv'
     }, function(respons) {
@@ -36,7 +38,7 @@ $(function() {
         var i, j, temp1 = [],temp2 = [],temp3 = [];
         var len = respons['data'].length;
         var tmpdata = respons['data'];
-        for (i = 0; i < 5; i++) { 
+        for (i = 0; i < 6; i++) { 
             for (j = 0; j < 48; j++) {
                 temp1.push(' ' + tmpdata[j][i+4].toString());
                 temp2.push(' ' + tmpdata[j][i+11].toString());
@@ -63,7 +65,7 @@ $(function() {
         var i, j, temp1 = [],temp2 = [],temp3 = [];
         var len = respons['data'].length;
         var tmpdata = respons['data'];
-        for (i = 0; i < 5; i++) { 
+        for (i = 0; i < 6; i++) { 
             for (j = 0; j < 48; j++) {
                 temp1.push(' ' + tmpdata[j][i+4].toString());
                 temp2.push(' ' + tmpdata[j][i+11].toString());
@@ -82,9 +84,7 @@ $(function() {
         doChunk($('td[data-sparkline1]'),DataSet1ThisYear);
     });
 
-
     plotTWMapChart($('#containerTWMap'));
-
 
 
 });
@@ -129,15 +129,19 @@ function plotTWMapChart(DOM) {
                             // alert(this.name);
                             var CityName = this.name;
                             console.log(CityName);
+                            // 宗明、埔里、線西
                             if (CityName === "Nantou") {
-                                doChunk(sparkDataSet1);
+                                doChunk($('td[data-sparkline2]'),DataSet2LastYear);
+                                doChunk($('td[data-sparkline1]'),DataSet2ThisYear);
                                 CityName = "埔里";
                             } else if (CityName === "Changhua") {
-                                doChunk(sparkDataSet2);
+                                doChunk($('td[data-sparkline2]'),DataSet3LastYear);
+                                doChunk($('td[data-sparkline1]'),DataSet3ThisYear);
                                 CityName = "線西";
                             } else {
-                                doChunk(sparkDataSet3);
-                                CityName = "彰化";
+                                doChunk($('td[data-sparkline2]'),DataSet1LastYear);
+                                doChunk($('td[data-sparkline1]'),DataSet1ThisYear);
+                                CityName = "宗明";
                             }
                             $('#thisYearCityName').text("本年度資訊 : " + CityName);
                             $('#lastYearCityName').text("去年度資訊 : " + CityName);
