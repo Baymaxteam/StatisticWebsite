@@ -59,7 +59,7 @@ $(function () {
         };
         data.push(data1,data2,data3,data4,data5);
 
-        emergency($('#container7'), data1, data2, data3, data4, data5);
+        emergency($('#container7'), data);
 
         var SelectTableHeader = [];
         SelectTableHeader.push({ title: '統計量' });
@@ -87,7 +87,7 @@ $(function () {
 });
 
 
-function emergency(DOM, data_A, data_B, data_C, data_D, data_E)
+function emergency(DOM, data)
 {
         // Create the chart
         DOM.highcharts('StockChart', {
@@ -110,31 +110,31 @@ function emergency(DOM, data_A, data_B, data_C, data_D, data_E)
             series : 
             [{
                 name : '台北市',
-                data : data_A,
+                data : data[0],
                 tooltip: {
                     valueDecimals: 0
                 }
             },{
                 name: '台中市',
-                data: data_B,
+                data: data[1],
                 tooltip: {
                     valueDecimals: 0
                 }
             },{
                 name: '高雄市',
-                data: data_C,
+                data: data[2],
                 tooltip: {
                     valueDecimals: 0
                 }
             },{
                 name: '新北市',
-                data: data_D,
+                data: data[3],
                 tooltip: {
                     valueDecimals: 0
                 }
             },{
                 name: '花蓮市',
-                data: data_E,
+                data: data[4],
                 tooltip: {
                     valueDecimals: 0
                 }
