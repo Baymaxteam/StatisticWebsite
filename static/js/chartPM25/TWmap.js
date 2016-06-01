@@ -1,49 +1,116 @@
-var sparkDataSet1 = [" 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
- " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"];
+// 宗明、埔里、線西
+var DataSet1ThisYear = [" 14, 14, 13, 13, 14 ", " 14, 14, 13, 13, 14 ; column",
+    " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"
+];
 
-var sparkDataSet2 = [" 0, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
- " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"];
+var DataSet2ThisYear = [" 100, 14, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
+    " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
+];
 
-var sparkDataSet3 = [" 0, 0, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column",
- " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"];
+var DataSet3ThisYear = [" 1, 0, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
+    " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
+];
 
-var putSparkdata = sparkDataSet1;
+var DataSet1LastYear = [" 14, 14, 13, 13, 14 ", " 14, 14, 13, 13, 14 ; column",
+    " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"
+];
 
+var DataSet2LastYear = [" 100, 14, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
+    " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
+];
+
+var DataSet3LastYear = [" 1, 0, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
+    " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
+];
+
+var DEBUG_Log = true;
 
 $(function() {
 
-    // Prepare demo data
-    var data = [
 
-        {
-            "hc-key": "tw-th",
-            "value": 10
-        },
+    // Prepare demo data 2015 and 2016
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'PM2.5_data_2015.csv'
+    }, function(respons) {
+        DEBUG("Server response the json data : ");
+        DEBUG(respons);
 
-        {
-            "hc-key": "tw-cg",
-            "value": 19
-        },
-
-        {
-            "hc-key": "tw-nt",
-            "value": 21
+        var i, j, temp1 = [],temp2 = [],temp3 = [];
+        var len = respons['data'].length;
+        var tmpdata = respons['data'];
+        for (i = 0; i < 6; i++) { 
+            for (j = 0; j < 48; j++) {
+                temp1.push(' ' + tmpdata[j][i+4].toString());
+                temp2.push(' ' + tmpdata[j][i+11].toString());
+                temp3.push(' ' + tmpdata[j][i+18].toString());
+            }
+            // DEBUG(temp.join());
+            DataSet1LastYear[i] = temp1.join() + ' ; column';
+            DataSet2LastYear[i] = temp2.join() + ' ; column';
+            DataSet3LastYear[i] = temp3.join() + ' ; column';
+            temp1 = [];
+            temp2 = [];
+            temp3 = [];
         }
-    ];
+        // interactive with sparklines
+        doChunk($('td[data-sparkline2]'),DataSet1LastYear);
+    });
 
-    var selectCityName = "Taichung City"; // default city = Taichung City
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'PM2.5_data_2016.csv'
+    }, function(respons) {
+        DEBUG("Server response the json data : ");
+        DEBUG(respons);
 
-    // Initiate the chart
-    $('#container').highcharts('Map', {
+        var i, j, temp1 = [],temp2 = [],temp3 = [];
+        var len = respons['data'].length;
+        var tmpdata = respons['data'];
+        for (i = 0; i < 6; i++) { 
+            for (j = 0; j < 48; j++) {
+                temp1.push(' ' + tmpdata[j][i+4].toString());
+                temp2.push(' ' + tmpdata[j][i+11].toString());
+                temp3.push(' ' + tmpdata[j][i+18].toString());
+            }
+            // DEBUG(temp.join());
+             
+            DataSet1ThisYear[i] = temp1.join() + ' ; column';
+            DataSet2ThisYear[i] = temp2.join() + ' ; column';
+            DataSet3ThisYear[i] = temp3.join() + ' ; column';
+            temp1 = [];
+            temp2 = [];
+            temp3 = [];
+        }
+        // interactive with sparklines
+        doChunk($('td[data-sparkline1]'),DataSet1ThisYear);
+    });
 
+    plotTWMapChart($('#containerTWMap'));
+
+
+});
+
+function DEBUG(printData) {
+    if (DEBUG_Log === true) {
+        console.log(printData)
+    }
+}
+
+function plotTWMapChart(DOM) {
+    var data = [{
+        "hc-key": "tw-th",
+        // "value": 10
+    }, {
+        "hc-key": "tw-cg",
+        // "value": 19
+    }, {
+        "hc-key": "tw-nt",
+        // "value": 21
+    }];
+
+    DOM.highcharts('Map', {
         title: {
             text: 'PM2.5 氣體分布資訊'
         },
-
-        subtitle: {
-            text: 'Source map: <a href="https://code.highcharts.com/mapdata/countries/tw/tw-all.js">Taiwan</a>'
-        },
-
         mapNavigation: {
             enabled: true,
             buttonOptions: {
@@ -60,22 +127,24 @@ $(function() {
                     events: {
                         click: function() {
                             // alert(this.name);
-                            selectCityName = this.name;
-                            console.log(selectCityName);
-                            if (selectCityName === "Nantou") {
-                                selectCityName = "埔里";
-                                putSparkdata = sparkDataSet1;
-                            } else if (selectCityName === "Changhua") {
-                                selectCityName = "線西";
-                                putSparkdata = sparkDataSet2;
+                            var CityName = this.name;
+                            console.log(CityName);
+                            // 宗明、埔里、線西
+                            if (CityName === "Nantou") {
+                                doChunk($('td[data-sparkline2]'),DataSet2LastYear);
+                                doChunk($('td[data-sparkline1]'),DataSet2ThisYear);
+                                CityName = "埔里";
+                            } else if (CityName === "Changhua") {
+                                doChunk($('td[data-sparkline2]'),DataSet3LastYear);
+                                doChunk($('td[data-sparkline1]'),DataSet3ThisYear);
+                                CityName = "線西";
                             } else {
-                                selectCityName = "忠明";
-                                putSparkdata = sparkDataSet3;
-                               
+                                doChunk($('td[data-sparkline2]'),DataSet1LastYear);
+                                doChunk($('td[data-sparkline1]'),DataSet1ThisYear);
+                                CityName = "宗明";
                             }
-                            doChunk();
-
-                            $('#selectCityName').text("本年度資訊 : " + selectCityName);
+                            $('#thisYearCityName').text("本年度資訊 : " + CityName);
+                            $('#lastYearCityName').text("去年度資訊 : " + CityName);
                         }
 
                     }
@@ -100,9 +169,11 @@ $(function() {
         }]
     });
 
-    // interactive with sparklines
+}
 
-   Highcharts.SparkLine = function(a, b, c) {
+function doChunk(DOM, selectCityData) {
+
+    Highcharts.SparkLine = function(a, b, c) {
         var hasRenderToArg = typeof a === 'string' || a.nodeName,
             options = arguments[hasRenderToArg ? 1 : 0],
             defaultOptions = {
@@ -201,82 +272,71 @@ $(function() {
             new Highcharts.Chart(options, b);
     };
 
+
     var start = +new Date(),
-        $tds = $('td[data-sparkline]'),
-        fullLen = $tds.length,
+        $tds1 = DOM,
+        fullLen = $tds1.length,
         n = 0;
 
+    var time = +new Date(),
+        i,
+        len = $tds1.length,
+        $td,
+        stringdata = "",
+        arr,
+        data,
+        chart;
 
-    // Creating 153 sparkline charts is quite fast in modern browsers, but IE8 and mobile
-    // can take some seconds, so we split the input into chunks and apply them in timeouts
-    // in order avoid locking up the browser process and allow interaction.
-    function doChunk() {
-        var time = +new Date(),
-            i,
-            len = $tds.length,
-            $td,
-            stringdata,
-            arr,
-            data,
-            chart;
-        console.log(len);
-        for (i = 0; i < len; i += 1) {
-            $td = $($tds[i]);
-            stringdata = putSparkdata[i];
-            arr = stringdata.split('; ');
-            data = $.map(arr[0].split(', '), parseFloat);
-            chart = {};
+    // DEBUG("$tds1");
+    // DEBUG($tds1);
+    for (i = 0; i < len; i += 1) {
 
-            if (arr[1]) {
-                chart.type = arr[1];
-            }
-            $td.highcharts('SparkLine', {
-                series: [{
-                    data: data,
-                    pointStart: 1,
-                    color: Highcharts.getOptions().colors[i+5],
-                }],
-                tooltip: {
-                    headerFormat: '<span style="font-size: 10px">' + $td.parent().find('th').html() + ', point{point.x}:</span><br/>',
-                    pointFormat: '<b>{point.y}.0</b>'
-                },
-                exporting: {
-                    enabled: false
-                },
-                chart: chart
-            });
-            // console.log(stringdata);
-            // console.log(arr);
-            // console.log(data);
+        $td = $($tds1[i]);
+        stringdata = selectCityData[i];
+        arr = stringdata.split('; ');
+        data = $.map(arr[0].split(', '), parseFloat);
+        chart = {};
+        // DEBUG("stringdata");
+        // DEBUG(stringdata);
+        // DEBUG(arr);
+        // DEBUG("data");
+        // DEBUG(data);
 
-
-            n += 1;
-
-            // If the process takes too much time, run a timeout to allow interaction with the browser
-            if (new Date() - time > 500) {
-                $tds.splice(0, i + 1);
-                setTimeout(doChunk, 0);
-                break;
-            }
-
-            // Print a feedback on the performance
-            // if (n === fullLen) {
-            //     $('#result').html('Generated ' + fullLen + ' sparklines in ' + (new Date() - start) + ' ms');
-            // }
+        if (arr[1]) {
+            chart.type = arr[1];
         }
+        $td.highcharts('SparkLine', {
+            series: [{
+                data: data,
+                pointStart: 1,
+                color: Highcharts.getOptions().colors[i],
+            }],
+            tooltip: {
+                headerFormat: '<span style="font-size: 10px">' + $td.parent().find('th').html() + ', hr{point.x}:</span><br/>',
+                pointFormat: '<b>{point.y}.0</b>'
+            },
+            exporting: {
+                enabled: false
+            },
+            chart: chart
+        });
+        // console.log(stringdata);
+        // console.log(arr);
+        // console.log(data);
+
+
+        n += 1;
+
+        // If the process takes too much time, run a timeout to allow interaction with the browser
+        if (new Date() - time > 1000) {
+            $tds1.splice(0, i + 1);
+            setTimeout(doChunk, 0);
+            break;
+        }
+
+        // Print a feedback on the performance
+        // if (n === fullLen) {
+        //     $('#result').html('Generated ' + fullLen + ' sparklines in ' + (new Date() - start) + ' ms');
+        // }
     }
-   
-    doChunk();
-
-});
-
-
-// if (cityName == "Taichung City") {
-//     selectCityName = 
-// } else if (cityName == "Nantou") {
-
-// } else if (cityName == "Changhua") {
-
-// } else {
-
-// }
+}

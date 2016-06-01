@@ -16,7 +16,7 @@ $(function() {
 
         var dt = new Date();
         var timenow = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-        console.log(timenow);
+        // console.log(timenow);
         // split the data set into ohlc and volume
         var data = test;
         var volume = [],

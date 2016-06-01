@@ -42,91 +42,81 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-4">
-                    <div id="container" style="height: 
-                        500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+                    <div id="containerTWMap" style="height: 
+                            500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
                 </div>
-                <div class="col-md-4">
-                    <h4 class="text-center" id="selectCityName">本年度資訊 : 忠明</h4>
-                    <table id="table-sparkline1" align="center" >
+                <div class="col-md-7 col-md-offset-1">
+                    <h4 class="text-center" id="thisYearCityName">本年度資訊 : 忠明</h4>
+                    <table id="table-sparkline1" align="center" cellspacing="0" width="100%" class="display table-condensed text-center">
                         <thead>
                             <tr>
-                              
                                 <th>氣體種類</th>
                                 <th>資訊</th>
                             </tr>
                         </thead>
                         <tbody id="tbody-sparkline">
                             <tr>
-                            
                                 <th>Temp</th>
-                                <td id="sparkData1" data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14 ; column"/>
-                            </tr>
-                                                        <tr>
-                                                     
-                                <th>PM10</th>
-                                <td id="sparkData2" data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14 ; column"/>
-                            </tr>
-                                                        <tr>
-                                                       
-                                <th>PM2.5</th>
-                                <td id="sparkData3" data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14" />
-                            </tr>
-                                                        <tr>
-                                                       
-                                <th>RH</th>
-                                <td id="sparkData4" data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14; area"/>
+                                <td id="sparkData1" data-sparkline1="" />
                             </tr>
                             <tr>
-                            
-                                <th>Wind</th>
-                                <td id="sparkData5" data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14 ; line"/>
+                                <th>PM10</th>
+                                <td id="sparkData2" data-sparkline1="" />
                             </tr>
-                            
+                            <tr>
+                                <th>PM2.5</th>
+                                <td id="sparkData3" data-sparkline1="" />
+                            </tr>
+                            <tr>
+                                <th>Rain</th>
+                                <td id="sparkData4" data-sparkline1="" />
+                            </tr>
+                            <tr>
+                                <th>RH</th>
+                                <td id="sparkData5" data-sparkline1="15, 15, 15, 14, 14, 14, 13, 13, 14; area" />
+                            </tr>
+                            <tr>
+                                <th>Wind</th>
+                                <td id="sparkData6" data-sparkline1="15, 15, 15, 14, 14, 14, 13, 13, 14 ; line" />
+                            </tr>
                         </tbody>
                     </table>
-                        
-                </div>
-<!--                 <div class="col-md-4">
-                    <h4 class="text-center">去年度資訊</h4>
-                    <table id="table-sparkline2" align="center" >
+                    <h4 class="text-center" id="lastYearCityName">去年度資訊 : 忠明</h4>
+                    <table id="table-sparkline2" align="center" width="100%" class="display table-condensed text-center">
                         <thead>
                             <tr>
-                                <th>城市</th>
                                 <th>氣體種類</th>
                                 <th>資訊</th>
                             </tr>
                         </thead>
                         <tbody id="tbody-sparkline">
                             <tr>
-                                <th>忠明</th>
                                 <th>Temp</th>
-                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
-                            </tr>
-                                                        <tr>
-                                                        <th></th>
-                                <th>PM10</th>
-                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
-                            </tr>
-                                                        <tr>
-                                                        <th></th>
-                                <th>PM2.5</th>
-                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
-                            </tr>
-                                                        <tr>
-                                                        <th></th>
-                                <th>RH</th>
-                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                                <td id="sparkData1" data-sparkline2="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14 ; column" />
                             </tr>
                             <tr>
-                            <th></th>
-                                <th>Wind</th>
-
-                                <td data-sparkline="15, 15, 15, 14, 14, 14, 13, 13, 14, 15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                                <th>PM10</th>
+                                <td id="sparkData2" data-sparkline2="15, 15, 15, 14, 14, 14, 13, 13, 14 ; column" />
                             </tr>
-                            
+                            <tr>
+                                <th>PM2.5</th>
+                                <td id="sparkData3" data-sparkline2="15, 15, 15, 14, 14, 14, 13, 13, 14" />
+                            </tr>
+                            <tr>
+                                <th>Rain</th>
+                                <td id="sparkData4" data-sparkline2="15, 15, 15, 14, 14, 14, 13, 13, 14; area" />
+                            </tr>
+                                                        <tr>
+                                <th>RH</th>
+                                <td id="sparkData5" data-sparkline2="" />
+                            </tr>
+                            <tr>
+                                <th>Wind</th>
+                                <td id="sparkData6" data-sparkline2="15, 15, 15, 14, 14, 14, 13, 13, 14 ; line" />
+                            </tr>
                         </tbody>
                     </table>
-                </div> -->
+                </div>
             </div>
         </div>
         <br>
@@ -138,7 +128,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-9">
-                    <div id="container1" style="height: 600px; min-width: 310px"></div>
+                    <div id="containerPM25City" class="chartsynchronize" style="min-height: 1000px; min-width: 310px"></div>
                 </div>
                 <div class="col-md-3">
                     <div class="btn-group">
@@ -157,6 +147,14 @@
                 </div>
             </div>
         </div>
+
+        <h1 class="text-center">PM2.5氣體BOX</h1>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div id="containerPM25Box"></div>
+            </div>
+        </div>
+
         <!--    part2 -->
         <br>
         <p class="bg-info">
@@ -168,7 +166,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-9">
-                    <div id="container2" sclass="chartsynchronize"></div>
+                    <div id="container1" style="height: 600px; min-width: 310px"></div>
                 </div>
                 <div class="col-md-3">
                     <div class="btn-group">
@@ -207,11 +205,13 @@
     <script src="//code.highcharts.com/maps/modules/map.js"></script>
     <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/mapdata/countries/tw/tw-all.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <!-- extra chart api -->
     <script src="{% static "js/chartPM25/TWmap.js" %}"></script>
     <script src="{% static "js/chartPM25/SparkLine.js" %}"></script>
     <script src="{% static "js/chartPM25/MultiCompareChart.js" %}"></script>
     <script src="{% static "js/chartPM25/synchronize.js" %}"></script>
+    <script src="{% static "js/chartPM25/Boxplot.js" %}"></script>
 
 </body>
 

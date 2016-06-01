@@ -40,7 +40,7 @@ $(function() {
      * In order to synchronize tooltips and crosshairs, override the
      * built-in events with handlers defined on the parent element.
      */
-    $('#container2').bind('mousemove touchmove touchstart', function(e) {
+    $('#containerPM25City').bind('mousemove touchmove touchstart', function(e) {
         var chart,
             point,
             i,
@@ -99,73 +99,73 @@ $(function() {
     //     return [activity.xData[j], val];
     // });
     var dataset = PM25data.datasets;
-    for (i =0; i < dataset.length; i++ ){
+    for (i = 0; i < dataset.length; i++) {
         $('<div class="chartsynchronize">')
-        .appendTo('#container2')
-        .highcharts({
-            exporting: {
-                enabled: false
-            },
-            chart: {
-                marginLeft: 40, // Keep all charts left aligned
-                spacingTop: 20,
-                spacingBottom: 20
-            },
-            title: {
-                text: dataset[i].name,
-                align: 'left',
-                margin: 0,
-                x: 30
-            },
-            credits: {
-                enabled: false
-            },
-            legend: {
-                enabled: false
-            },
-            xAxis: {
-                crosshair: true,
-                events: {
-                    setExtremes: syncExtremes
+            .appendTo('#containerPM25City')
+            .highcharts({
+                exporting: {
+                    enabled: false
                 },
-                labels: {
-                    format: '{value} km'
-                }
-            },
-            yAxis: {
+                chart: {
+                    marginLeft: 40, // Keep all charts left aligned
+                    spacingTop: 20,
+                    spacingBottom: 20
+                },
                 title: {
-                    text: null
-                }
-            },
-            tooltip: {
-                positioner: function() {
-                    return {
-                        x: this.chart.chartWidth - this.label.width, // right aligned
-                        y: -1 // align to title
-                    };
+                    text: dataset[i].name,
+                    align: 'left',
+                    margin: 0,
+                    x: 30
                 },
-                borderWidth: 0,
-                backgroundColor: 'none',
-                pointFormat: '{point.y}',
-                headerFormat: '',
-                shadow: false,
-                style: {
-                    fontSize: '18px'
+                credits: {
+                    enabled: false
                 },
-                valueDecimals: dataset[i].valueDecimals
-            },
-            series: [{
-                data: dataset[i].data,
-                name: dataset[i].name,
-                type: dataset[i].type,
-                color: Highcharts.getOptions().colors[i],
-                fillOpacity: 0.3,
+                legend: {
+                    enabled: false
+                },
+                xAxis: {
+                    crosshair: true,
+                    events: {
+                        setExtremes: syncExtremes
+                    },
+                    labels: {
+                        format: '{value} km'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    }
+                },
                 tooltip: {
-                    valueSuffix: ' ' + dataset[i].unit
-                }
-            }]
-        });
-        }
-    
+                    positioner: function() {
+                        return {
+                            x: this.chart.chartWidth - this.label.width, // right aligned
+                            y: -1 // align to title
+                        };
+                    },
+                    borderWidth: 0,
+                    backgroundColor: 'none',
+                    pointFormat: '{point.y}',
+                    headerFormat: '',
+                    shadow: false,
+                    style: {
+                        fontSize: '18px'
+                    },
+                    valueDecimals: dataset[i].valueDecimals
+                },
+                series: [{
+                    data: dataset[i].data,
+                    name: dataset[i].name,
+                    type: dataset[i].type,
+                    color: Highcharts.getOptions().colors[i],
+                    fillOpacity: 0.3,
+                    tooltip: {
+                        valueSuffix: ' ' + dataset[i].unit
+                    }
+                }]
+            });
+    }
+
 
 });

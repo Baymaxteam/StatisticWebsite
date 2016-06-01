@@ -9,8 +9,6 @@ var mm1 = [],
     allSensor = [];
 
 $(function() {
-
-
     $("#btnUpdateFlag").click(function() {
         updateFlag = ~updateFlag;
         console.log(updateFlag)
@@ -40,12 +38,14 @@ $(function() {
         };
         allSensor.push(mm1, mm2, mm3, mm4, mm5);
 
-        DEBUG("currentTime");
+        DEBUG("currentTime :");
         DEBUG(currentTime);
-        DEBUG("startTime");
+        DEBUG("startTime :");
         DEBUG(startTime);
-        DEBUG("get sensor1 data : ");
-        DEBUG(sensorData);
+        DEBUG("sensor 1 data :");
+        DEBUG(mm1);
+        DEBUG("5 sensor data : ");
+        DEBUG(allSensor);
         DEBUG("get StatList : ");
         DEBUG(sensorStatList);
 
@@ -70,7 +70,6 @@ $(function() {
 
         DEBUG("all senseor data : ");
         DEBUG(seriesOptions);
-        DEBUG("plot all senseor data : ");
         addPointIndex = plotAllSensorChart($('#container'), seriesOptions, addPointIndex);
 
         var SelectTableHeader = [];
@@ -85,7 +84,6 @@ $(function() {
             data: sensorStatList,
             columns: SelectTableHeader,
             columnDefs: [{
-
                 width: '10%',
                 targets: 0
             }], //fix width
@@ -94,36 +92,26 @@ $(function() {
         });
 
     });
-
-
-
 });
 
+function DEBUG(printData) {
+    if (DEBUG_Log === true) {
+        console.log(printData)
+    }
+}
 
 function get50dataPoint(mdata) {
     // generate an array of random data
     var data = [],
         i;
-
     for (i = 0; i < 50; i += 1) {
         data.push([
             mdata[i][0],
             mdata[i][1]
         ]);
     }
-    // console.log(data);
     return data;
 }
-
-function DEBUG(printData) {
-    if (DEBUG_Log === true) {
-        console.log(printData)
-    }
-
-
-}
-
-
 
 function plotSensorChart(DOM, plotdata, addPointIndex, updateindex) {
 
@@ -134,9 +122,8 @@ function plotSensorChart(DOM, plotdata, addPointIndex, updateindex) {
                     // set up the updating of the chart each second
                     var series = this.series[0];
                     setInterval(function() {
-                        if (updateFlag) {
+                        if (updateFlag && (addPointIndex <= plotdata.length)) {
                             if (updateindex == 1) {
-
                                 series.addPoint(mm1[addPointIndex], true, false);
                             } else if (updateindex == 2) {
                                 series.addPoint(mm2[addPointIndex], true, false);
@@ -205,7 +192,6 @@ function plotSensorChart(DOM, plotdata, addPointIndex, updateindex) {
     return (addPointIndex);
 }
 
-
 function plotAllSensorChart(DOM, plotdata, addPointIndex) {
 
     DOM.highcharts('StockChart', {
@@ -221,7 +207,8 @@ function plotAllSensorChart(DOM, plotdata, addPointIndex) {
                     }
                     // console.log(series);
                     setInterval(function() {
-                        if (updateFlag) {
+                        // enable the update button and the addpoint is less than the dataset length.
+                        if (updateFlag && (addPointIndex <= mm1.length)) {
                             series[0].addPoint(mm1[addPointIndex], false, false);
                             series[1].addPoint(mm2[addPointIndex], false, false);
                             series[2].addPoint(mm3[addPointIndex], false, false);
