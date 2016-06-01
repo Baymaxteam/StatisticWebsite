@@ -101,7 +101,7 @@ $(function() {
     var dataset = PM25data.datasets;
     for (i = 0; i < dataset.length; i++) {
         $('<div class="chartsynchronize">')
-            .appendTo('#container2')
+            .appendTo('#containerPM25City')
             .highcharts({
                 exporting: {
                     enabled: false
