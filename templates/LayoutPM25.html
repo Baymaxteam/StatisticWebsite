@@ -43,7 +43,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-4">
                     <div id="containerTWMap" style="height: 
-                            500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+                                500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
                 </div>
                 <div class="col-md-7 col-md-offset-1">
                     <h4 class="text-center" id="thisYearCityName">本年度資訊 : 忠明</h4>
@@ -106,7 +106,7 @@
                                 <th>Rain</th>
                                 <td id="sparkData4" data-sparkline2="15, 15, 15, 14, 14, 14, 13, 13, 14; area" />
                             </tr>
-                                                        <tr>
+                            <tr>
                                 <th>RH</th>
                                 <td id="sparkData5" data-sparkline2="" />
                             </tr>
@@ -125,18 +125,16 @@
         </p>
         <br>
         <h1 class="text-center">PM2.5氣體城市資訊</h1>
+        <br>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="col-md-9">
-                    <div id="containerPM25City" class="chartsynchronize" style="min-height: 1200px; min-width: 310px"></div>
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-offset-3 col-md-3 ">
                     <div class="btn-group">
                         <form role="form">
                             <div class="form-group">
                                 <span class="label label-primary">城市</span>
                                 <label for="P11list2XDim">選取對應城市:</label>
-                                <select class="form-control" id="P11list2XDim">
+                                <select class="form-control" id="P11listCity" align="center">
                                     <option value="0">忠明</option>
                                     <option value="1">埔里</option>
                                     <option value="2">線西</option>
@@ -145,21 +143,37 @@
                         </form>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <button id="btnUpdateCity" class="btn btn-success btn-lg">資料更新</button>
+                </div>
+                <div class="col-md-12">
+                    <div id="containerCityCondition" style="min-height: 800px; min-width: 310px"></div>
+                </div>
+                <div class="col-md-12">
+                    <h3 class="text-center">資料統計量表</h3>
+                    <div class="col-md-12" id="tableCityStat">
+                        <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-
         <h1 class="text-center">PM2.5氣體</h1>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <h3 class="text-center">忠明</h1>
-                <div id="containerPM25BoxHr"></div>
-                <h3 class="text-center">埔里</h1>
-                <div id="containerPM25BoxMonth"></div>
-                <h3 class="text-center">線西</h1>
-                <div id="containerPM25BoxWeek"></div>
+                    <div id="containerPM25BoxHr"></div>
+                    <h3 class="text-center">埔里</h1>
+                    <div id="containerPM25BoxMonth"></div>
+                    <h3 class="text-center">線西</h1>
+                    <div id="containerPM25BoxWeek"></div>
+                    <h3 class="text-center">資料統計量表</h3>
+                <div class="col-md-12" id="tableStat">
+                    <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
+                    </table>
+                </div>
             </div>
         </div>
-
         <!--    part2 -->
         <br>
         <p class="bg-info">
@@ -170,29 +184,13 @@
         <h1 class="text-center">PM2.5氣體時間資訊</h1>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <!-- <div class="col-md-9"> -->
                 <h3 class="text-center">時間周期資訊(小時)</h1>
                     <div id="containerTimeHr"></div>
                     <h3 class="text-center">時間周期資訊(周)</h1>
-                     <div id="containerTimeWeek"></div>
-                     <h3 class="text-center">時間周期資訊(月)</h1>
-                      <div id="containerTimeMonth"></div>
-               <!--  </div> -->
-<!--                 <div class="col-md-3">
-                    <div class="btn-group">
-                        <form role="form">
-                            <div class="form-group">
-                                <span class="label label-primary">時間</span>
-                                <label for="P11list2XDim">選取對應時間:</label>
-                                <select class="form-control" id="P11list2XDim">
-                                    <option value="0">周資料</option>
-                                    <option value="1">小時資料</option>
-                                    
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div> -->
+                    <div id="containerTimeWeek"></div>
+                    <h3 class="text-center">時間周期資訊(月)</h1>
+                    <div id="containerTimeMonth"></div>
+                    
             </div>
         </div>
         <footer>
@@ -218,9 +216,9 @@
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <!-- extra chart api -->
     <script src="{% static "js/chartPM25/TWmap.js" %}"></script>
-    <script src="{% static "js/chartPM25/SparkLine.js" %}"></script>
+    <!-- <script src="{% static "js/chartPM25/SparkLine.js" %}"></script> -->
     <script src="{% static "js/chartPM25/MultiCompareChart.js" %}"></script>
-    <script src="{% static "js/chartPM25/synchronize.js" %}"></script>
+   <!--  <script src="{% static "js/chartPM25/synchronize.js" %}"></script> -->
     <script src="{% static "js/chartPM25/Boxplot.js" %}"></script>
     <script src="{% static "js/chartPM25/MultiLineChart.js" %}"></script>
 

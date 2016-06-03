@@ -102,7 +102,7 @@ $(function() {
     for (i = 0; i < dataset.length; i++) {
         $('<div class="chartsynchronize">')
             .appendTo('#containerPM25City')
-            .highcharts({
+            .highcharts('StockChart',{
                 exporting: {
                     enabled: false
                 },

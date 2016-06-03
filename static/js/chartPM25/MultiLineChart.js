@@ -87,8 +87,8 @@ $(function() {
         }
         // DEBUG("tempXTitle");
         // DEBUG(tempXTitle);
-        // DEBUG("temp11");
-        // DEBUG(temp11);
+        DEBUG("temp11");
+        DEBUG(temp11);
         MUltiLineChart($('#containerTimeMonth'), temp11, tempXTitle);
 
     });
