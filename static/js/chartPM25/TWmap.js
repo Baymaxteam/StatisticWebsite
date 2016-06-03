@@ -23,7 +23,7 @@ var DataSet3LastYear = [" 1, 0, 13, 13, 14", " 14, 14, 13, 13, 14 ; column",
     " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column", " 0, 14, 13, 13, 14 ; column"
 ];
 
-var DEBUG_Log = true;
+var DEBUG_Log = false;
 
 $(function() {
 

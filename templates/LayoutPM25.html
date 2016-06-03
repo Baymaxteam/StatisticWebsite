@@ -128,7 +128,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-9">
-                    <div id="containerPM25City" class="chartsynchronize" style="min-height: 1000px; min-width: 310px"></div>
+                    <div id="containerPM25City" class="chartsynchronize" style="min-height: 1200px; min-width: 310px"></div>
                 </div>
                 <div class="col-md-3">
                     <div class="btn-group">
@@ -148,10 +148,15 @@
             </div>
         </div>
 
-        <h1 class="text-center">PM2.5氣體BOX</h1>
+        <h1 class="text-center">PM2.5氣體</h1>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div id="containerPM25Box"></div>
+                <h3 class="text-center">忠明</h1>
+                <div id="containerPM25BoxHr"></div>
+                <h3 class="text-center">埔里</h1>
+                <div id="containerPM25BoxMonth"></div>
+                <h3 class="text-center">線西</h1>
+                <div id="containerPM25BoxWeek"></div>
             </div>
         </div>
 
@@ -165,10 +170,15 @@
         <h1 class="text-center">PM2.5氣體時間資訊</h1>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="col-md-9">
-                    <div id="container1" style="height: 600px; min-width: 310px"></div>
-                </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-9"> -->
+                <h3 class="text-center">時間周期資訊(小時)</h1>
+                    <div id="containerTimeHr"></div>
+                    <h3 class="text-center">時間周期資訊(周)</h1>
+                     <div id="containerTimeWeek"></div>
+                     <h3 class="text-center">時間周期資訊(月)</h1>
+                      <div id="containerTimeMonth"></div>
+               <!--  </div> -->
+<!--                 <div class="col-md-3">
                     <div class="btn-group">
                         <form role="form">
                             <div class="form-group">
@@ -177,12 +187,12 @@
                                 <select class="form-control" id="P11list2XDim">
                                     <option value="0">周資料</option>
                                     <option value="1">小時資料</option>
-                                    <!-- <option>1</option> -->
+                                    
                                 </select>
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <footer>
@@ -212,6 +222,8 @@
     <script src="{% static "js/chartPM25/MultiCompareChart.js" %}"></script>
     <script src="{% static "js/chartPM25/synchronize.js" %}"></script>
     <script src="{% static "js/chartPM25/Boxplot.js" %}"></script>
+    <script src="{% static "js/chartPM25/MultiLineChart.js" %}"></script>
+
 
 </body>
 
