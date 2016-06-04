@@ -1,4 +1,4 @@
-var DEBUG_Log = true;
+var DEBUG_Log = false;
 $(function() {
     $.get('/ajax_selectFilePart2/', {
         'fileName': 'PM2.5_data_timeHr.csv'
@@ -127,7 +127,7 @@ function MUltiLineChart(DOM, plotData, plotXaxis) {
             }]
         },
         tooltip: {
-            valueSuffix: '°C'
+            valueSuffix: ''
         },
         legend: {
             layout: 'vertical',

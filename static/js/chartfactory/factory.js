@@ -15,7 +15,7 @@ $(function() {
     });
 
     $.get('/ajax_selectFilePart2/', {
-        'fileName': 'PM2.5_data_boxStat.csv'
+        'fileName': 'Control_Sensors.csv'
     }, function(respons) {
         DEBUG("Server response the json data : ");
         DEBUG(respons);

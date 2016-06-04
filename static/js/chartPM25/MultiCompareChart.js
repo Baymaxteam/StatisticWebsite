@@ -1,4 +1,4 @@
-var test = [
+    var test = [
     [Date.UTC(2015, 1, 1), 15],
     [Date.UTC(2015, 1, 2), 15],
     [Date.UTC(2015, 1, 3), 15],
@@ -22,7 +22,7 @@ $(function() {
             [1] // allowed multiples
         ],
         [
-            'month', [1, 2, 3, 4, 6]
+            'month', [1, 2]
         ]
     ];
 
@@ -56,8 +56,6 @@ $(function() {
             temp2 = [];
             temp3 = [];
         }
-        DEBUG("tempXtimestamp");
-        DEBUG(tempXtimestamp);
         DEBUG("DataSetCity1");
         DEBUG(DataSetCity1);
 

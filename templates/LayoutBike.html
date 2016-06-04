@@ -49,10 +49,6 @@
                     <input id="pac-input" class="mapcontrols" type="text" placeholder="Indicate a city">
                     <div id="map" style="width: 90%; height: 800px;"></div>
                     </center>
-            <!--     <div class="col-md-4">
-                    <div id="container11" style="height: 
-                        500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
-                </div> -->
             </div>
         </div>
         <br>
@@ -65,6 +61,12 @@
             <div class="col-md-10 col-md-offset-1">
                 <h3 class="text-center">腳踏車剩餘數量</h3>
                 <div id="container_BikeAvailable" style="height: 600px; min-width: 310px"></div>
+            </div>
+            
+            <div class="col-md-10 col-md-offset-1" id="tableBileAvaiableStat">
+            <h3 class="text-center">資料統計量表</h3>
+                    <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
+                    </table>
             </div>
             <div class="col-md-10 col-md-offset-1">
                 <h3 class="text-center">溫度</h3>
@@ -159,10 +161,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
         
     <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
-        <script src="{% static "js/chartBike/MultiCompareChart.js" %}"></script>
-    <script src="{% static "js/chartBike/synchronize.js" %}"></script>
+    <script src="{% static "js/chartBike/MultiCompareChart.js" %}"></script>
+<!--     <script src="{% static "js/chartBike/synchronize.js" %}"></script>
     <script src="{% static "js/chartBike/MultiLineChart.js" %}"></script>
-    <script src="{% static "js/chartBike/MultiLineStock.js" %}"></script>
+    <script src="{% static "js/chartBike/MultiLineStock.js" %}"></script> -->
     <script src="{% static "js/chartBike/BikeMap.js" %}"></script>
     
 
