@@ -82,7 +82,7 @@ function BoxChart(DOM, plotData, titleData, placeData) {
     Highcharts.setOptions({
         colors: ['#ED561B', '#DDDF00']
     });
-    DOM.highcharts({
+    DOM.highcharts('StockChart',{
 
         chart: {
             type: 'boxplot'

@@ -17,12 +17,20 @@ $(function() {
     // set the allowed units for data grouping
     var groupingUnits = [
         [
-            'week', // unit name
-            [1] // allowed multiples
+            'minute', [1, 2, 5, 10, 15, 30]
         ],
         [
-            'month', [1, 2]
-        ]
+            'hour', [1, 2, 3, 4, 6, 8, 12]
+        ],
+        [
+            'day', [1]
+        ],
+        [
+            'week', [1]
+        ],
+        [
+            'month', [1, 2, 3, 6]
+        ],
     ];
 
     $.get('/ajax_selectFilePart2/', {
@@ -51,7 +59,7 @@ $(function() {
         DEBUG("DataSetCity1");
         DEBUG(DataSetCity1);
 
-        MultiLineCompareChart($('#container_BikeAvailable'), DataSetCity1, groupingUnits)
+        MultiLineCompareChart($('#containerBikeAvailable'), DataSetCity1, groupingUnits)
 
         // statistic table
         var titleList = respons.title;
@@ -91,7 +99,7 @@ $(function() {
         DEBUG(StatList);
         // 統計圖表
         // remove the old table
-       
+
         if ($.fn.DataTable.fnIsDataTable('#tableBileAvaiableStat table')) {
             a = $('#tableBileAvaiableStat table').dataTable();
             a.fnClearTable();
@@ -101,7 +109,7 @@ $(function() {
         $('#tableBileAvaiableStat table').DataTable({
             data: StatList,
             columns: SelectTableHeader,
-            destroy : true,
+            destroy: true,
             columnDefs: [{
                 width: '10%',
                 targets: 0
@@ -111,9 +119,6 @@ $(function() {
         });
     });
 
-
-
-
 });
 
 function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
@@ -122,7 +127,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
             enabled: false
         },
         chart: {
-            marginLeft: 40, // Keep all charts left aligned
+            marginLeft: 10, // Keep all charts left aligned
             spacingTop: 20,
             spacingBottom: 20
         },
@@ -131,7 +136,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
         },
 
         title: {
-            text: '腳踏車剩餘數量'
+            text: ''
         },
         yAxis: [{
             labels: {
@@ -175,5 +180,3 @@ function DEBUG(printData) {
         console.log(printData)
     }
 }
-
-
