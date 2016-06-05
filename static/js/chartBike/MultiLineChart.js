@@ -1,7 +1,7 @@
-var DEBUG_Log = false;
+var DEBUG_Log = true;
 $(function() {
     $.get('/ajax_selectFilePart2/', {
-        'fileName': 'PM2.5_data_timeHr.csv'
+        'fileName': 'Bike_timeHr0.csv'
     }, function(respons) {
         // DEBUG("Server response the json data hr : ");
         // DEBUG(respons);
@@ -14,7 +14,9 @@ $(function() {
         var tmpdata = respons['data'];
         var len = tmpdata.length;
         var datalen = tmpdata[0].length;
- 
+        DEBUG('len');
+         DEBUG(len);
+          DEBUG(datalen);
         for (i = 1; i < datalen; i++) {
             for (j = 0; j < len; j++) {
                 temp1.push(tmpdata[j][i]);
@@ -23,79 +25,171 @@ $(function() {
             temp11.push({ name: tmptitle[i], data: temp1 });
             temp1 = [];
         }
-        // DEBUG("tempXTitle");
-        // DEBUG(tempXTitle);
-        // DEBUG("temp11");
-        // DEBUG(temp11);
-        MUltiLineChart($('#containerBikeRentDataTimeHr'), temp11, tempXTitle);
-
-    });
-
-    $.get('/ajax_selectFilePart2/', {
-        'fileName': 'PM2.5_data_timeWeek.csv'
-    }, function(respons) {
-        // DEBUG("Server response the json data hr : ");
-        // DEBUG(respons);
-
-        var i, j,
-            temp1 = [],
-            temp11 = [],
-            tempXTitle = [];
-        var tmptitle = respons['title'];
-        var tmpdata = respons['data'];
-        var len = tmpdata.length;
-        var datalen = tmpdata[0].length;
- 
-        for (i = 1; i < datalen; i++) {
-            for (j = 0; j < len; j++) {
-                temp1.push(tmpdata[j][i]);
-                tempXTitle.push(tmpdata[j][0]);
-            }
-            temp11.push({ name: tmptitle[i], data: temp1 });
-            temp1 = [];
-        }
-        // DEBUG("tempXTitle");
-        // DEBUG(tempXTitle);
-        // DEBUG("temp11");
-        // DEBUG(temp11);
-        MUltiLineChart($('#containerBikeRentDataTimeWeek'), temp11, tempXTitle);
-
-    });
-
-    $.get('/ajax_selectFilePart2/', {
-        'fileName': 'PM2.5_data_timeMonth.csv'
-    }, function(respons) {
-        // DEBUG("Server response the json data hr : ");
-        // DEBUG(respons);
-
-        var i, j,
-            temp1 = [],
-            temp11 = [],
-            tempXTitle = [];
-        var tmptitle = respons['title'];
-        var tmpdata = respons['data'];
-        var len = tmpdata.length;
-        var datalen = tmpdata[0].length;
- 
-        for (i = 1; i < datalen; i++) {
-            for (j = 0; j < len; j++) {
-                temp1.push(tmpdata[j][i]);
-                tempXTitle.push(tmpdata[j][0]);
-            }
-            temp11.push({ name: tmptitle[i], data: temp1 });
-            temp1 = [];
-        }
-        // DEBUG("tempXTitle");
-        // DEBUG(tempXTitle);
+        DEBUG("tempXTitle");
+        DEBUG(tempXTitle);
         DEBUG("temp11");
         DEBUG(temp11);
-        MUltiLineChart($('#containerBikeRentDataTimeMonth'), temp11, tempXTitle);
+        MUltiLineChart($('#containerBikeRentDataTimeHr0'), temp11, tempXTitle);
 
     });
 
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'Bike_timeHr1.csv'
+    }, function(respons) {
+        // DEBUG("Server response the json data hr : ");
+        // DEBUG(respons);
 
+        var i, j,
+            temp1 = [],
+            temp11 = [],
+            tempXTitle = [];
+        var tmptitle = respons['title'];
+        var tmpdata = respons['data'];
+        var len = tmpdata.length;
+        var datalen = tmpdata[0].length;
+        DEBUG('len');
+         DEBUG(len);
+          DEBUG(datalen);
+        for (i = 1; i < datalen; i++) {
+            for (j = 0; j < len; j++) {
+                temp1.push(tmpdata[j][i]);
+                tempXTitle.push(tmpdata[j][0]);
+            }
+            temp11.push({ name: tmptitle[i], data: temp1 });
+            temp1 = [];
+        }
+        DEBUG("tempXTitle");
+        DEBUG(tempXTitle);
+        DEBUG("temp11");
+        DEBUG(temp11);
+        MUltiLineChart($('#containerBikeRentDataTimeHr1'), temp11, tempXTitle);
 
-    // MUltiLineChart($('#containerTimeHr'), 1);
+    });
+
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'Bike_timeWeek0.csv'
+    }, function(respons) {
+        // DEBUG("Server response the json data hr : ");
+        // DEBUG(respons);
+
+        var i, j,
+            temp1 = [],
+            temp11 = [],
+            tempXTitle = [];
+        var tmptitle = respons['title'];
+        var tmpdata = respons['data'];
+        var len = tmpdata.length;
+        var datalen = tmpdata[0].length;
+ 
+        for (i = 1; i < datalen; i++) {
+            for (j = 0; j < len; j++) {
+                temp1.push(tmpdata[j][i]);
+                tempXTitle.push(tmpdata[j][0]);
+            }
+            temp11.push({ name: tmptitle[i], data: temp1 });
+            temp1 = [];
+        }
+        DEBUG("tempXTitle");
+        DEBUG(tempXTitle);
+        DEBUG("temp11");
+        DEBUG(temp11);
+        MUltiLineChart($('#containerBikeRentDataTimeWeek0'), temp11, tempXTitle);
+
+    });
+
+        $.get('/ajax_selectFilePart2/', {
+        'fileName': 'Bike_timeWeek1.csv'
+    }, function(respons) {
+        // DEBUG("Server response the json data hr : ");
+        // DEBUG(respons);
+
+        var i, j,
+            temp1 = [],
+            temp11 = [],
+            tempXTitle = [];
+        var tmptitle = respons['title'];
+        var tmpdata = respons['data'];
+        var len = tmpdata.length;
+        var datalen = tmpdata[0].length;
+ 
+        for (i = 1; i < datalen; i++) {
+            for (j = 0; j < len; j++) {
+                temp1.push(tmpdata[j][i]);
+                tempXTitle.push(tmpdata[j][0]);
+            }
+            temp11.push({ name: tmptitle[i], data: temp1 });
+            temp1 = [];
+        }
+        DEBUG("tempXTitle");
+        DEBUG(tempXTitle);
+        DEBUG("temp11");
+        DEBUG(temp11);
+        MUltiLineChart($('#containerBikeRentDataTimeWeek1'), temp11, tempXTitle);
+
+    });
+
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'Bike_timeMonth0.csv'
+    }, function(respons) {
+        // DEBUG("Server response the json data hr : ");
+        // DEBUG(respons);
+
+        var i, j,
+            temp1 = [],
+            temp11 = [],
+            tempXTitle = [];
+        var tmptitle = respons['title'];
+        var tmpdata = respons['data'];
+        var len = tmpdata.length;
+        var datalen = tmpdata[0].length;
+ 
+        for (i = 1; i < datalen; i++) {
+            for (j = 0; j < len; j++) {
+                temp1.push(tmpdata[j][i]);
+                tempXTitle.push(tmpdata[j][0]);
+            }
+            temp11.push({ name: tmptitle[i], data: temp1 });
+            temp1 = [];
+        }
+        DEBUG("tempXTitle");
+        DEBUG(tempXTitle);
+        DEBUG("temp11");
+        DEBUG(temp11);
+        MUltiLineChart($('#containerBikeRentDataTimeMonth0'), temp11, tempXTitle);
+
+    });
+
+    $.get('/ajax_selectFilePart2/', {
+        'fileName': 'Bike_timeMonth1.csv'
+    }, function(respons) {
+        // DEBUG("Server response the json data hr : ");
+        // DEBUG(respons);
+
+        var i, j,
+            temp1 = [],
+            temp11 = [],
+            tempXTitle = [];
+        var tmptitle = respons['title'];
+        var tmpdata = respons['data'];
+        var len = tmpdata.length;
+        var datalen = tmpdata[0].length;
+ 
+        for (i = 1; i < datalen; i++) {
+            for (j = 0; j < len; j++) {
+                temp1.push(tmpdata[j][i]);
+                tempXTitle.push(tmpdata[j][0]);
+            }
+            temp11.push({ name: tmptitle[i], data: temp1 });
+            temp1 = [];
+        }
+        DEBUG("tempXTitle");
+        DEBUG(tempXTitle);
+        DEBUG("temp11");
+        DEBUG(temp11);
+        MUltiLineChart($('#containerBikeRentDataTimeMonth1'), temp11, tempXTitle);
+
+    });
+
 });
 
 function MUltiLineChart(DOM, plotData, plotXaxis) {
