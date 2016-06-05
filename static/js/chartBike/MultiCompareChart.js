@@ -107,15 +107,17 @@ $(function() {
             $('#tableBileAvaiableStat table thead').empty();
         };
         $('#tableBileAvaiableStat table').DataTable({
-            data: StatList,
+                        data: StatList,
             columns: SelectTableHeader,
-            destroy: true,
             columnDefs: [{
                 width: '10%',
-                targets: 0
-            }], //fix width
+                targets: 0,
+                className: "dt-head-center"
+            }, { className: "dt-head-center", "targets": [0] }], //fix width
             "bAutoWidth": false,
             "bFilter": false
+
+
         });
     });
 
