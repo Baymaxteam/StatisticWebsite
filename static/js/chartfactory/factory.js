@@ -14,6 +14,11 @@ $(function() {
         console.log(updateFlag)
     });
 
+    $("#btnUpdateFlag1").click(function() {
+        updateFlag = ~updateFlag;
+        console.log(updateFlag)
+    });
+
     $.get('/ajax_selectFilePart2/', {
         'fileName': 'Control_Sensors.csv'
     }, function(respons) {

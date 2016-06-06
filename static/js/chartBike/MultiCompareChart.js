@@ -47,10 +47,14 @@ $(function() {
         var len = tmpdata.length;
 
         // 第一筆不需要在這讀取，第二筆要個別獨取
+        // 將資料縮小10倍，避免溢位
         for (i = 0; i < 2; i++) {
-            for (j = 0; j < len; j++) {
+            for (j = 0; j < len; j = j+10) {
                 temp1.push([tmpdata[j][1], tmpdata[j][i + 2]]);
             }
+            // 最後一筆
+            temp1.push([tmpdata[len-1][1], tmpdata[len-1][i + 2]]);
+            
             DataSetCity1.push(temp1);
             temp1 = [];
         }

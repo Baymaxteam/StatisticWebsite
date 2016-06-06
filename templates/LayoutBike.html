@@ -36,136 +36,212 @@
                 </div>
             </div>
         </nav>
-        <!--    part1 -->
-        <br>
-        <p class="bg-info">
-            <br>
-        </p>
-        <br>
-        <h1 class="text-center">24小時腳踏車租借平均數據</h1>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <h3 class="text-center">腳踏車剩餘數量</h3>
-                <div id="containerBikeAvailable" style="min-height: 500px; min-width: 310px"></div>
-            </div>
-            <div class="col-md-10 col-md-offset-1" id="tableBileAvaiableStat">
-                <h3 class="text-center">資料統計量表</h3>
-                <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
-                </table>
-            </div>
-            <div class="col-md-10 col-md-offset-1">
-                <h3 class="text-center">腳踏車租借平均數據(小時)</h1>
-                    <div id="containerBikeRentDataTimeHr0"></div>
-                        <div id="containerBikeRentDataTimeHr1"></div>
-                        <h3 class="text-center">腳踏車租借平均數據(周)</h1>
-                        <div id="containerBikeRentDataTimeWeek0"></div>
-                        <div id="containerBikeRentDataTimeWeek1"></div>
-                        <h3 class="text-center">腳踏車租借平均數據(月)</h1>
-                        <div id="containerBikeRentDataTimeMonth0"></div>
-                        <div id="containerBikeRentDataTimeMonth1"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <h3 class="text-center">氣溫與數量</h3>
-            <div class="col-md-offset-2 col-md-10 ">
-                <div class="btn-group">
-                    <form role="form">
-                        <div class="form-group">
-                            <span class="label label-primary">腳踏車站</span>
-                            <label for="ListBikeStation">選取對應站別:</label>
-                            <select class="form-control" id="ListBikeStation" align="center">
-                                <option value="0">San Francisco</option>
-                                <option value="1">San Jose</option>
-                            </select>
+                <div class="tabbable" id="BikeTab">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#Bike1" data-toggle="tab">Bike-即時數據</a>
+                        </li>
+                        <li>
+                            <a href="#Bike2" data-toggle="tab">24小時腳踏車租借平均數據</a>
+                        </li>
+                        <li>
+                            <a href="#Bike3" data-toggle="tab">腳踏車租借平均數據</a>
+                        </li>
+                        <li>
+                            <a href="#Bike4" data-toggle="tab">天氣狀況</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane in active" id="Bike1">
+                            <h1 class="text-center">24小時腳踏車租借平均數據</h1>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="text-center">腳踏車剩餘數量</h3>
+                                    <div id="containerBikeAvailable" style="min-height: 500px; min-width: 310px"></div>
+                                </div>
+                                <div class="col-md-12" id="tableBileAvaiableStat">
+                                    <h3 class="text-center">資料統計量表</h3>
+                                    <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
+                                    </table>
+                                </div>
+                                <div class="col-md-10">
+                                    <h3 class="text-center">腳踏車租借平均數據(小時)</h3>
+                                    <div id="containerBikeRentDataTimeHr0"></div>
+                                    <div id="containerBikeRentDataTimeHr1"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                    <br>
+                                    <div class="btn-group">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <span class="label label-primary">腳踏車站</span>
+                                                <label for="ListBikeStation">選取對應站別:</label>
+                                                <select class="form-control" id="ListBikeStation" align="center">
+                                                    <option value="0">San Francisco</option>
+                                                    <option value="1">San Jose</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <button id="btnUpdateBikeStation" class="btn btn-success btn-lg">資料更新</button>
+                                </div>    
+                                <div class="col-md-10">
+                                    <h3 class="text-center">腳踏車租借平均數據(周)</h1>
+                                    <div id="containerBikeRentDataTimeWeek0"></div>
+                                    <div id="containerBikeRentDataTimeWeek1"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                    <br>
+                                    <div class="btn-group">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <span class="label label-primary">腳踏車站</span>
+                                                <label for="ListBikeStation">選取對應站別:</label>
+                                                <select class="form-control" id="ListBikeStation" align="center">
+                                                    <option value="0">San Francisco</option>
+                                                    <option value="1">San Jose</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <button id="btnUpdateBikeStation" class="btn btn-success btn-lg">資料更新</button>
+                                </div>    
+                                <div class="col-md-10">
+                                    <h3 class="text-center">腳踏車租借平均數據(月)</h1>
+                                    <div id="containerBikeRentDataTimeMonth0"></div>
+                                    <div id="containerBikeRentDataTimeMonth1"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                    <br>
+                                    <div class="btn-group">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <span class="label label-primary">腳踏車站</span>
+                                                <label for="ListBikeStation">選取對應站別:</label>
+                                                <select class="form-control" id="ListBikeStation" align="center">
+                                                    <option value="0">San Francisco</option>
+                                                    <option value="1">San Jose</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <button id="btnUpdateBikeStation" class="btn btn-success btn-lg">資料更新</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h3 class="text-center">氣溫與數量</h3>
+                                 <div class="col-md-10">
+                                    <div id="containerBikeTempandNumber" style="min-height: 500px; min-width: 310px">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                    <br>
+                                    <div class="btn-group">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <span class="label label-primary">腳踏車站</span>
+                                                <label for="ListBikeStation">選取對應站別:</label>
+                                                <select class="form-control" id="ListBikeStation" align="center">
+                                                    <option value="0">San Francisco</option>
+                                                    <option value="1">San Jose</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <button id="btnUpdateBikeStation" class="btn btn-success btn-lg">資料更新</button>
+                                </div>
+                               
+                                <div class="col-md-12" id="tableTempNumberStat">
+                                    <h3 class="text-center">資料統計量表</h3>
+                                    <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h3 class="text-center">平均距離</h3>
+                                    <div id="containerBikeAvgRange" style="min-height: 500px; min-width: 310px"></div>
+                                </div>
+                                <div class="col-md-2 ">
+                                    <br>
+                                    <br>
+                                    <div class="btn-group">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <span class="label label-primary">A腳踏車站</span>
+                                                <label for="ListBikeStation">選取出發站別A:</label>
+                                                <select class="form-control" id="ListBikeStation" align="center">
+                                                    <option value="0">San Francisco</option>
+                                                    <option value="1">San Jose</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="btn-group">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <span class="label label-primary">B腳踏車站</span>
+                                                <label for="ListBikeStation">選取抵達站別B:</label>
+                                                <select class="form-control" id="ListBikeStation" align="center">
+                                                    <option value="0">San Francisco</option>
+                                                    <option value="1">San Jose</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <button id="btnUpdateBikeStation" class="btn btn-success btn-lg">資料更新</button>
+                                </div>
+                            </div>    
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <a href="http://www.accuweather.com/en/us/san-francisco-ca/94103/weather-forecast/347629" class="aw-widget-legal">
+                                    </a>
+                                    <div align="center" id="awcc1463128460742" class="aw-widget-current" data-locationkey="347629" data-unit="c" data-language="zh-tw" data-useip="false" data-uid="awcc1463128460742"></div>
+                                    <center>
+                                        <h2 class="text-center">Bike-即時數據</h2>
+                                        <input id="pac-input" class="mapcontrols" type="text" placeholder="Indicate a city">
+                                        <div id="map" style="width: 90%; height: 800px;"></div>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>         
+                        <div class="tab-pane" id="Bike2">
+                        </div>         
+                        <div class="tab-pane" id="Bike3">
+                        </div>     
+                        <div class="tab-pane" id="Bike4">
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="http://www.accuweather.com/en/us/san-francisco-ca/94103/weather-forecast/347629" class="aw-widget-legal">
+                                    </a>
+                                    <div align="center" id="awtd1463128460742" class="aw-widget-36hour" data-locationkey="347629" data-unit="c" data-language="zh-tw" data-useip="false" data-uid="awtd1463128460742" data-editlocation="false">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
-                </div>
-                <br>
-                <button id="btnUpdateBikeStation" class="btn btn-success btn-lg">資料更新</button>
-
-            </div>
-       
-            <div class="col-md-10 col-md-offset-1">
-                
-                <div id="containerBikeTempandNumber" style="min-height: 500px; min-width: 310px"></div>
-            </div>
-             <div class="col-md-10 col-md-offset-1" id="tableTempNumberStat">
-                <h3 class="text-center">資料統計量表</h3>
-                <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
-                </table>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-offset-2 col-md-10 ">
-                <div class="btn-group">
-                    <form role="form">
-                        <div class="form-group">
-                            <span class="label label-primary">A腳踏車站</span>
-                            <label for="ListBikeStation">選取出發站別A:</label>
-                            <select class="form-control" id="ListBikeStation" align="center">
-                                <option value="0">San Francisco</option>
-                                <option value="1">San Jose</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="btn-group">
-                    <form role="form">
-                        <div class="form-group">
-                            <span class="label label-primary">B腳踏車站</span>
-                            <label for="ListBikeStation">選取抵達站別B:</label>
-                            <select class="form-control" id="ListBikeStation" align="center">
-                                <option value="0">San Francisco</option>
-                                <option value="1">San Jose</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <br>
-                <button id="btnUpdateBikeStation" class="btn btn-success btn-lg">資料更新</button>
-
-            </div>
-            <div class="col-md-10 col-md-offset-1">
-                <h3 class="text-center">平均距離</h3>
-                <div id="containerBikeAvgRange" style="min-height: 500px; min-width: 310px"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <a href="http://www.accuweather.com/en/us/san-francisco-ca/94103/weather-forecast/347629" class="aw-widget-legal">
-                </a>
-                <div align="center" id="awcc1463128460742" class="aw-widget-current" data-locationkey="347629" data-unit="c" data-language="zh-tw" data-useip="false" data-uid="awcc1463128460742"></div>
-                <center>
-                    <h2 class="text-center">Bike-即時數據</h2>
-                    <input id="pac-input" class="mapcontrols" type="text" placeholder="Indicate a city">
-                    <div id="map" style="width: 90%; height: 800px;"></div>
-                </center>
-            </div>
-        </div>
-        <!--    part2 -->
-        <br>
-        <p class="bg-info">
-            <br>
-        </p>
-        <br>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="col-md-10 col-md-offset-1">
-                    <a href="http://www.accuweather.com/en/us/san-francisco-ca/94103/weather-forecast/347629" class="aw-widget-legal">
-                    </a>
-                    <div align="center" id="awtd1463128460742" class="aw-widget-36hour" data-locationkey="347629" data-unit="c" data-language="zh-tw" data-useip="false" data-uid="awtd1463128460742" data-editlocation="false"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="row">
-                <div class="col-md-12">
-                </div>
-            </div>
-        </footer>
     </main>
 
 
