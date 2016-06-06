@@ -27,8 +27,8 @@ $(function() {
         var len = respons.data.length;
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
-        var currentTime = new Date().getTime() + 8*3600*1000;
-        var startTime = currentTime - 50 * 1000 ;
+        var currentTime = new Date().getTime() + 8 * 3600 * 1000;
+        var startTime = currentTime - 50 * 1000;
         var sensorData = respons.data;
         var sensorStatList = respons.statList;
 
@@ -95,6 +95,31 @@ $(function() {
             "bAutoWidth": false,
             "bFilter": false
         });
+
+        SelectTableHeader = [];
+        SelectTableHeader.push({ title: '統計量' });
+        SelectTableHeader.push({ title: 'Sensor1' });
+        SensorStatList($('#tableStat1 table'), sensorStatList, SelectTableHeader,1)
+
+        SelectTableHeader = [];
+        SelectTableHeader.push({ title: '統計量' });
+        SelectTableHeader.push({ title: 'Sensor2' });
+        SensorStatList($('#tableStat2 table'), sensorStatList, SelectTableHeader,2)
+
+        SelectTableHeader = [];
+        SelectTableHeader.push({ title: '統計量' });
+        SelectTableHeader.push({ title: 'Sensor3' });
+        SensorStatList($('#tableStat3 table'), sensorStatList, SelectTableHeader,3)
+
+        SelectTableHeader = [];
+        SelectTableHeader.push({ title: '統計量' });
+        SelectTableHeader.push({ title: 'Sensor4' });
+        SensorStatList($('#tableStat4 table'), sensorStatList, SelectTableHeader,4)
+
+        SelectTableHeader = [];
+        SelectTableHeader.push({ title: '統計量' });
+        SelectTableHeader.push({ title: 'Sensor5' });
+        SensorStatList($('#tableStat5 table'), sensorStatList, SelectTableHeader,5)
 
     });
 });
@@ -269,4 +294,29 @@ function plotAllSensorChart(DOM, plotdata, addPointIndex) {
     });
 
     return addPointIndex;
+}
+
+function SensorStatList(DOMtable, sensorStatList, SelectTableHeader, index) {
+    var i, tmp;
+    var len = sensorStatList.length;
+    var singleSensorStatList = [];
+
+    for (i = 0; i < len; i++) {
+        singleSensorStatList.push([sensorStatList[i][0], sensorStatList[i][index]]);
+    }
+    DEBUG(sensorStatList);
+    DEBUG(singleSensorStatList);
+    //統計圖表
+    DOMtable.DataTable({
+        data: singleSensorStatList,
+        columns: SelectTableHeader,
+        columnDefs: [{
+            width: '10%',
+            targets: 0
+        }], //fix width
+        "bAutoWidth": false,
+        "bFilter": false
+    });
+
+
 }
