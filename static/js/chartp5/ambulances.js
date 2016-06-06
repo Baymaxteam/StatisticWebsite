@@ -1,7 +1,7 @@
 
 $(function () {
 var updateFlag = false;
-var DEBUG_Log = true;
+var DEBUG_Log = false;
 var addPointIndex = 50;
 var mm1 = [],
     mm2 = [],

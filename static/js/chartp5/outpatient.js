@@ -1,10 +1,9 @@
 $(function () {
     var updateFlag = false;
-    var DEBUG_Log = true;
+    var DEBUG_Log = false;
     var addPointIndex = 50;
     var names_sick=
     [
-
         '傳染病與寄生蟲病及其之後期影響',
         '惡性腫瘤',
         '其他腫瘤',
@@ -172,8 +171,6 @@ $(function () {
 
 function outpatient(DOM, data_t, data_d)
 {
-    
-
     var names =
     [
         '新北市',

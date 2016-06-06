@@ -1,6 +1,6 @@
 $(function () {
     var updateFlag = false;
-    var DEBUG_Log = true;
+    var DEBUG_Log = false;
     var addPointIndex = 50;
     
 
