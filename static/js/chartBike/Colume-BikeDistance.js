@@ -1,4 +1,4 @@
-var DEBUG_Log = true;
+var DEBUG_Log = false;
 $(function() {
     getBikeDistData('Bike_distance_S0S1.csv', $('#containerBikeAvgRange'));
 
