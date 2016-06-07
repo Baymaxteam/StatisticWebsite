@@ -207,8 +207,8 @@
                                         <form role="form">
                                             <div class="form-group">
                                                 <span class="label label-primary">A腳踏車站</span>
-                                                <label for="ListBikeStation">選取出發站別A:</label>
-                                                <select class="form-control" id="ListBikeStation" align="center">
+                                                <label for="ListBikeStationA">選取出發站別A:</label>
+                                                <select class="form-control" id="ListBikeStationA" align="center">
                                                     <option value="0">San Francisco</option>
                                                     <option value="1">San Jose</option>
                                                 </select>
@@ -221,8 +221,8 @@
                                         <form role="form">
                                             <div class="form-group">
                                                 <span class="label label-primary">B腳踏車站</span>
-                                                <label for="ListBikeStation">選取抵達站別B:</label>
-                                                <select class="form-control" id="ListBikeStation" align="center">
+                                                <label for="ListBikeStationB">選取抵達站別B:</label>
+                                                <select class="form-control" id="ListBikeStationB" align="center">
                                                     <option value="0">San Francisco</option>
                                                     <option value="1">San Jose</option>
                                                 </select>
@@ -231,7 +231,7 @@
                                     </div>
                                     <br>
                                     <br>
-                                    <button id="btnUpdateBikeStation" class="btn btn-success btn-lg">資料更新</button>
+                                    <button id="btnUpdateBikeStationDistance" class="btn btn-success btn-lg">資料更新</button>
                                 </div>
                             </div>    
                             <div class="row">
@@ -288,6 +288,7 @@
     <script src="{% static "js/chartBike/MultiLineChart.js" %}"></script>
     <script src="{% static "js/chartBike/MultiCompareChart.js" %}"></script>
     <script src="{% static "js/chartBike/Combo-multi-axes.js" %}"></script> 
+    <script src="{% static "js/chartBike/Colume-BikeDistance.js" %}"></script>
   <!--   <script src="{% static "js/chartBike/synchronize.js" %}"></script> -->
    
   <!--   <script src="{% static "js/chartBike/MultiLineStock.js" %}"></script> -->
@@ -295,6 +296,8 @@
         
     <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
     <script src="{% static "js/chartBike/BikeMap.js" %}"></script>
+
+    
 
     
 
