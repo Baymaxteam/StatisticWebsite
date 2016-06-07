@@ -2,12 +2,76 @@ var DEBUG_Log = true;
 $(function() {
 
 
-    getBikeTimeData('Bike_timeHr0.csv', $('#containerBikeRentDataTimeHr0'));
-    getBikeTimeData('Bike_timeHr1.csv', $('#containerBikeRentDataTimeHr1'));
-    getBikeTimeData('Bike_timeWeek0.csv', $('#containerBikeRentDataTimeWeek0'));
-    getBikeTimeData('Bike_timeWeek1.csv', $('#containerBikeRentDataTimeWeek1'));
-    getBikeTimeData('Bike_timeMonth0.csv', $('#containerBikeRentDataTimeMonth0'));
-    getBikeTimeData('Bike_timeMonth1.csv', $('#containerBikeRentDataTimeMonth1'));
+    // getBikeTimeData('Bike_timeHr0.csv', $('#containerBikeRentDataTimeHr0'));
+    // getBikeTimeData('Bike_timeHr1.csv', $('#containerBikeRentDataTimeHr1'));
+    // getBikeTimeData('Bike_timeWeek0.csv', $('#containerBikeRentDataTimeWeek0'));
+    // getBikeTimeData('Bike_timeWeek1.csv', $('#containerBikeRentDataTimeWeek1'));
+    // getBikeTimeData('Bike_timeMonth0.csv', $('#containerBikeRentDataTimeMonth0'));
+    // getBikeTimeData('Bike_timeMonth1.csv', $('#containerBikeRentDataTimeMonth1'));
+    getBikeTimeData('Bike_timeHr0_S0.csv', $('#containerBikeRentDataTimeHr0'));
+    getBikeTimeData('Bike_timeHr1_S0.csv', $('#containerBikeRentDataTimeHr1'));
+    getBikeTimeData('Bike_timeWeek0_S0.csv', $('#containerBikeRentDataTimeWeek0'));
+    getBikeTimeData('Bike_timeWeek1_S0.csv', $('#containerBikeRentDataTimeWeek1'));
+    getBikeTimeData('Bike_timeMonth0_S0.csv', $('#containerBikeRentDataTimeMonth0'));
+    getBikeTimeData('Bike_timeMonth1_S0.csv', $('#containerBikeRentDataTimeMonth1'));
+
+    $("#btnUpdateBikeStationHr").click(function() {
+        var CategoryX = $('#ListBikeStationHr').val();
+
+        DEBUG(CategoryX);
+        if (CategoryX == 0) {
+            getBikeTimeData('Bike_timeHr0_S0.csv', $('#containerBikeRentDataTimeHr0'));
+            getBikeTimeData('Bike_timeHr1_S0.csv', $('#containerBikeRentDataTimeHr1'));
+
+            DEBUG(11);
+        } else if (CategoryX == 1) {
+            getBikeTimeData('Bike_timeHr0_S1.csv', $('#containerBikeRentDataTimeHr0'));
+            getBikeTimeData('Bike_timeHr1_S1.csv', $('#containerBikeRentDataTimeHr1'));
+            DEBUG(22);
+        } else {
+            DEBUG(33);
+        }
+
+    });
+
+    $("#btnUpdateBikeStationWeek").click(function() {
+        var CategoryX = $('#ListBikeStationHr').val();
+
+        DEBUG(CategoryX);
+        if (CategoryX == 0) {
+            getBikeTimeData('Bike_timeWeek0_S0.csv', $('#containerBikeRentDataTimeWeek0'));
+            getBikeTimeData('Bike_timeWeek1_S0.csv', $('#containerBikeRentDataTimeWeek1'));
+
+            DEBUG(11);
+        } else if (CategoryX == 1) {
+            getBikeTimeData('Bike_timeWeek0_S1.csv', $('#containerBikeRentDataTimeWeek0'));
+            getBikeTimeData('Bike_timeWeek1_S1.csv', $('#containerBikeRentDataTimeWeek1'));
+            DEBUG(22);
+        } else {
+            DEBUG(33);
+        }
+
+    });
+
+    $("#btnUpdateBikeStationMonth").click(function() {
+        var CategoryX = $('#ListBikeStationMonth').val();
+
+        DEBUG(CategoryX);
+        if (CategoryX == 0) {
+            getBikeTimeData('Bike_timeMonth0_S0.csv', $('#containerBikeRentDataTimeMonth0'));
+            getBikeTimeData('Bike_timeMonth1_S0.csv', $('#containerBikeRentDataTimeMonth1'));
+
+            DEBUG(11);
+        } else if (CategoryX == 1) {
+            getBikeTimeData('Bike_timeMonth0_S1.csv', $('#containerBikeRentDataTimeMonth0'));
+            getBikeTimeData('Bike_timeMonth1_S1.csv', $('#containerBikeRentDataTimeMonth1'));
+            DEBUG(22);
+        } else {
+            DEBUG(33);
+        }
+
+    });
+
 
     // $.get('/ajax_selectFilePart2/', {
     //     'fileName': 'Bike_timeMonth1.csv'
