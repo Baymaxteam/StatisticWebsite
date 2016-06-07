@@ -1,6 +1,6 @@
 $(function () {
     var updateFlag = false;
-    var DEBUG_Log = true;
+    var DEBUG_Log = false;
     var addPointIndex = 50;
     var names_count=
     [
@@ -104,28 +104,28 @@ $(function () {
 
         for (i=0; i<(len-1); i++)
         {
-            data1.push([names_sick[i],percentData[0][i+1]]);
-            data2.push([names_sick[i],percentData[1][i+1]]);
-            data3.push([names_sick[i],percentData[2][i+1]]);
-            data4.push([names_sick[i],percentData[3][i+1]]);
-            data5.push([names_sick[i],percentData[4][i+1]]);
-            data6.push([names_sick[i],percentData[5][i+1]]);
-            data7.push([names_sick[i],percentData[6][i+1]]);
-            data8.push([names_sick[i],percentData[7][i+1]]);
-            data9.push([names_sick[i],percentData[8][i+1]]);
-            data10.push([names_sick[i],percentData[9][i+1]]);
-            data11.push([names_sick[i],percentData[10][i+1]]);
-            data12.push([names_sick[i],percentData[11][i+1]]);
-            data13.push([names_sick[i],percentData[12][i+1]]);
-            data14.push([names_sick[i],percentData[13][i+1]]);
-            data15.push([names_sick[i],percentData[14][i+1]]);
-            data16.push([names_sick[i],percentData[15][i+1]]);
-            data17.push([names_sick[i],percentData[16][i+1]]);
-            data18.push([names_sick[i],percentData[17][i+1]]);
-            data19.push([names_sick[i],percentData[18][i+1]]);
-            data20.push([names_sick[i],percentData[19][i+1]]);
-            data21.push([names_sick[i],percentData[20][i+1]]);
-            data22.push([names_sick[i],percentData[21][i+1]]);
+            data1.push([names_count[i],percentData[0][i+1]]);
+            data2.push([names_count[i],percentData[1][i+1]]);
+            data3.push([names_count[i],percentData[2][i+1]]);
+            data4.push([names_count[i],percentData[3][i+1]]);
+            data5.push([names_count[i],percentData[4][i+1]]);
+            data6.push([names_count[i],percentData[5][i+1]]);
+            data7.push([names_count[i],percentData[6][i+1]]);
+            data8.push([names_count[i],percentData[7][i+1]]);
+            data9.push([names_count[i],percentData[8][i+1]]);
+            data10.push([names_count[i],percentData[9][i+1]]);
+            data11.push([names_count[i],percentData[10][i+1]]);
+            data12.push([names_count[i],percentData[11][i+1]]);
+            data13.push([names_count[i],percentData[12][i+1]]);
+            data14.push([names_count[i],percentData[13][i+1]]);
+            data15.push([names_count[i],percentData[14][i+1]]);
+            data16.push([names_count[i],percentData[15][i+1]]);
+            data17.push([names_count[i],percentData[16][i+1]]);
+            data18.push([names_count[i],percentData[17][i+1]]);
+            data19.push([names_count[i],percentData[18][i+1]]);
+            data20.push([names_count[i],percentData[19][i+1]]);
+            data21.push([names_count[i],percentData[20][i+1]]);
+            data22.push([names_count[i],percentData[21][i+1]]);
 
         }
 
@@ -134,7 +134,7 @@ $(function () {
         DEBUG("Data");
         DEBUG(data);
 
-        outpatient($('#container9'), percentData, data);
+        service($('#container10'), percentData, data);
 
         var SelectTableHeader = [];
         SelectTableHeader.push({ title: '統計量' });
@@ -163,7 +163,7 @@ $(function () {
     
 });
 
-function outpatient(DOM, data_t, data_d)
+function service(DOM, data_t, data_d)
 {
     var names =
     [

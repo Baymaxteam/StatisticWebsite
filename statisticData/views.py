@@ -99,6 +99,17 @@ def calPM25(request):
 def calIndex(request):
 	return render(request,'index.html')
 
+def calIndexFactory(request):
+	return render(request,'indexFactory.html')
+
+def calIndexBike(request):
+	return render(request,'indexBike.html')
+
+def calIndexPM25(request):
+	return render(request,'indexPM25.html')
+
+
+
 def num(s):
     try:
         return float(s)

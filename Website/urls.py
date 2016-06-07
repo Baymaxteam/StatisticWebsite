@@ -44,4 +44,7 @@ urlpatterns = [
     url(r'^Bike/', calBike),
     url(r'^Factory/', calFactory),
     url(r'^PM25/', calPM25),
+    url(r'^indexFactory/', calIndexFactory),
+    url(r'^indexBike/', calIndexBike),
+    url(r'^indexPM25/', calIndexPM25),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
