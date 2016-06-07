@@ -1,25 +1,57 @@
 $(document).ready(function() {
+    // var locations = [
+    //     ['San Francisco', 4, 37.762100, -122.397100],
+    //     ['San Jose', 4, 37.339390, -121.89496],
+    // ];
     var locations = [
-        ['San Francisco', 4, 37.762100, -122.397100],
-        ['San Jose', 4, 37.339390, -121.89496]
+        // ['San Francisco', 4, 37.762100, -122.397100],
+        ['San Jose Diron Caltrain Station', 4, 37.329732, -121.901782],
+        ['San Jose Civic Center', 4, 37.330698, -121.888979],
+        ['San Pedro Square', 4, 37.336721, -121.894074],
+        ['MLK Library', 4, 37.335885, -121.88566]
     ];
+    var Lat = 37.333259;
+    var Lng = -121.8926237;
 
-    var bikenumber = [{
-        name: 'San Francisco',
-        data: [7.1, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6, 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-    }, {
-        name: 'San Jose',
-        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8, 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-    }];
+    var bikenumber = [
+        [{
+            name: 'San Jose Diron Caltrain Station',
+            data: [7.1, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6, 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }, {
+            name: 'San Jose',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8, 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }],
+        [{
+            name: 'San Jose1',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8, 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }, {
+            name: 'San Jose2',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8, 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }],
+        [{
+            name: 'San Jose Diron Caltrain Station',
+            data: [7.1, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6, 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }, {
+            name: 'San Jose333',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8, 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }],
+        [{
+            name: 'San Jose Diron Caltrain Station',
+            data: [7.1, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6, 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }, {
+            name: 'San Jose4444',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8, 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }],
+    ];
 
 
 
     iw = new google.maps.InfoWindow();
     // var geneve = new google.maps.LatLng(46.201221, 6.142187);
-    var geneve = new google.maps.LatLng(37.550700, -122.146000);
+    var geneve = new google.maps.LatLng(Lat, Lng);
 
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+        zoom: 15,
         center: new google.maps.LatLng(0.0, 0.0),
         mapTypeId: google.maps.MapTypeId.ROADMAP, // Type de carte, diff�rentes valeurs possible HYBRID, ROADMAP, SATELLITE, TERRAIN
         streetViewControl: false,
@@ -78,6 +110,9 @@ $(document).ready(function() {
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
                     var selectedname = locations[i][0];
+                    console.log("bikenumber google map");
+                    console.log(bikenumber[i]);
+                    console.log(bikenumber);
                     marker.setAnimation(google.maps.Animation.BOUNCE);
                     stopAnimation(marker);
                     $.ajax({
@@ -119,7 +154,7 @@ $(document).ready(function() {
                                     }]
                                 },
                                 tooltip: {
-                                    valueSuffix: '°C'
+                                    valueSuffix: ''
                                 },
                                 legend: {
                                     layout: 'vertical',
@@ -127,7 +162,7 @@ $(document).ready(function() {
                                     verticalAlign: 'middle',
                                     borderWidth: 0
                                 },
-                                series: bikenumber
+                                series: bikenumber[i]
                             }
                             chart = new Highcharts.Chart(dataChart);
                         }
