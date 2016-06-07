@@ -235,14 +235,14 @@
                                 </div>
                             </div>    
                             <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
+                                <div class="col-md-12">
                                     <a href="http://www.accuweather.com/en/us/san-francisco-ca/94103/weather-forecast/347629" class="aw-widget-legal">
                                     </a>
                                     <div align="center" id="awcc1463128460742" class="aw-widget-current" data-locationkey="347629" data-unit="c" data-language="zh-tw" data-useip="false" data-uid="awcc1463128460742"></div>
                                     <center>
                                         <h2 class="text-center">Bike-即時數據</h2>
                                         <input id="pac-input" class="mapcontrols" type="text" placeholder="Indicate a city">
-                                        <div id="map" style="width: 90%; height: 800px;"></div>
+                                        <div id="map" style="width: 100%; min-height: 600px;min-width: 800px;"></div>
                                     </center>
                                 </div>
                             </div>
@@ -282,9 +282,11 @@
     <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/mapdata/countries/tw/tw-all.js"></script>
     <!-- extra chart api -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
     <!-- google map -->
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcKBDCGI9CcYxDWz31_skXrgVl20M0w7g"></script> -->
+    <script src="{% static "js/chartBike/BikeMap.js" %}"></script>
     <script src="{% static "js/chartBike/MultiLineChart.js" %}"></script>
     <script src="{% static "js/chartBike/MultiCompareChart.js" %}"></script>
     <script src="{% static "js/chartBike/Combo-multi-axes.js" %}"></script> 
@@ -292,10 +294,10 @@
   <!--   <script src="{% static "js/chartBike/synchronize.js" %}"></script> -->
    
   <!--   <script src="{% static "js/chartBike/MultiLineStock.js" %}"></script> -->
-      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
         
     <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
-    <script src="{% static "js/chartBike/BikeMap.js" %}"></script>
+    
 
     
 

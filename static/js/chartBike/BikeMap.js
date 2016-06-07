@@ -188,7 +188,7 @@ function showGoogleMap() {
                                     type: "spline",
                                     height: 350,
                                     width: 350,
-                                    marginRight: 40
+                                    marginRight: 10
                                 },
                                 title: {
                                     text: 'BIKE剩餘數量',
