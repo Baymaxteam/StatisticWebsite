@@ -1,4 +1,4 @@
-var test = [
+    var test = [
     [Date.UTC(2015, 1, 1), 15],
     [Date.UTC(2015, 1, 2), 15],
     [Date.UTC(2015, 1, 3), 15],
@@ -16,13 +16,19 @@ var DataSetCity3 = [];
 $(function() {
 
     // set the allowed units for data grouping
-    var groupingUnits = [
+     var groupingUnits = [
         [
-            'week', // unit name
-            [1] // allowed multiples
+            'day', [1]
         ],
         [
-            'month', [1, 2, 3, 4, 6]
+            'week', [1]
+        ],
+        [
+            'month', [1, 2, 3, 6]
+        ],
+        [
+            'year',
+            null
         ]
     ];
 
@@ -56,8 +62,6 @@ $(function() {
             temp2 = [];
             temp3 = [];
         }
-        DEBUG("tempXtimestamp");
-        DEBUG(tempXtimestamp);
         DEBUG("DataSetCity1");
         DEBUG(DataSetCity1);
 
@@ -95,7 +99,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
             enabled: false
         },
         chart: {
-            marginLeft: 40, // Keep all charts left aligned
+            marginLeft: 10, // Keep all charts left aligned
             spacingTop: 20,
             spacingBottom: 20
         },
