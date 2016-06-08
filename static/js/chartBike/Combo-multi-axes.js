@@ -86,7 +86,7 @@ function MultiLineTempNumberChart(DOM, plotData, plotXgroupingUnits) {
         },
 
         title: {
-            text: 'PM2.5氣體'
+            text: ''
         },
 
         // yAxis: [

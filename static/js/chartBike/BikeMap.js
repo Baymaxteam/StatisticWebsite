@@ -49,7 +49,7 @@ $(document).ready(function() {
     // ];
 
 
-    getBikeMapData('Bike_mapData.csv');
+    getBikeMapData('Bike_mapDataBakup.csv');
 
 
 });
@@ -186,8 +186,8 @@ function showGoogleMap() {
                                     renderTo: document.getElementById('container'),
                                     zoomType: 'x',
                                     type: "spline",
-                                    height: 350,
-                                    width: 350,
+                                    height: 300,
+                                    width: 400,
                                     marginRight: 10
                                 },
                                 title: {
