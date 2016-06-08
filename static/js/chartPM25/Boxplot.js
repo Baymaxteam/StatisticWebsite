@@ -1,4 +1,4 @@
-var DEBUG_Log = false;
+var DEBUG_Log = true;
 
 $(function() {
     $.get('/ajax_selectFilePart2/', {
@@ -53,7 +53,7 @@ $(function() {
         var StatList = respons.statList;
         var i;
         // 整理sensor data
-       
+
 
         var SelectTableHeader = [];
         SelectTableHeader.push({ title: '統計量' });
@@ -82,7 +82,7 @@ function BoxChart(DOM, plotData, titleData, placeData) {
     Highcharts.setOptions({
         colors: ['#ED561B', '#DDDF00']
     });
-    DOM.highcharts('StockChart',{
+    DOM.highcharts( {
 
         chart: {
             type: 'boxplot'
@@ -140,3 +140,9 @@ function BoxChart(DOM, plotData, titleData, placeData) {
 
     });
 };
+
+function DEBUG(printData) {
+    if (DEBUG_Log === true) {
+        console.log(printData)
+    }
+}
