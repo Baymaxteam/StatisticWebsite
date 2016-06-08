@@ -2,8 +2,6 @@ $(function () {
     var updateFlag = false;
     var DEBUG_Log = true;
     var addPointIndex = 50;
-    
-
 
     function DEBUG(printData) 
     {
@@ -12,7 +10,6 @@ $(function () {
             console.log(printData)
         }
     }
-
 
     $.get('/ajax_selectFilePart2/', {
         'fileName': 'taiwan.csv'
@@ -25,29 +22,30 @@ $(function () {
         
         var sensorData = respons.data;
         var sensorStatList = respons.statList;
-        var data = [];
-        data1 = [],
-        data2 = [],
-        data3 = [],
-        data4 = [],
-        data5 = [],
-        data6 = [],
-        data7 = [],
-        data8 = [],
-        data9 = [],
-        data10 = [],
-        data11 = [],
-        data12 = [],
-        data13 = [],
-        data14 = [],
-        data15 = [],
-        data16 = [],
-        data17 = [],
-        data18 = [],
-        data19 = [],
-        data20 = [],
-        data21 = [],
-        data22 = [];
+        var 
+        tw_data = [];
+        tw_data1 = [],
+        tw_data2 = [],
+        tw_data3 = [],
+        tw_data4 = [],
+        tw_data5 = [],
+        tw_data6 = [],
+        tw_data7 = [],
+        tw_data8 = [],
+        tw_data9 = [],
+        tw_data10 = [],
+        tw_data11 = [],
+        tw_data12 = [],
+        tw_data13 = [],
+        tw_data14 = [],
+        tw_data15 = [],
+        tw_data16 = [],
+        tw_data17 = [],
+        tw_data18 = [],
+        tw_data19 = [],
+        tw_data20 = [],
+        tw_data21 = [],
+        tw_data22 = [];
 
         // 整理sensor data
         for (i = 0; i < len; i++) {
