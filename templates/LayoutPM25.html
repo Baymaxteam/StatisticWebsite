@@ -18,6 +18,8 @@
     <link href="{% static "css/style.css" %}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel='stylesheet'>
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.9/themes/smoothness/jquery-ui.css">
+   
     <!-- part2 -->
     <link href="{% static "css/CssPM25/TWmap.css" %}" rel="stylesheet">
 
@@ -161,6 +163,11 @@
         <h1 class="text-center">PM2.5氣體</h1>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+                <p>
+                    <label for="amount">Price range:</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#06931f; font-weight:bold;">
+                </p>
+                <div id="slider-range"></div>
                 <h3 class="text-center">忠明</h1>
                     <div id="containerPM25BoxHr"></div>
                     <h3 class="text-center">埔里</h1>
@@ -214,6 +221,9 @@
     <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/mapdata/countries/tw/tw-all.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="//code.jquery.com/ui/1.10.9/jquery-ui.js"></script>
+
+
     <!-- extra chart api -->
     <script src="{% static "js/chartPM25/TWmap.js" %}"></script>
     <!-- <script src="{% static "js/chartPM25/SparkLine.js" %}"></script> -->
