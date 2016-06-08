@@ -99,7 +99,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
             enabled: false
         },
         chart: {
-            marginLeft: 10, // Keep all charts left aligned
+            marginLeft: 5, // Keep all charts left aligned
             spacingTop: 20,
             spacingBottom: 20
         },

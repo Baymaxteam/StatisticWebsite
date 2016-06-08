@@ -47,8 +47,8 @@ function getCSVTempNumber(csvName, DOM) {
 
             temp1 = [];
         }
-        DEBUG("temp11 temp");
-        DEBUG(temp11);
+        // DEBUG("temp11 temp");
+        // DEBUG(temp11);
 
         var groupingUnits = [
             [
@@ -86,7 +86,7 @@ function MultiLineTempNumberChart(DOM, plotData, plotXgroupingUnits) {
         },
 
         title: {
-            text: 'PM2.5氣體'
+            text: ''
         },
 
         // yAxis: [
@@ -176,10 +176,10 @@ function getTempNumberStatData(csvFileName) {
         for (var i = 0; i < titleList.length; i++) {
             SelectTableHeader.push({ title: titleList[i] });
         }
-        DEBUG("SelectTableHeader123");
-        DEBUG(SelectTableHeader);
-        DEBUG("StatList123");
-        DEBUG(StatList);
+        // DEBUG("SelectTableHeader123");
+        // DEBUG(SelectTableHeader);
+        // DEBUG("StatList123");
+        // DEBUG(StatList);
         // 統計圖表
         // remove the old table
        
