@@ -186,8 +186,8 @@ function showGoogleMap() {
                                     renderTo: document.getElementById('container'),
                                     zoomType: 'x',
                                     type: "spline",
-                                    height: 300,
-                                    width: 400,
+                                    height: 350,
+                                    width: 350,
                                     marginRight: 10
                                 },
                                 title: {
