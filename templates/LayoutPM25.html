@@ -66,7 +66,9 @@
                                         <div id="containerTWMap" style="height: 
                                     500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
                                     </div>
+                                    
                                     <div class="col-md-7 col-md-offset-1">
+                                        <canvas id="myCanvas" align="center" width="300" height="150" style="border:2px solid #d3d3d3; ">Your browser does not support the HTML5 canvas tag.</canvas>
                                         <h4 class="text-center" id="thisYearCityName">本年度資訊 : 忠明</h4>
                                         <table id="table-sparkline1" align="center" class="display table-condensed text-center">
                                             <thead>
@@ -300,9 +302,10 @@
     <script src="{% static "js/chartPM25/TWmap.js" %}"></script>
     <!-- <script src="{% static "js/chartPM25/SparkLine.js" %}"></script> -->
     <script src="{% static "js/chartPM25/MultiCompareChart.js" %}"></script>
-   <!--  <script src="{% static "js/chartPM25/synchronize.js" %}"></script> -->
+    <!--  <script src="{% static "js/chartPM25/synchronize.js" %}"></script> -->
     <script src="{% static "js/chartPM25/Boxplot.js" %}"></script>
     <script src="{% static "js/chartPM25/MultiLineChart.js" %}"></script>
+    <!-- <script src="{% static "js/chartPM25/PM25alarm.js" %}"></script> -->
     
 
 </body>

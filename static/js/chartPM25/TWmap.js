@@ -32,6 +32,8 @@ var DataSet1maxmin2016 = [];
 var DataSet2maxmin2016 = [];
 var DataSet3maxmin2016 = [];
 
+var DataPM25 = [];
+
 $(function() {
     // Prepare demo data 2015 and 2016
     $.get('/ajax_selectFilePart2/', {
@@ -68,6 +70,7 @@ $(function() {
         // interactive with sparklines
         doChunk($('td[data-sparkline2]'), DataSet1LastYear);
         splineMaxMin(DataSet1maxmin2015, 2015)
+
     });
 
     $.get('/ajax_selectFilePart2/', {
@@ -99,6 +102,10 @@ $(function() {
             temp2 = [];
             temp3 = [];
         }
+
+        // PM25 alarm color data
+        DataPM25.push(DataSet1maxmin2016[6], DataSet2maxmin2016[6],DataSet3maxmin2016[6]);
+        PM25AlarmColor(DataPM25[0]);
         // interactive with sparklines
         doChunk($('td[data-sparkline1]'), DataSet1ThisYear);
         splineMaxMin(DataSet1maxmin2016, 2016)
@@ -156,18 +163,21 @@ function plotTWMapChart(DOM) {
                                 doChunk($('td[data-sparkline1]'), DataSet2ThisYear);
                                 splineMaxMin(DataSet2maxmin2015, 2015)
                                 splineMaxMin(DataSet2maxmin2016, 2016)
+                                PM25AlarmColor(DataPM25[1]);
                                 CityName = "埔里";
                             } else if (CityName === "Changhua") {
                                 doChunk($('td[data-sparkline2]'), DataSet3LastYear);
                                 doChunk($('td[data-sparkline1]'), DataSet3ThisYear);
                                 splineMaxMin(DataSet3maxmin2015, 2015)
                                 splineMaxMin(DataSet3maxmin2016, 2016)
+                                PM25AlarmColor(DataPM25[2]);
                                 CityName = "線西";
                             } else {
                                 doChunk($('td[data-sparkline2]'), DataSet1LastYear);
                                 doChunk($('td[data-sparkline1]'), DataSet1ThisYear);
                                 splineMaxMin(DataSet1maxmin2015, 2015)
                                 splineMaxMin(DataSet1maxmin2016, 2016)
+                                PM25AlarmColor(DataPM25[0]);
                                 CityName = "宗明";
                             }
                             $('#thisYearCityName').text("本年度資訊 : " + CityName);
@@ -388,4 +398,42 @@ function splineMaxMin(DataSetmaxmin, year) {
         DOMminmax[index].html(DataSetmaxmin[index]);
     }
 
+}
+
+
+function PM25AlarmColor(PM25value) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var PM25color = '#99ff99';
+    // console.log('PM25value');
+    // console.log(PM25value.toString());
+
+    if (PM25value <= 11) {
+        PM25color = '#99ff99';
+    } else if (PM25value > 11 && PM25value <= 23) {
+        PM25color = '#66ff66';
+    } else if (PM25value > 23 && PM25value <= 35) {
+        PM25color = '#ffff66';
+    } else if (PM25value > 35 && PM25value <= 41) {
+        PM25color = '#ffcc00';
+    } else if (PM25value > 41 && PM25value <= 47) {
+        PM25color = '#ff9933';
+    } else if (PM25value > 47 && PM25value <= 53) {
+        PM25color = '#ff6666';
+    } else if (PM25value > 53 && PM25value <= 64) {
+        PM25color = '#ff3300';
+    } else if (PM25value > 64 && PM25value <= 70) {
+        PM25color = '#990000';
+    } else { PM25color = '#cc00cc'; }
+
+
+    ctx.fillStyle = PM25color;
+    ctx.fillRect(0, 0, 300, 200);
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("PM25:", canvas.width / 2, canvas.height / 4);
+    ctx.font = "72px Arial";
+    ctx.fillText(PM25value.toString(), canvas.width / 2, canvas.height * 3 / 4);
 }
