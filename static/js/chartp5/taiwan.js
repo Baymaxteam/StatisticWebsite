@@ -497,23 +497,163 @@ function taiwan(DOM, data_1, week)
 
 function sendlocation(locat)
 {
-    if (locat === "Taipei City") 
+    if (locat === "Keelung City") 
+    {
+        City_location = 1;
+        data_name = "Keelung City";
+    }
+    else if (locat === "Taipei City") 
     {
         City_location = 2;
         data_name = "Taipei City";
+    }
+    else if (locat === "New Taipei City") 
+    {
+        City_location = 3;
+        data_name = "New Taipei City";
+    }
+    else if (locat === "Taoyuan") 
+    {
+        City_location = 4;
+        data_name = "Taoyuan";
+    }
+    else if (locat === "Hsinchu City") 
+    {
+        City_location = 5;
+        data_name = "Hsinchu City";
+    }
+    else if (locat === "Hsinchu") 
+    {
+        City_location = 6;
+        data_name = "Hsinchu";
+    }
+    else if (locat === "Miaoli") 
+    {
+        City_location = 7;
+        data_name = "Miaoli";
+    }
+    else if (locat === "Taichung City") 
+    {
+        City_location = 8;
+        data_name = "Taichung City";
     }
     else if (locat === "Nantou") 
     {
         City_location = 9;
         data_name = "Nantou";
     }
+    else if (locat === "Changhua") 
+    {
+        City_location = 10;
+        data_name = "Changhua";
+    }
+    else if (locat === "Chiayi City") 
+    {
+        City_location = 11;
+        data_name = "Chiayi City";
+    }
+    else if (locat === "Chiayi") 
+    {
+        City_location = 12;
+        data_name = "Chiayi";
+    }
+    else if (locat === "Yunlin") 
+    {
+        City_location = 13;
+        data_name = "Yunlin";
+    }
+    else if (locat === "Tainan City") 
+    {
+        City_location = 14;
+        data_name = "Tainan City";
+    }
+    else if (locat === "Kaohsiung City") 
+    {
+        City_location = 15;
+        data_name = "Kaohsiung City";
+    }
+    else if (locat === "Pingtung") 
+    {
+        City_location = 16;
+        data_name = "Pingtung";
+    }
+    else if (locat === "Yilan") 
+    {
+        City_location = 17;
+        data_name = "Yilan";
+    }
+    else if (locat === "Hualien") 
+    {
+        City_location = 18;
+        data_name = "Hualien";
+    }
+    else if (locat === "Taitung") 
+    {
+        City_location = 19;
+        data_name = "Taitung";
+    }
+    else if (locat === "Kinmen") 
+    {
+        City_location = 20;
+        data_name = "Kinmen";
+    }
+    else if (locat === "Penghu") 
+    {
+        City_location = 21;
+        data_name = "Penghu";
+    }
+    else if (locat === "Lienchiang") 
+    {
+        City_location = 22;
+        data_name = "Lienchiang";
+    }
 };
 function taiwancompare(DOM, A)
 {
-    if (City_location === 2)
+    if (City_location === 1)
+        A.tc_data = A.tc_data1;
+    else if (City_location === 2)
         A.tc_data = A.tc_data2;
+    else if (City_location === 3)
+        A.tc_data = A.tc_data3;
+    else if (City_location === 4)
+        A.tc_data = A.tc_data4;
+    else if (City_location === 5)
+        A.tc_data = A.tc_data5;
+    else if (City_location === 6)
+        A.tc_data = A.tc_data6;
+    else if (City_location === 7)
+        A.tc_data = A.tc_data7;
+    else if (City_location === 8)
+        A.tc_data = A.tc_data8;
     else if (City_location === 9)
         A.tc_data = A.tc_data9;
+    else if (City_location === 10)
+        A.tc_data = A.tc_data10;
+    else if (City_location === 11)
+        A.tc_data = A.tc_data11;
+    else if (City_location === 12)
+        A.tc_data = A.tc_data12;
+    else if (City_location === 13)
+        A.tc_data = A.tc_data13;
+    else if (City_location === 14)
+        A.tc_data = A.tc_data14;
+    else if (City_location === 15)
+        A.tc_data = A.tc_data15;
+    else if (City_location === 16)
+        A.tc_data = A.tc_data16;
+    else if (City_location === 17)
+        A.tc_data = A.tc_data17;
+    else if (City_location === 18)
+        A.tc_data = A.tc_data18;
+    else if (City_location === 19)
+        A.tc_data = A.tc_data19;
+    else if (City_location === 20)
+        A.tc_data = A.tc_data20;
+    else if (City_location === 21)
+        A.tc_data = A.tc_data21;
+    else if (City_location === 22)
+        A.tc_data = A.tc_data22;
     DOM.highcharts('StockChart', {
             exporting: { 
                 enabled: false 
@@ -526,7 +666,7 @@ function taiwancompare(DOM, A)
                 type: 'area'
             },
             title : {
-                text : '26縣市流感併發重症'
+                text : '26縣市流感併發重症('+data_name+')'
             },
 
             scrollbar : {
