@@ -1,6 +1,5 @@
 var DEBUG_Log = false;
 $(function() {
-    getBikeDistData('Bike_distance_S0S1.csv', $('#containerBikeAvgRange'));
 
     $("#btnUpdateBikeStationDistance").click(function() {
         var CategoryX = $('#ListBikeStationA').val();
@@ -13,6 +12,7 @@ $(function() {
       
 
     });
+    // $("#btnUpdateBikeStationDistance").click();
 
 });
 

@@ -1,9 +1,7 @@
 var DEBUG_Log = true;
 
 $(function() {
-    getCSVTempNumber('Bike_temp_numberS0.csv', $('#containerBikeTempandNumber'));
-    getTempNumberStatData('Bike_temp_numberStatS0.csv');
-
+    $("#btnUpdateBikeStation").click();
     $("#btnUpdateBikeStation").click(function() {
         var CategoryX = $('#ListBikeStation').val();
    
@@ -22,6 +20,9 @@ $(function() {
         }
         
     });
+    // $("#btnUpdateBikeStation").click();
+   
+
 });
 
 function getCSVTempNumber(csvName, DOM) {
