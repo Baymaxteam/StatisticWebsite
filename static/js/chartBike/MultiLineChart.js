@@ -1,16 +1,6 @@
 var DEBUG_Log = true;
 $(function() {
 
-    getBikeTimeData('Bike_timeHr0_S0.csv', $('#containerBikeRentDataTimeHr0'));
-    getBikeTimeData('Bike_timeHr1_S0.csv', $('#containerBikeRentDataTimeHr1'));
-    getBikeTimeData('Bike_timeWeek0_S0.csv', $('#containerBikeRentDataTimeWeek0'));
-    getBikeTimeData('Bike_timeWeek1_S0.csv', $('#containerBikeRentDataTimeWeek1'));
-    getBikeTimeData('Bike_timeMonth0_S0.csv', $('#containerBikeRentDataTimeMonth0'));
-    getBikeTimeData('Bike_timeMonth1_S0.csv', $('#containerBikeRentDataTimeMonth1'));
-    getBikeTimeStatData('Bike_timeHrStat_S0.csv', $('#tableBikeStationHr table'));
-    getBikeTimeStatData('Bike_timeWeekStat_S0.csv', $('#tableBikeStationWeek table'));
-    getBikeTimeStatData('Bike_timeMonthStat_S0.csv', $('#tableBikeStationMonth table'));
-
 
     $("#btnUpdateBikeStationHr").click(function() {
         var CategoryX = $('#ListBikeStationHr').val();
@@ -74,6 +64,11 @@ $(function() {
         }
 
     });
+
+
+    // $("#btnUpdateBikeStationHr").click();
+    // $("#btnUpdateBikeStationWeek").click();
+    // $("#btnUpdateBikeStationMonth").click();
 
 
 });
