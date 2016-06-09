@@ -19,7 +19,7 @@
     <link href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel='stylesheet'>
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.9/themes/smoothness/jquery-ui.css">
-   
+    <link href="{% static "css/CssPM25/nouislider.min.css" %}" rel="stylesheet">
     <!-- part2 -->
     <link href="{% static "css/CssPM25/TWmap.css" %}" rel="stylesheet">
 
@@ -162,18 +162,19 @@
         </div>
         <h1 class="text-center">PM2.5氣體</h1>
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <p>
-                    <label for="amount">Price range:</label>
-                    <input type="text" id="amount" readonly style="border:0; color:#06931f; font-weight:bold;">
-                </p>
-                <div id="slider-range"></div>
-                <h3 class="text-center">忠明</h1>
-                    <div id="containerPM25BoxHr"></div>
+            <div class="col-md-10 col-md-offset-1"> 
+                    <h3 class="text-center">忠明</h1>
+                    <div id="containerPM25BoxCity1"></div>
+                    <div id="slider1"></div>
+<!--                     <div id="slider-value-lower"></div>
+                    <div id="slider-value-upper"></div> -->
+                   
                     <h3 class="text-center">埔里</h1>
-                    <div id="containerPM25BoxMonth"></div>
+                    <div id="containerPM25BoxCity2"></div>
+                    <div id="slider2"></div>
                     <h3 class="text-center">線西</h1>
-                    <div id="containerPM25BoxWeek"></div>
+                    <div id="containerPM25BoxCity3"></div>
+                    <div id="slider3"></div>
                     <h3 class="text-center">資料統計量表</h3>
                 <div class="col-md-12" id="tableStat">
                     <table cellspacing="0" width="100%" class="display table-bordered table-condensed text-center">
@@ -222,7 +223,7 @@
     <script src="https://code.highcharts.com/mapdata/countries/tw/tw-all.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="//code.jquery.com/ui/1.10.9/jquery-ui.js"></script>
-
+    <script src="{% static "js/chartPM25/nouislider.min.js" %}"></script>
 
     <!-- extra chart api -->
     <script src="{% static "js/chartPM25/TWmap.js" %}"></script>
@@ -231,7 +232,7 @@
    <!--  <script src="{% static "js/chartPM25/synchronize.js" %}"></script> -->
     <script src="{% static "js/chartPM25/Boxplot.js" %}"></script>
     <script src="{% static "js/chartPM25/MultiLineChart.js" %}"></script>
-
+    
 
 </body>
 

@@ -1,6 +1,21 @@
 var DEBUG_Log = true;
-
+var boxplotXtitle = [];
+var boxplotDataCity1 = [];
+var boxplotDataCity2 = [];
+var boxplotDataCity3 = [];
 $(function() {
+
+    var slider1 = document.getElementById('slider1');
+    var slider2 = document.getElementById('slider2');
+    var slider3 = document.getElementById('slider3');
+    sliderTrigger(slider1, $('#containerPM25BoxCity1'), "忠明")
+        sliderTrigger(slider2, $('#containerPM25BoxCity2'), "埔里")
+            sliderTrigger(slider3, $('#containerPM25BoxCity3'), "線西")
+    
+    // slider.noUiSlider.on('update', function(values, handle) {
+    //     snapValues[handle].innerHTML = values[handle];
+    // });
+
     $.get('/ajax_selectFilePart2/', {
         'fileName': 'PM2.5_data_box.csv'
     }, function(respons) {
@@ -24,12 +39,10 @@ $(function() {
                 temp2.push(tmpdata[i][j + 9]);
                 temp3.push(tmpdata[i][j + 16]);
             }
-            tempTitle11.push(tmpdata[i][1]);
-            tempTitle21.push(tmpdata[i][8]);
-            tempTitle31.push(tmpdata[i][15]);
-            temp11.push(temp1);
-            temp21.push(temp2);
-            temp31.push(temp3);
+            boxplotXtitle.push(tmpdata[i][1]);
+            boxplotDataCity1.push(temp1);
+            boxplotDataCity2.push(temp2);
+            boxplotDataCity3.push(temp3);
             // temp2.push(tmpdata[j][i+9]);
             // temp3.push(tmpdata[j][i+16]);
             temp1 = [];
@@ -38,9 +51,9 @@ $(function() {
         }
         // DEBUG("tempTitle11");
         // DEBUG(tempTitle11);
-        BoxChart($('#containerPM25BoxHr'), temp11, tempTitle11, "忠明");
-        BoxChart($('#containerPM25BoxMonth'), temp21, tempTitle21, "埔里");
-        BoxChart($('#containerPM25BoxWeek'), temp31, tempTitle31, "線西");
+        BoxChart($('#containerPM25BoxCity1'), boxplotDataCity1, boxplotXtitle, "忠明");
+        BoxChart($('#containerPM25BoxCity2'), boxplotDataCity2, boxplotXtitle, "埔里");
+        BoxChart($('#containerPM25BoxCity3'), boxplotDataCity3, boxplotXtitle, "線西");
 
     });
 
@@ -82,7 +95,7 @@ function BoxChart(DOM, plotData, titleData, placeData) {
     Highcharts.setOptions({
         colors: ['#ED561B', '#DDDF00']
     });
-    DOM.highcharts( {
+    DOM.highcharts({
 
         chart: {
             type: 'boxplot'
@@ -145,4 +158,28 @@ function DEBUG(printData) {
     if (DEBUG_Log === true) {
         console.log(printData)
     }
+}
+
+function sliderTrigger(slidername, DOM, city) {
+    noUiSlider.create(slidername, {
+        start: [0, 51],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 51
+        }
+    });
+
+    slidername.noUiSlider.on('end', function(){
+        var index1 = parseInt(slidername.noUiSlider.get()[0]);
+        var index2 = parseInt(slidername.noUiSlider.get()[1]);
+        var newdata = [], newXtitle =[];
+        var i;
+        for (i = index1 ; i < index2 + 1; i++) {
+            newdata.push(boxplotDataCity1[i]);
+            newXtitle.push(boxplotXtitle[i]);
+        }
+        BoxChart( DOM, newdata, newXtitle, city);
+    });
+
 }
