@@ -1,4 +1,4 @@
-var City_location =1;
+var City_location_1 =1;
     heavy_l_data = [],
     heavy_l_data1 = [],
     heavy_l_data2 = [],
@@ -52,34 +52,8 @@ var City_location =1;
      tc_data11,tc_data12,tc_data13,tc_data14,tc_data15,tc_data16,tc_data17,tc_data18,tc_data19,tc_data20,
      tc_data21,tc_data22};   
 
-    data_name = "Taipei";  
-   /* heavy_r_data = [],
-    heavy_r_data1 = [],
-    heavy_r_data2 = [],
-    heavy_r_data3 = [],
-    heavy_r_data4 = [],
-    heavy_r_data5 = [],
-    heavy_r_data6 = [],
-    heavy_r_data7 = [],
-    heavy_r_data8 = [],
-    heavy_r_data9 = [],
-    heavy_r_data10 = [],
-    heavy_r_data11 = [],
-    heavy_r_data12 = [],
-    heavy_r_data13 = [],
-    heavy_r_data14 = [],
-    heavy_r_data15 = [],
-    heavy_r_data16 = [],
-    heavy_r_data17 = [],
-    heavy_r_data18 = [],
-    heavy_r_data19 = [],
-    heavy_r_data20 = [],
-    heavy_r_data21 = [],
-    heavy_r_data22 = [],
-    heavy_r_array = 
-    {heavy_r_data1, heavy_r_data2,heavy_r_data3,heavy_r_data4,heavy_r_data5,heavy_r_data6,heavy_r_data7,heavy_r_data8,heavy_r_data9,heavy_r_data10,
-     heavy_r_data11,heavy_r_data12,heavy_r_data13,heavy_r_data14,heavy_r_data15,heavy_r_data16,heavy_r_data17,heavy_r_data18,heavy_r_data19,heavy_r_data20,
-     heavy_r_data21,heavy_r_data22};*/
+    heavy_data_name = "Taipei";  
+
 $(function () {
     var updateFlag = false;
     var DEBUG_Log = true;
@@ -499,160 +473,160 @@ function sendlocation(locat)
 {
     if (locat === "Keelung City") 
     {
-        City_location = 1;
-        data_name = "Keelung City";
+        City_location_1 = 1;
+        heavy_data_name = "Keelung City";
     }
     else if (locat === "Taipei City") 
     {
-        City_location = 2;
-        data_name = "Taipei City";
+        City_location_1 = 2;
+        heavy_data_name = "Taipei City";
     }
     else if (locat === "New Taipei City") 
     {
-        City_location = 3;
-        data_name = "New Taipei City";
+        City_location_1 = 3;
+        heavy_data_name = "New Taipei City";
     }
     else if (locat === "Taoyuan") 
     {
-        City_location = 4;
-        data_name = "Taoyuan";
+        City_location_1 = 4;
+        heavy_data_name = "Taoyuan";
     }
     else if (locat === "Hsinchu City") 
     {
-        City_location = 5;
-        data_name = "Hsinchu City";
+        City_location_1 = 5;
+        heavy_data_name = "Hsinchu City";
     }
     else if (locat === "Hsinchu") 
     {
-        City_location = 6;
-        data_name = "Hsinchu";
+        City_location_1 = 6;
+        heavy_data_name = "Hsinchu";
     }
     else if (locat === "Miaoli") 
     {
-        City_location = 7;
-        data_name = "Miaoli";
+        City_location_1 = 7;
+        heavy_data_name = "Miaoli";
     }
     else if (locat === "Taichung City") 
     {
-        City_location = 8;
-        data_name = "Taichung City";
+        City_location_1 = 8;
+        heavy_data_name = "Taichung City";
     }
     else if (locat === "Nantou") 
     {
-        City_location = 9;
-        data_name = "Nantou";
+        City_location_1 = 9;
+        heavy_data_name = "Nantou";
     }
     else if (locat === "Changhua") 
     {
-        City_location = 10;
-        data_name = "Changhua";
+        City_location_1 = 10;
+        heavy_data_name = "Changhua";
     }
     else if (locat === "Chiayi City") 
     {
-        City_location = 11;
-        data_name = "Chiayi City";
+        City_location_1 = 11;
+        heavy_data_name = "Chiayi City";
     }
     else if (locat === "Chiayi") 
     {
-        City_location = 12;
-        data_name = "Chiayi";
+        City_location_1 = 12;
+        heavy_data_name = "Chiayi";
     }
     else if (locat === "Yunlin") 
     {
-        City_location = 13;
-        data_name = "Yunlin";
+        City_location_1 = 13;
+        heavy_data_name = "Yunlin";
     }
     else if (locat === "Tainan City") 
     {
-        City_location = 14;
-        data_name = "Tainan City";
+        City_location_1 = 14;
+        heavy_data_name = "Tainan City";
     }
     else if (locat === "Kaohsiung City") 
     {
-        City_location = 15;
-        data_name = "Kaohsiung City";
+        City_location_1 = 15;
+        heavy_data_name = "Kaohsiung City";
     }
     else if (locat === "Pingtung") 
     {
-        City_location = 16;
-        data_name = "Pingtung";
+        City_location_1 = 16;
+        heavy_data_name = "Pingtung";
     }
     else if (locat === "Yilan") 
     {
-        City_location = 17;
-        data_name = "Yilan";
+        City_location_1 = 17;
+        heavy_data_name = "Yilan";
     }
     else if (locat === "Hualien") 
     {
-        City_location = 18;
-        data_name = "Hualien";
+        City_location_1 = 18;
+        heavy_data_name = "Hualien";
     }
     else if (locat === "Taitung") 
     {
-        City_location = 19;
-        data_name = "Taitung";
+        City_location_1 = 19;
+        heavy_data_name = "Taitung";
     }
     else if (locat === "Kinmen") 
     {
-        City_location = 20;
-        data_name = "Kinmen";
+        City_location_1 = 20;
+        heavy_data_name = "Kinmen";
     }
     else if (locat === "Penghu") 
     {
-        City_location = 21;
-        data_name = "Penghu";
+        City_location_1 = 21;
+        heavy_data_name = "Penghu";
     }
     else if (locat === "Lienchiang") 
     {
-        City_location = 22;
-        data_name = "Lienchiang";
+        City_location_1 = 22;
+        heavy_data_name = "Lienchiang";
     }
 };
 function taiwancompare(DOM, A)
 {
-    if (City_location === 1)
+    if (City_location_1 === 1)
         A.tc_data = A.tc_data1;
-    else if (City_location === 2)
+    else if (City_location_1 === 2)
         A.tc_data = A.tc_data2;
-    else if (City_location === 3)
+    else if (City_location_1 === 3)
         A.tc_data = A.tc_data3;
-    else if (City_location === 4)
+    else if (City_location_1 === 4)
         A.tc_data = A.tc_data4;
-    else if (City_location === 5)
+    else if (City_location_1 === 5)
         A.tc_data = A.tc_data5;
-    else if (City_location === 6)
+    else if (City_location_1 === 6)
         A.tc_data = A.tc_data6;
-    else if (City_location === 7)
+    else if (City_location_1 === 7)
         A.tc_data = A.tc_data7;
-    else if (City_location === 8)
+    else if (City_location_1 === 8)
         A.tc_data = A.tc_data8;
-    else if (City_location === 9)
+    else if (City_location_1 === 9)
         A.tc_data = A.tc_data9;
-    else if (City_location === 10)
+    else if (City_location_1 === 10)
         A.tc_data = A.tc_data10;
-    else if (City_location === 11)
+    else if (City_location_1 === 11)
         A.tc_data = A.tc_data11;
-    else if (City_location === 12)
+    else if (City_location_1 === 12)
         A.tc_data = A.tc_data12;
-    else if (City_location === 13)
+    else if (City_location_1 === 13)
         A.tc_data = A.tc_data13;
-    else if (City_location === 14)
+    else if (City_location_1 === 14)
         A.tc_data = A.tc_data14;
-    else if (City_location === 15)
+    else if (City_location_1 === 15)
         A.tc_data = A.tc_data15;
-    else if (City_location === 16)
+    else if (City_location_1 === 16)
         A.tc_data = A.tc_data16;
-    else if (City_location === 17)
+    else if (City_location_1 === 17)
         A.tc_data = A.tc_data17;
-    else if (City_location === 18)
+    else if (City_location_1 === 18)
         A.tc_data = A.tc_data18;
-    else if (City_location === 19)
+    else if (City_location_1 === 19)
         A.tc_data = A.tc_data19;
-    else if (City_location === 20)
+    else if (City_location_1 === 20)
         A.tc_data = A.tc_data20;
-    else if (City_location === 21)
+    else if (City_location_1 === 21)
         A.tc_data = A.tc_data21;
-    else if (City_location === 22)
+    else if (City_location_1 === 22)
         A.tc_data = A.tc_data22;
     DOM.highcharts('StockChart', {
             exporting: { 
@@ -662,11 +636,11 @@ function taiwancompare(DOM, A)
             rangeSelector : {
                 selected : 5
             },
-            chart: {
+/*            chart: {
                 type: 'area'
-            },
+            },*/
             title : {
-                text : '26縣市流感併發重症('+data_name+')'
+                text : '26縣市流感併發重症('+heavy_data_name+')'
             },
 
             scrollbar : {
@@ -676,137 +650,11 @@ function taiwancompare(DOM, A)
             series : 
             [
                 {
-                name : data_name,
+                name : heavy_data_name,
                 data : A.tc_data,
                 tooltip: {
                     valueDecimals: 0
                 }
-            }/*,{
-                name : '台北市(人)',
-                data : data2,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '新北市(人)',
-                data : data3,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '桃園市(人)',
-                data : data4,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '新竹市(人)',
-                data : data5,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '新竹縣(人)',
-                data : data6,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '苗栗縣(人)',
-                data : data7,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '台中市(人)',
-                data : data8,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '南投縣(人)',
-                data : data9,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '彰化縣(人)',
-                data : data10,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '嘉義市(人)',
-                data : data11,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '嘉義縣(人)',
-                data : data12,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '雲林縣(人)',
-                data : data13,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '台南市(人)',
-                data : data14,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '高雄市(人)',
-                data : data15,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '屏東縣(人)',
-                data : data16,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '宜蘭縣(人)',
-                data : data17,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '花蓮縣(人)',
-                data : data18,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '台東縣(人)',
-                data : data19,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '金門縣(人)',
-                data : data20,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '連江縣(人)',
-                data : data21,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            },{
-                name : '澎湖縣(人)',
-                data : data22,
-                tooltip: {
-                    valueDecimals: 0
-                }
-            }*/]
+            }]
         });
 }
