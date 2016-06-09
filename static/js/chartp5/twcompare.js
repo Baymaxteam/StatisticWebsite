@@ -1,4 +1,4 @@
-var location;
+/*var location;
     tc_data = [];
     tc_data1 = [],
     tc_data2 = [],
@@ -404,4 +404,4 @@ function taiwancompare(DOM, A)
                 }
             }*/]
         });
-}
+}*/
