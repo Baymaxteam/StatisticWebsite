@@ -114,8 +114,54 @@
                                 </table>
                                 <br>
                                 <p class="bg-info"><br></p>
-                                <button id="DataRearrabge" type="button" class="btn btn-success btn-lg">資料預處理(待設計中)<br>
-                                </button><br>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 align=center>統計分析圖形規則</h2>
+                                        <hr>
+                                        <select id="series" name="series">
+                                            <option value="">分析目的</option>
+                                            <option value="compare">比較(不同項目變數量的比較)</option>
+                                            <option value="relation">關聯(變數相互間關係)</option>
+                                            <option value="composition">組成(單一變數不同性質的比例分配)</option>
+                                            <option value="distrubition">分佈(單一變數不同性質分佈)</option>
+                                        </select>
+                                        <select id="series1" name="series1">
+                                            <option value="">變數</option>
+                                            <option value="a1" class="compare">單一變數(如雨量)</option>
+                                            <option value="a2" class="relation">兩變數(如身高、體重)</option>
+                                            <option value="a3" class="relation">兩兩變數(如身高、體重、血壓)</option>
+                                            <option value="a4" class="composition">單一變數(如雨量)</option>
+                                            <option value="a5" class="distrubition">單一變數(如分配次數)</option>
+                                        </select>
+                                        <select id="series2" name="series2">
+                                            <option value="">項目</option>
+                                            <option value="d1" class="a1">單項目(單一城市)</option>
+                                            <option value="d2" class="a1">多項目(多城市)</option>
+                                            <option value="d3" class="a2">單項目</option>
+                                            <option value="d4" class="a3">單項目</option>
+                                            <option value="d5" class="a4">多項目(多城市)</option>
+                                            <option value="d6" class="a5">多項目</option>
+                                        </select>
+                                        <select id="series3" name="series3">
+                                            <option value="">是否為時間序列</option>
+                                            <option value="b1" class="d1">皆可</option>
+                                            <option value="b2" class="d2">皆可</option>
+                                            <option value="b3" class="d3">否</option>
+                                            <option value="b4" class="d4">否</option>
+                                            <option value="b5" class="d5">否</option>
+                                            <option value="b6" class="d6">否</option>
+                                        </select>
+                                        <select id="series4" name="series4">
+                                            <option value="">參考圖形</option>
+                                            <option value="c1" class="b1">直方圖、橫條圖、折線圖</option>
+                                            <option value="c2" class="b2">直方圖、橫條圖、折線圖、混合直方圖</option>
+                                            <option value="c3" class="b3">折線圖、趨勢圖、散佈圖</option>
+                                            <option value="c3" class="b4">散佈圖與線性回歸線圖</option>
+                                            <option value="c4" class="b5">圓餅圖</option>
+                                            <option value="c4" class="b6">直方圖、橫條圖、折線圖、混合直方圖</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <br>
                                 <p class="bg-info"><br></p>
                                 <br>     
@@ -495,5 +541,14 @@
     <script src="{% static "js/chart_P2/trendchart.js" %}"></script>
     <script src="{% static "js/chart_P2/bubble.js" %}"></script>
     <script src="{% static "js/chart_P2/histogramfit.js" %}"></script>
+
+    <script src="{% static "js/jquery.chained.min.js" %}"></script>
+    <script type="text/javascript">
+        $("#series1").chained("#series");
+        $("#series2").chained("#series1");
+        $("#series3").chained("#series2");
+        $("#series4").chained("#series3");
+     
+    </script>
 
 </html>

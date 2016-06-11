@@ -69,14 +69,17 @@ function getBikeMapData(csvFileName) {
         var tmptitle = respons['title'];
         var len = tmpdata.length;
         var mapData = [];
-        console.log("map tmpdata");
-        console.log(tmpdata);
+        // console.log("map tmpdata");
+        // console.log(tmpdata);
+        //  console.log("map tmptitle");
+        // console.log(tmptitle);
         // 第一筆不需要在這讀取，第二筆要個別獨取
         // 將資料縮小10倍，避免溢位
-        for (i = 0; i < 5; i++) {
+
+        for (i = 0; i < 4 ; i++) {
             for (j = 0; j < (48*60); j = j + 60) {
-                temp1.push(tmpdata[j][i + 2]);
-                temp2.push(tmpdata[j][i + 3]);
+                temp1.push(tmpdata[j][2*i + 2]);
+                temp2.push(tmpdata[j][2*i + 3]);
             }
             // 最後一筆
             // temp1.push([tmpdata[len - 1][1], tmpdata[len - 1][i + 2]]);
@@ -84,10 +87,10 @@ function getBikeMapData(csvFileName) {
             // console.log("temp1");
             // console.log(temp1);
             mapData.push([{
-                'name': tmptitle[i + 2],
+                'name': tmptitle[2*i + 2],
                 'data': temp1
             }, {
-                'name': tmptitle[i + 3],
+                'name': tmptitle[2*i + 3],
                 'data': temp2
             }])
             temp1 = [];
