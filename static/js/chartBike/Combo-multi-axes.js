@@ -102,7 +102,7 @@ function MultiLineTempNumberChart(DOM, plotData, plotXgroupingUnits) {
             },
             title: {
                 textAlign: 'left',
-                text: '剩餘數量',
+                text: '平均氣溫',
                 rotation: 0
                 
             },
@@ -117,7 +117,7 @@ function MultiLineTempNumberChart(DOM, plotData, plotXgroupingUnits) {
             },
             title: {
                 textAlign: 'left',
-                text: '氣溫',
+                text: '騎乘次數',
                 rotation: 0
                
             },
@@ -129,15 +129,15 @@ function MultiLineTempNumberChart(DOM, plotData, plotXgroupingUnits) {
 
         series: [{
             type: 'column',
-            name: '剩餘數量',
+            name: '平均氣溫',
             data: plotData[0],
             yAxis: 0,
             dataGrouping: {
                 units: plotXgroupingUnits
-            }
+            }   
         }, {
             type: 'line',
-            name: '平均氣溫',
+            name: '全區騎乘次數',
             data: plotData[1],
             yAxis: 1,
             dataGrouping: {
@@ -145,7 +145,7 @@ function MultiLineTempNumberChart(DOM, plotData, plotXgroupingUnits) {
             }
         }, {
             type: 'line',
-            name: '最大氣溫',
+            name: '年約會員次數',
             data: plotData[2],
             yAxis: 1,
             dataGrouping: {
@@ -153,7 +153,7 @@ function MultiLineTempNumberChart(DOM, plotData, plotXgroupingUnits) {
             }
         }, {
             type: 'line',
-            name: '最小氣溫',
+            name: '短期會員次數',
             data: plotData[3],
             yAxis: 1,
             dataGrouping: {

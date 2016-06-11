@@ -429,7 +429,7 @@ function taiwan(DOM, data_1, week)
                             // alert(this.name);
                             var CityName = this.name;
                             console.log(CityName);
-                            // 宗明、埔里、線西
+                            // 忠明、埔里、線西
                             sendlocation(CityName);
                             
                         }

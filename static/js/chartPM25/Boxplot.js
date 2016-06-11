@@ -93,7 +93,7 @@ $(function() {
 
 function BoxChart(DOM, plotData, titleData, placeData) {
     Highcharts.setOptions({
-        colors: ['#ED561B', '#DDDF00']
+        colors: ['#ED561B', '#5433e5']
     });
     DOM.highcharts({
 
@@ -137,6 +137,9 @@ function BoxChart(DOM, plotData, titleData, placeData) {
             // }]
         },
         plotOptions: {
+            boxplot: {
+                fillColor: '#e1dfd5',
+                lineWidth: '2.5'},
             series: {
                 colorByPoint: true
             }
