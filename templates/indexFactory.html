@@ -13,7 +13,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{% static "css/landing-page.css" %}" rel="stylesheet">
+    <link href="{% static "css/landing-page-factory.css" %}" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -30,12 +30,12 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../indexFactory">SDV</a>
-            </div>
-            <div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="../Factory">FACTORY</a></li>
-                </ul>
+                    <a class="navbar-brand" href="../indexFactory">首頁</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="../Factory">線上資訊觀測</a></li>
+                    </ul>
             </div>
         </div>
     </nav>
@@ -46,18 +46,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Statistics Data Visualization</h1>
-                        <h3>Online statistical analysis tool and chart maker</h3>
+                        <h2><p class="text-info"><b><font color="blue">射梢製程良率提昇研究</font></b></p></h2>
+                        <h3><p class="text-muted"><b><u><font color="blue">A study of improving Ejector pin process yield</font></u></b></font></p></h3>
                         <hr class="intro-divider">
-                        <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#loging-modal"><span class="network-name">Getting Start</span></a>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
         <!-- /.container -->
     </div>
     <!-- Loging Modal -->
-    <div class="modal fade" id="loging-modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <!-- <div class="modal fade" id="loging-modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -73,7 +72,6 @@
                             <input type="password" class="form-control input-lg" placeholder="Password">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-lg btn-block">Sign In</button>
                             <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
                         </div>
                     </form>
@@ -85,54 +83,44 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- /.intro-header -->
     <!-- Page Content -->
     <section class='content-section-a'>
         <div class='container'>
             <div class='row'>
                 <div class='col-md-4 col-md-offset-2'>
-                    <h1>研究內容</h1>
+                    <h2>射梢製程即時線上檢測系統</h2>
                     <ul>
-                        <li><a href="">互動圖表理論<br></li>
-                        <li><a href="">及時動態圖表理論<br></li>
-                         <li><a href="">人機介面設計理論</a></li>
-                        <li><a href="">統計與圖表關聯理論,資料預處理方法</a></li>
-
+                        <li>線上即時全面檢測</a></li> 
+                        <li>檢測規格視覺化監控</a></li>                         
                     </ul>
                 </div>
-                <div class='col-md-4 col-md-offset-2'>
-                    <h1>系統開發</h1>
+                 <!--<div class='col-md-4 col-md-offset-2'>
+                    <h2>台灣氣候</h2>
                     <ul>
-                        <li><a href="">互動動態圖形客製化圖表</a></li>
-                        <li><a href="">資料篩選與演算</a></li>
-                        <li><a href="">使用者資料與圖表使用</a></li>
-                        <li><a href="">管理者與使用者權限管理</a></li>
-                        <li><a href="">版面調整</a></li>
-                        <li><a href="">VM網站</a></li>
-                        <li><a href="">行動裝置測試</a></li>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                        <li><a href="http://www.cwb.gov.tw/V7/climate/climate_info/taiwan_climate/taiwan_1.html" target=_blank>特徵簡介</a></li> 
+                        <li><a href="http://www.cwb.gov.tw/V7/climate/climate_info/taiwan_climate/taiwan_5/taiwan_5_1.html" target=_blank>東亞季風</a></li> 
+                        <li><a href="http://rdc28.cwb.gov.tw/TDB/ctrl_typhoon_range_search" target=_blank>颱風資料庫</a></li>                         
                     </ul>
                 </div>
             </div>
         </div>
     </section>
     <!-- /.content-section-a -->
-    <div class="content-section-b">
+     <!--<div class="content-section-b">
         <div class="container">
             <div class="row">
-                <div class="col-md-5 col-md-offset-1 text-center">
-                   <h1>其他資訊</h1>
-                   <p><br>參考右圖<br></p>
-
-                </div>
-                <div class="col-md-5">
-                    <img class="img-responsive" src="{% static "img/tutorial_video.jpg" %}" alt="tutorial-video">
-                </div>
+                <div class='col-md-4 col-md-offset-2'>
+                   <h2>其他資訊</h2>
+                    <ul>
+                    <h4>
+                        <li><a href="http://www.epa.gov.tw/mp.asp?mp=epa" target=_blank>行政院環境保護署</a></li> 
+                        <li><a href="http://www.who.int/topics/air_pollution/en/" target=_blank>世界衛生組織空氣污染研究</a></li> 
+                        <li><a href="http://www.cwb.gov.tw/V7/" target=_blank>中央氣象局全球資訊網</a></li> 
+                        </h4>
+                    </ul>
+                </div>                
             </div>
         </div>
         <!-- /.container -->
@@ -149,7 +137,7 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                                             </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Jeffrey Liu. 2015. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; Wamg Fu Min and Jeffrey Liu. 2016. All Rights Reserved</p>
                 </div>
             </div>
         </div>

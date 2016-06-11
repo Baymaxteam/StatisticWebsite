@@ -1,4 +1,4 @@
-// 宗明、埔里、線西
+// 忠明、埔里、線西
 var DataSet1ThisYear = [" 14, 14, 13, 13, 14 ", " 14, 14, 13, 13, 14 ; column",
     " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column", " 14, 14, 13, 13, 14 ; column"
 ];
@@ -157,7 +157,7 @@ function plotTWMapChart(DOM) {
                             // alert(this.name);
                             var CityName = this.name;
                             console.log(CityName);
-                            // 宗明、埔里、線西
+                            // 忠明、埔里、線西
                             if (CityName === "Nantou") {
                                 doChunk($('td[data-sparkline2]'), DataSet2LastYear);
                                 doChunk($('td[data-sparkline1]'), DataSet2ThisYear);
@@ -178,10 +178,10 @@ function plotTWMapChart(DOM) {
                                 splineMaxMin(DataSet1maxmin2015, 2015)
                                 splineMaxMin(DataSet1maxmin2016, 2016)
                                 PM25AlarmColor(DataPM25[0]);
-                                CityName = "宗明";
+                                CityName = "忠明";
                             }
-                            $('#thisYearCityName').text("本年度資訊 : " + CityName);
-                            $('#lastYearCityName').text("去年度資訊 : " + CityName);
+                            $('#thisYearCityName').text("基準年度 : " + CityName);
+                            $('#lastYearCityName').text("前一年度 : " + CityName);
                         }
 
                     }
@@ -414,7 +414,7 @@ function PM25AlarmColor(PM25value) {
     } else if (PM25value > 11 && PM25value <= 23) {
         PM25color = '#66ff66';
     } else if (PM25value > 23 && PM25value <= 35) {
-        PM25color = '#ffff66';
+        PM25color = '#1fc51a';
     } else if (PM25value > 35 && PM25value <= 41) {
         PM25color = '#ffcc00';
     } else if (PM25value > 41 && PM25value <= 47) {
@@ -433,7 +433,7 @@ function PM25AlarmColor(PM25value) {
     ctx.font = "30px Arial";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
-    ctx.fillText("PM25:", canvas.width / 2, canvas.height / 4);
+    ctx.fillText("PM2.5:", canvas.width / 2, canvas.height / 4);
     ctx.font = "72px Arial";
     ctx.fillText(PM25value.toString(), canvas.width / 2, canvas.height * 3 / 4);
 }

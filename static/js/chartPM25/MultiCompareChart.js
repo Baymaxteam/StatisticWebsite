@@ -137,7 +137,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
             },
             title: {
                 textAlign: 'left',
-                text: 'Temp/Rain',
+                text: 'Wind/Rain',
                 rotation: 0
             },
             top: '35%',
@@ -151,7 +151,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
             },
             title: {
                 textAlign: 'left',
-                text: 'Wind',
+                text: 'Temp',
                 rotation: 0
             },
             top: '70%',
@@ -186,7 +186,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
             }
         }, {
             type: 'area',
-            name: 'Temp',
+            name: 'Wind',
             data: plotData[3],
             yAxis: 1,
             dataGrouping: {
@@ -202,7 +202,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
             }
         }, {
             type: 'area',
-            name: 'Wind',
+            name: 'Temp',
             data: plotData[5],
             yAxis: 2,
             dataGrouping: {

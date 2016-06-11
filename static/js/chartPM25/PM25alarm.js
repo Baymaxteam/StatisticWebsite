@@ -18,7 +18,7 @@ function PM25AlarmColor(PM25value) {
     } else if (PM25value > 11 && PM25value <= 23) {
         PM25color = '#66ff66';
     } else if (PM25value > 23 && PM25value <= 35) {
-        PM25color = '#ffff66';
+        PM25color = '#1fc51a';
     } else if (PM25value > 35 && PM25value <= 41) {
         PM25color = '#ffcc00';
     } else if (PM25value > 41 && PM25value <= 47) {
@@ -37,7 +37,7 @@ function PM25AlarmColor(PM25value) {
     ctx.font = "30px Arial";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
-    ctx.fillText("PM25:", canvas.width / 2, canvas.height / 4);
+    ctx.fillText("PM2.5:", canvas.width / 2, canvas.height / 4);
     ctx.font = "72px Arial";
     ctx.fillText(PM25value.toString(), canvas.width / 2, canvas.height * 3 / 4);
 }
