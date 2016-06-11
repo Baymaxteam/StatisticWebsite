@@ -212,20 +212,9 @@ function virus_taiwan(DOM, data_1, week)
       var count = 0;
     // Prepare demo data
     var data = [
-        {
-            "hc-key": "tw-cl",
 
-        },
-        {
-            "hc-key": "tw-tw",
-            
-        },
         {
             "hc-key": "tw-tp",
-            
-        },
-        {
-            "hc-key": "tw-ty",
             
         },
         {
@@ -233,27 +222,7 @@ function virus_taiwan(DOM, data_1, week)
             
         },
         {
-            "hc-key": "tw-hh",
-            
-        },
-        {
-            "hc-key": "tw-ml",
-            
-        },
-        {
             "hc-key": "tw-th",
-            
-        },
-        {
-            "hc-key": "tw-nt",
-            
-        },
-        {
-            "hc-key": "tw-cg",
-            
-        },
-        {
-            "hc-key": "tw-yl",
             
         },
         {
@@ -261,45 +230,14 @@ function virus_taiwan(DOM, data_1, week)
             
         },
         {
-            "hc-key": "tw-ch",
-            
-        },
-        {
-            "hc-key": "tw-tn",
-            
-        },
-        {
             "hc-key": "tw-kh",
-            
-        },
-        {
-            "hc-key": "tw-pt",
-            
-        },
-        {
-            "hc-key": "tw-il",
             
         },
         {
             "hc-key": "tw-hl",
             
         },
-        {
-            "hc-key": "tw-tt",
-            
-        },
-        {
-            "hc-key": "tw-km",
-            
-        },
-        {
-            "hc-key": "tw-lk",
-            
-        },
-        {
-            "hc-key": "tw-ph",
-            
-        }
+        
     ];
 
     // Initiate the chart
@@ -362,37 +300,12 @@ function virus_taiwan(DOM, data_1, week)
 
 function virus_sendlocation(locat)
 {
-    if (locat === "Keelung City") 
+    if (locat === "New Taipei City") 
     {
         City_location_2 = 1;
         virus_name = "台北區";
-    }
-    else if (locat === "Taipei City") 
-    {
-        City_location_2 = 1;
-        virus_name = "台北區";
-    }
-    else if (locat === "New Taipei City") 
-    {
-        City_location_2 = 1;
-        virus_name = "台北區";
-    }
-    else if (locat === "Taoyuan") 
-    {
-        City_location_2 = 2;
-        virus_name = "北區";
     }
     else if (locat === "Hsinchu City") 
-    {
-        City_location_2 = 2;
-        virus_name = "北區";
-    }
-    else if (locat === "Hsinchu") 
-    {
-        City_location_2 = 2;
-        virus_name = "北區";
-    }
-    else if (locat === "Miaoli") 
     {
         City_location_2 = 2;
         virus_name = "北區";
@@ -402,32 +315,7 @@ function virus_sendlocation(locat)
         City_location_2 = 3;
         virus_name = "中區";
     }
-    else if (locat === "Nantou") 
-    {
-        City_location_2 = 3;
-        virus_name = "中區";
-    }
-    else if (locat === "Changhua") 
-    {
-        City_location_2 = 3;
-        virus_name = "中區";
-    }
     else if (locat === "Chiayi City") 
-    {
-        City_location_2 = 4;
-        virus_name = "南區";
-    }
-    else if (locat === "Chiayi") 
-    {
-        City_location_2 = 4;
-        virus_name = "南區";
-    }
-    else if (locat === "Yunlin") 
-    {
-        City_location_2 = 4;
-        virus_name = "南區";
-    }
-    else if (locat === "Tainan City") 
     {
         City_location_2 = 4;
         virus_name = "南區";
@@ -437,40 +325,10 @@ function virus_sendlocation(locat)
         City_location_2 = 5;
         virus_name = "高屏區";
     }
-    else if (locat === "Pingtung") 
-    {
-        City_location_2 = 5;
-        virus_name = "高屏區";
-    }
-    else if (locat === "Yilan") 
-    {
-        City_location_2 = 1;
-        virus_name = "台北區";
-    }
     else if (locat === "Hualien") 
     {
         City_location_2 = 6;
         virus_name = "東區";
-    }
-    else if (locat === "Taitung") 
-    {
-        City_location_2 = 6;
-        virus_name = "東區";
-    }
-    else if (locat === "Kinmen") 
-    {
-        City_location_2 = 1;
-        virus_name = "台北區";
-    }
-    else if (locat === "Penghu") 
-    {
-        City_location_2 = 5;
-        virus_name = "高屏區";
-    }
-    else if (locat === "Lienchiang") 
-    {
-        City_location_2 = 1;
-        virus_name = "台北區";
     }
     virus_taiwancompare($('#container13'), virus_r_array);
 };
