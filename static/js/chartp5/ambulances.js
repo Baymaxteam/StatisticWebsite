@@ -24,12 +24,24 @@ $.get('/ajax_selectFilePart2/', {
         DEBUG("Server response the json data : ");
         DEBUG(respons);
         var len = respons.data[0].length;
+        var titleList = respons.title;
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
         
         var sensorData = respons.data;
         var sensorStatList = respons.statList;
 
+
+        var SelectTableHeader = [];
+        SelectTableHeader.push({ title: '統計量' });
+        for (var i = 0; i < 15; i++) {
+            SelectTableHeader.push({ title: titleList[i] });
+        }
+        var SelectTableHeader1 = [];
+        SelectTableHeader1.push({ title: '統計量' });
+        for (var i = 15; i < titleList.length; i++) {
+            SelectTableHeader1.push({ title: titleList[i] });
+        }
         // 整理sensor data
         for (i = 0; i < len; i++) {
             mm1.push([sensorData[0][i]]);
@@ -45,17 +57,21 @@ $.get('/ajax_selectFilePart2/', {
         ambulance4($('#container5'), mm4);
         ambulance5($('#container6'), mm5);
 
-        var SelectTableHeader = [];
-        SelectTableHeader.push({ title: '統計量' });
-        SelectTableHeader.push({ title: 'Sensor1' });
-        SelectTableHeader.push({ title: 'Sensor2' });
-        SelectTableHeader.push({ title: 'Sensor3' });
-        SelectTableHeader.push({ title: 'Sensor4' });
-        SelectTableHeader.push({ title: 'Sensor5' });
         //統計圖表
-        $('#tableStat table').DataTable({
+        $('#tableAm table').DataTable({
             data: sensorStatList,
             columns: SelectTableHeader,
+            columnDefs: [{
+
+                width: '10%',
+                targets: 0
+            }], //fix width
+            "bAutoWidth": false,
+            "bFilter": false
+        });
+        $('#tableAm1 table').DataTable({
+            data: sensorStatList,
+            columns: SelectTableHeader1,
             columnDefs: [{
 
                 width: '10%',

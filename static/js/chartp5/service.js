@@ -37,6 +37,7 @@ $(function () {
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
         var h = respons.data.length;
+        var titleList = respons.title;
         var sensorData = respons.data;
         var percentData = [];
         var sensorStatList = respons.statList;
@@ -70,6 +71,18 @@ $(function () {
         DEBUG("sData");
         DEBUG(sensorData);
         
+        var SelectTableHeader = [];
+        SelectTableHeader.push({ title: '統計量' });
+        for (var i = 0; i < 6; i++) {
+            SelectTableHeader.push({ title: titleList[i] });
+        }
+        var SelectTableHeader1 = [];
+        SelectTableHeader1.push({ title: '統計量' });
+        for (var i = 6; i < titleList.length; i++) {
+            SelectTableHeader1.push({ title: titleList[i] });
+        }
+
+
         for (i = 0; i < len; i++) 
         {
             if(i == 0)
@@ -136,17 +149,21 @@ $(function () {
 
         service($('#container10'), percentData, data);
 
-        var SelectTableHeader = [];
-        SelectTableHeader.push({ title: '統計量' });
-        SelectTableHeader.push({ title: 'Sensor1' });
-        SelectTableHeader.push({ title: 'Sensor2' });
-        SelectTableHeader.push({ title: 'Sensor3' });
-        SelectTableHeader.push({ title: 'Sensor4' });
-        SelectTableHeader.push({ title: 'Sensor5' });
         //統計圖表
-        $('#tableStat table').DataTable({
+        $('#tableSr table').DataTable({
             data: sensorStatList,
             columns: SelectTableHeader,
+            columnDefs: [{
+
+                width: '10%',
+                targets: 0
+            }], //fix width
+            "bAutoWidth": false,
+            "bFilter": false
+        });
+        $('#tableSr1 table').DataTable({
+            data: sensorStatList,
+            columns: SelectTableHeader1,
             columnDefs: [{
 
                 width: '10%',

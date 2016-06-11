@@ -22,7 +22,7 @@ $(function () {
         var len = respons.data[0].length;
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
-        
+        var titleList = respons.title;
         var sensorData = respons.data;
         var sensorStatList = respons.statList;
         var data = [];
@@ -47,6 +47,16 @@ $(function () {
 
         ];
 
+        var SelectTableHeader = [];
+        SelectTableHeader.push({ title: '統計量' });
+        for (var i = 0; i < 6; i++) {
+            SelectTableHeader.push({ title: titleList[i] });
+        };
+        var SelectTableHeader1 = [];
+        SelectTableHeader1.push({ title: '統計量' });
+        for (var i = 6; i < titleList.length; i++) {
+            SelectTableHeader1.push({ title: titleList[i] });
+        };
         // 整理sensor data
         for (i = 0; i < len; i++) {
             data1.push([timeData[i],sensorData[0][i]]);
@@ -59,15 +69,9 @@ $(function () {
 
         emergency($('#container7'), data);
 
-        var SelectTableHeader = [];
-        SelectTableHeader.push({ title: '統計量' });
-        SelectTableHeader.push({ title: 'Sensor1' });
-        SelectTableHeader.push({ title: 'Sensor2' });
-        SelectTableHeader.push({ title: 'Sensor3' });
-        SelectTableHeader.push({ title: 'Sensor4' });
-        SelectTableHeader.push({ title: 'Sensor5' });
+        
         //統計圖表
-        $('#tableStat table').DataTable({
+        $('#tableEm table').DataTable({
             data: sensorStatList,
             columns: SelectTableHeader,
             columnDefs: [{
@@ -78,7 +82,17 @@ $(function () {
             "bAutoWidth": false,
             "bFilter": false
         });
+        $('#tableEm1 table').DataTable({
+            data: sensorStatList,
+            columns: SelectTableHeader1,
+            columnDefs: [{
 
+                width: '10%',
+                targets: 0
+            }], //fix width
+            "bAutoWidth": false,
+            "bFilter": false
+        });
     });
 
 
