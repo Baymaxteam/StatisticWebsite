@@ -260,6 +260,7 @@ function doChunk(DOM, selectCityData) {
                 },
                 tooltip: {
                     backgroundColor: null,
+
                     borderWidth: 0,
                     shadow: false,
                     useHTML: true,
@@ -350,7 +351,7 @@ function doChunk(DOM, selectCityData) {
             }],
             tooltip: {
                 headerFormat: '<span style="font-size: 10px">' + $td.parent().find('th').html() + ', hr{point.x}:</span><br/>',
-                pointFormat: '<b>{point.y}.0</b>'
+                pointFormat: '<b>{point.y}</b>'
             },
             exporting: {
                 enabled: false
