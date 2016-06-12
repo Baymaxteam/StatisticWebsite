@@ -8,10 +8,10 @@ $(function() {
     var slider1 = document.getElementById('slider1');
     var slider2 = document.getElementById('slider2');
     var slider3 = document.getElementById('slider3');
-    sliderTrigger(slider1, $('#containerPM25BoxCity1'), "忠明")
-        sliderTrigger(slider2, $('#containerPM25BoxCity2'), "埔里")
-            sliderTrigger(slider3, $('#containerPM25BoxCity3'), "線西")
-    
+    sliderTrigger(slider1, $('#containerPM25BoxCity1'), boxplotDataCity1, boxplotXtitle, "忠明");
+    sliderTrigger(slider2, $('#containerPM25BoxCity2'), boxplotDataCity2, boxplotXtitle, "埔里");
+    sliderTrigger(slider3, $('#containerPM25BoxCity3'), boxplotDataCity3, boxplotXtitle, "線西");
+
     // slider.noUiSlider.on('update', function(values, handle) {
     //     snapValues[handle].innerHTML = values[handle];
     // });
@@ -139,7 +139,8 @@ function BoxChart(DOM, plotData, titleData, placeData) {
         plotOptions: {
             boxplot: {
                 fillColor: '#e1dfd5',
-                lineWidth: '2.5'},
+                lineWidth: '2.5'
+            },
             series: {
                 colorByPoint: true
             }
@@ -163,26 +164,31 @@ function DEBUG(printData) {
     }
 }
 
-function sliderTrigger(slidername, DOM, city) {
+function sliderTrigger(slidername, DOM, plotData, titleData, placeData) {
     noUiSlider.create(slidername, {
-        start: [0, 51],
+        start: [0, 105],
         connect: true,
         range: {
             'min': 0,
-            'max': 51
+            'max': 105
         }
     });
 
-    slidername.noUiSlider.on('end', function(){
+    slidername.noUiSlider.on('end', function() {
         var index1 = parseInt(slidername.noUiSlider.get()[0]);
         var index2 = parseInt(slidername.noUiSlider.get()[1]);
-        var newdata = [], newXtitle =[];
+        console.log(index1);
+        console.log(index2);
+        console.log(plotData);
+        var newdata = [],
+            newXtitle = [];
         var i;
-        for (i = index1 ; i < index2 + 1; i++) {
-            newdata.push(boxplotDataCity1[i]);
-            newXtitle.push(boxplotXtitle[i]);
+        for (i = index1; i < (index2 + 1); i++) {
+            newdata.push(plotData[i]);
+            newXtitle.push(titleData[i]);
         }
-        BoxChart( DOM, newdata, newXtitle, city);
+        console.log(plotData);
+        BoxChart(DOM, newdata, newXtitle, placeData);
     });
 
 }
