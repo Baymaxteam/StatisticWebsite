@@ -1,6 +1,6 @@
 $(function () {
     var updateFlag = false;
-    var DEBUG_Log = true;
+    var DEBUG_Log = false;
     var addPointIndex = 50;
     
 
@@ -14,7 +14,7 @@ $(function () {
 
 
     $.get('/ajax_selectFilePart2/', {
-        'fileName': 'healthcare.csv'
+        'fileName': 'sickbed.csv'
     }, function(respons) {
         DEBUG("Server response the json data : ");
         DEBUG(respons);
@@ -49,7 +49,7 @@ $(function () {
         data22 = [];
 
         // 整理sensor data
-        for (i = 1; i < len; i++) {
+        for (i = 0; i < len; i++) {
             data1.push(sensorData[0][i]);
             data2.push(sensorData[1][i]);
             data3.push(sensorData[2][i]);
@@ -75,7 +75,7 @@ $(function () {
         };
         data.push(data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16,data17,data18,data19,data20,data21,data22);
 
-        healthcare($('#container11'), data);
+        sickbed($('#container8'), sensorData);
 
         var SelectTableHeader = [];
         SelectTableHeader.push({ title: '統計量' });
@@ -102,7 +102,7 @@ $(function () {
 
 });
 
-function healthcare(DOM, data)
+function sickbed(DOM,data)
 {
     var names =
     [
@@ -127,7 +127,7 @@ function healthcare(DOM, data)
         '花蓮縣',
         '臺東縣',
         '金門縣',
-        '連江縣',
+        '連江縣'
 
     ];
     DOM.highcharts({
@@ -135,54 +135,65 @@ function healthcare(DOM, data)
             enabled: false 
         },
         chart: {
-            type: 'bar'
+            type: 'column'
         },
         title: {
-            text: '醫事人員數目'
+            text: '病床數量'
         },
         xAxis: {
-            categories: 
-            [
-                '醫師', 
-                '中醫師',
-                '牙醫師',
-                '藥師',
-                '藥劑生',
-                '醫事檢驗師',
-                '醫事檢驗生',
-                '醫事放射師',
-                '醫事放射士',
-                '護理師',
-                '護士',
-                //'助產師',
-                //'助產士',
-                //'鑲牙生',
-                //'營養師',
-                //'物理治療師',
-                //'物理治療生',
-                //'職能治療師',
-                //'職能治療生',
-                //'臨床心理師',
-                //'諮商心理師',
-                //'呼吸治療師',
-                //'語言治療師',
-                //'聽力師',
-               // '牙體技術師',
-               // '牙體技術生'
-            ]
+            categories: [
+                '103年醫院病床合計',
+                '103年醫院一般病床小計',
+                '103年醫院特殊病床小計',
+                '103年急性一般病床',
+                '103年精神急性一般病床',
+                '103年慢性一般病床',
+                '103年精神慢性一般病床',
+                '103年慢性結核病床',
+                '103年漢生病病床',
+                '103年國際醫療病床',
+                '103年加護病床',
+                '103年燒傷病床',
+                '103年燒傷加護病床',
+                '103年嬰兒病床',
+                '103年急診觀察床',
+                '103年其他',
+                '103年安寧病床',
+                '103年慢性呼吸照護病床',
+                '103年亞急性呼吸照護病床',
+                '103年急性結核病床',
+                '103年精神科加護病床',
+                '103年普通隔離病床',
+                '103年正壓隔離病床',
+                '103年負壓隔離病床',
+                '103年骨髓移植病床',  
+                '103年性侵害犯罪加害人強制治療病床',
+                '103年手術恢復床',
+                '103年嬰兒床', 
+                '103年血液透析床',
+                '103年腹膜透析床',
+
+            ],
+            crosshair: true
         },
         yAxis: {
             min: 0,
             title: {
-                text: '(人)'
+                text: '病床數 (張)'
             }
         },
-        legend: {
-            reversed: true
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} 張</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
         },
         plotOptions: {
-            series: {
-                stacking: 'normal'
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
             }
         },
         series: [
@@ -252,6 +263,7 @@ function healthcare(DOM, data)
         }, {
             name: names[21],
             data: data[21],
-        }]
+        }
+        ]
     });
 }

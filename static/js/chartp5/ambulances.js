@@ -164,14 +164,14 @@ function ambulance1 (DOM, data)
                 },
                 plotBands: [{
                     from: 0,
-                    to: 115,
+                    to: 110,
                     color: '#DF5353' // red
                 }, {
-                    from: 115,
+                    from: 111,
                     to: 120,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 120,
+                    from: 121,
                     to: 200,
                     color: '#55BF3B' // green
                 }]
@@ -281,10 +281,10 @@ function ambulance2 (DOM, data)
             },
             plotBands: [{
                 from: 0,
-                to: 73,
+                to: 71,
                 color: '#DF5353' // green
             }, {
-                from: 73,
+                from: 71,
                 to: 76,
                 color: '#DDDF0D' // yellow
             }, {
@@ -325,122 +325,6 @@ function ambulance3 (DOM, data)
 {
     var count = 0;
     DOM.highcharts({
-        exporting: { 
-            enabled: false 
-        },
-        chart: {
-            type: 'gauge',
-            plotBackgroundColor: null,
-            plotBackgroundImage: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-
-        title: {
-            text: '高雄縣'
-        },
-
-        pane: {
-            startAngle: -150,
-            endAngle: 150,
-            background: [{
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#FFF'],
-                        [1, '#333']
-                    ]
-                },
-                borderWidth: 0,
-                outerRadius: '109%'
-            }, {
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#333'],
-                        [1, '#FFF']
-                    ]
-                },
-                borderWidth: 1,
-                outerRadius: '107%'
-            }, {
-                // default background
-            }, {
-                backgroundColor: '#DDD',
-                borderWidth: 0,
-                outerRadius: '105%',
-                innerRadius: '103%'
-            }]
-        },
-
-        // the value axis
-        yAxis: {
-            min: 0,
-            max: 100,
-
-            minorTickInterval: 'auto',
-            minorTickWidth: 1,
-            minorTickLength: 10,
-            minorTickPosition: 'inside',
-            minorTickColor: '#666',
-
-            tickPixelInterval: 30,
-            tickWidth: 2,
-            tickPosition: 'inside',
-            tickLength: 10,
-            tickColor: '#666',
-            labels: {
-                step: 2,
-                rotation: 'auto'
-            },
-            title: {
-                text: '救護車數量'
-            },
-            plotBands: [{
-                from: 0,
-                to: 37,
-                color: '#DF5353' // green
-            }, {
-                from: 37,
-                to: 52,
-                color: '#DDDF0D' // yellow
-            }, {
-                from: 52,
-                to: 100,
-                color: '#55BF3B' // red
-            }]
-        },
-
-        series: [{
-            name: '救護車數量',
-            data: data[0],
-            tooltip: {
-                valueSuffix: '輛'
-            }
-        }]
-
-    },
-    // Add some life
-    function (chart) {
-        
-        if (!chart.renderer.forExport) {
-            setInterval(function () {
-                var point = chart.series[0].points[0],
-                    newVal;
-                newVal = data[count];
-                point.update(newVal);
-                count ++;
-                if (count ==29)
-                    count = 0;
-            }, 3000);
-        }
-    });
-};
-
-function ambulance4 (DOM, data)
-{
-    var count = 0;
-    $('#container5').highcharts({
         exporting: { 
             enabled: false 
         },
@@ -514,14 +398,130 @@ function ambulance4 (DOM, data)
             },
             plotBands: [{
                 from: 0,
-                to: 46,
+                to: 37,
                 color: '#DF5353' // green
             }, {
-                from: 46,
+                from: 38,
                 to: 51,
                 color: '#DDDF0D' // yellow
             }, {
-                from: 51,
+                from: 52,
+                to: 100,
+                color: '#55BF3B' // red
+            }]
+        },
+
+        series: [{
+            name: '救護車數量',
+            data: data[0],
+            tooltip: {
+                valueSuffix: '輛'
+            }
+        }]
+
+    },
+    // Add some life
+    function (chart) {
+        
+        if (!chart.renderer.forExport) {
+            setInterval(function () {
+                var point = chart.series[0].points[0],
+                    newVal;
+                newVal = data[count];
+                point.update(newVal);
+                count ++;
+                if (count ==29)
+                    count = 0;
+            }, 3000);
+        }
+    });
+};
+
+function ambulance4 (DOM, data)
+{
+    var count = 0;
+    $('#container5').highcharts({
+        exporting: { 
+            enabled: false 
+        },
+        chart: {
+            type: 'gauge',
+            plotBackgroundColor: null,
+            plotBackgroundImage: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+
+        title: {
+            text: '嘉義縣'
+        },
+
+        pane: {
+            startAngle: -150,
+            endAngle: 150,
+            background: [{
+                backgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0, '#FFF'],
+                        [1, '#333']
+                    ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+            }, {
+                backgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0, '#333'],
+                        [1, '#FFF']
+                    ]
+                },
+                borderWidth: 1,
+                outerRadius: '107%'
+            }, {
+                // default background
+            }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+            }]
+        },
+
+        // the value axis
+        yAxis: {
+            min: 0,
+            max: 100,
+
+            minorTickInterval: 'auto',
+            minorTickWidth: 1,
+            minorTickLength: 10,
+            minorTickPosition: 'inside',
+            minorTickColor: '#666',
+
+            tickPixelInterval: 30,
+            tickWidth: 2,
+            tickPosition: 'inside',
+            tickLength: 10,
+            tickColor: '#666',
+            labels: {
+                step: 2,
+                rotation: 'auto'
+            },
+            title: {
+                text: '救護車數量'
+            },
+            plotBands: [{
+                from: 0,
+                to: 23,
+                color: '#DF5353' // green
+            }, {
+                from: 24,
+                to: 32,
+                color: '#DDDF0D' // yellow
+            }, {
+                from: 33,
                 to: 100,
                 color: '#55BF3B' // red
             }]
@@ -632,14 +632,14 @@ function ambulance5 (DOM, data)
             },
             plotBands: [{
                 from: 0,
-                to: 23,
+                to: 19,
                 color: '#DF5353' // green
             }, {
-                from: 23,
+                from: 20,
                 to: 24,
                 color: '#DDDF0D' // yellow
             }, {
-                from: 24,
+                from: 25,
                 to: 100,
                 color: '#55BF3B' // red
             }]

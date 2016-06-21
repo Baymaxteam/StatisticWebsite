@@ -162,7 +162,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
 
         series: [{
             type: 'line',
-            name: 'San Francisco',
+            name: 'Diridon Caltrain',
             data: plotData[0],
             yAxis: 0,
             dataGrouping: {
@@ -170,7 +170,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
             }
         }, {
             type: 'line',
-            name: 'San Jose',
+            name: 'Civic Center',
             data: plotData[1],
             yAxis: 0,
             dataGrouping: {

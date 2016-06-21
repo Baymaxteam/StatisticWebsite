@@ -108,7 +108,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
         },
 
         title: {
-            text: 'PM2.5氣體'
+            text: 'PM2.5'
         },
 
         // yAxis: [
