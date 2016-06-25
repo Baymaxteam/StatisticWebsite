@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^ajax_requestStreamdata/$', 'statisticData.views.ajax_requestStreamdata', name='ajax-requestStreamdata'),
     url(r'^ajax_StreamfileList/$', 'statisticData.views.ajax_StreamfileList', name='ajax-StreamfileList'),
     url(r'^ajax_selectStreamFile/$', 'statisticData.views.ajax_selectStreamFile', name='ajax-selectStreamFile'),
+    url(r'^getDB2/', getDBpart2),
 
     # part 2 django 0510
     url(r'^Bike/', calBike),

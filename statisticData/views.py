@@ -335,3 +335,16 @@ def getDB(request):
 	statList = calStatistics(wholeData)
 	return JsonResponse({'title':header, 'data':wholeData , 'statList': statList})
 
+
+def getDBpart2(request):
+	# # 檢查是否存在該table
+	# # return table所有資料
+	respons = request.GET #return QueryDict
+	fileName = respons.get('fileName') #return value
+	cursor = connection.cursor()
+	cursor.execute("SELECT * FROM %s;" % (fileName)) #列表所有TableName
+	rows =  cursor.fetchall() #取得回傳訊息，會以tuple回傳
+	header = [x for x in rows.pop(0)]
+	wholeData = [list(map(num,x)) for x in rows ] # transfer to 2D array
+	statList = calStatistics(wholeData)
+	return JsonResponse({'title':header, 'data':wholeData , 'statList': statList})

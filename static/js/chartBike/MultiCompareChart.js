@@ -33,8 +33,8 @@ $(function() {
         ],
     ];
 
-    $.get('/ajax_selectFilePart2/', {
-        'fileName': 'Bike_available.csv'
+    $.get('/getDB2/', {
+        'fileName': 'bike_available.csv'
     }, function(respons) {
         // DEBUG("Server response the json data hr : ");
         // DEBUG(respons);
@@ -85,8 +85,8 @@ $(function() {
     });
 
 
-    $.get('/ajax_selectFilePart2/', {
-        'fileName': 'Bike_available_Stat.csv'
+    $.get('/getDB2/', {
+        'fileName': 'bike_available_stat.csv'
     }, function(respons) {
         var titleList = respons.title;
         var StatList = respons.statList;
