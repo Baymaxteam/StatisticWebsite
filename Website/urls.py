@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^ajax_filelist/$', 'statisticData.views.ajax_fileList', name='ajax-fileList'),
     url(r'^ajax_selectFile/$', 'statisticData.views.ajax_selectFile', name='ajax-selectFile'),
     url(r'^ajax_selectFilePart2/$', 'statisticData.views.ajax_selectFilePart2', name='ajax_selectFilePart2'),
+    url(r'^ajax_selectFilewithXaxis/$', 'statisticData.views.ajax_selectFilewithXaxis', name='ajax_selectFilewithXaxis'),
     url(r'^uploadCSV/$', upload_file),
     url(r'^ajax_requestStreamdata/$', 'statisticData.views.ajax_requestStreamdata', name='ajax-requestStreamdata'),
     url(r'^ajax_StreamfileList/$', 'statisticData.views.ajax_StreamfileList', name='ajax-StreamfileList'),

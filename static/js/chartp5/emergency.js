@@ -1,7 +1,7 @@
 $(function() {
 
     var updateFlag = false;
-    var DEBUG_Log = false;
+    var DEBUG_Log = true;
     var addPointIndex = 50;
 
 
@@ -12,10 +12,10 @@ $(function() {
     }
 
 
-    $.get('/ajax_selectFilePart2/', {
+    $.get('/ajax_selectFilewithXaxis/', {
         'fileName': 'emergency.csv'
     }, function(respons) {
-        DEBUG("Server response the json data : ");
+        DEBUG("Server response the emergency data : ");
         DEBUG(respons);
         var len = respons.data[0].length;
         // get current time, and the start time is the fifth point 
@@ -23,6 +23,7 @@ $(function() {
         var titleList = respons.title;
         var sensorData = respons.data;
         var sensorStatList = respons.statList;
+        var xaisList = respons.Xaxis;
         var data = [];
         data1 = [],
             data2 = [],
@@ -62,7 +63,6 @@ $(function() {
             data5.push([timeData[i], sensorData[4][i]]);
         };
         data.push(data1, data2, data3, data4, data5);
-
         emergency($('#container7'), data);
 
 
