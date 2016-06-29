@@ -369,6 +369,7 @@ def getDBpart2(request):
 	# # return table所有資料
 	respons = request.GET #return QueryDict
 	fileName = respons.get('fileName') #return value
+	print(fileName)
 	cursor = connection.cursor()
 	cursor.execute("SELECT * FROM %s;" % (fileName)) #列表所有TableName
 	rows =  cursor.fetchall() #取得回傳訊息，會以tuple回傳

@@ -34,7 +34,7 @@ $(function() {
     ];
 
     $.get('/getDB2/', {
-        'fileName': 'bike_available.csv'
+        'fileName': 'bike_available'
     }, function(respons) {
         // DEBUG("Server response the json data hr : ");
         // DEBUG(respons);
@@ -86,7 +86,7 @@ $(function() {
 
 
     $.get('/getDB2/', {
-        'fileName': 'bike_available_stat.csv'
+        'fileName': 'bike_available_stat'
     }, function(respons) {
         var titleList = respons.title;
         var StatList = respons.statList;

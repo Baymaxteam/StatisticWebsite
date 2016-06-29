@@ -1,0 +1,3 @@
+http://127.0.0.1:8000/getDB2/?fileName=bike_available
+
+http://127.0.0.1:8000/getDB2/?fileName=bike_temp_numberstats0

@@ -7,13 +7,13 @@ $(function() {
    
         DEBUG(CategoryX);
         if (CategoryX == 0) {
-            getCSVTempNumber('bike_temp_numbers0.csv', $('#containerBikeTempandNumber'));
-            getTempNumberStatData('bike_temp_numberstats0.csv');
+            getCSVTempNumber('bike_temp_numbers0', $('#containerBikeTempandNumber'));
+            getTempNumberStatData('bike_temp_numberstats0');
             
             DEBUG(11);
         } else if (CategoryX == 1) {
-            getCSVTempNumber('bike_temp_numbers1.csv', $('#containerBikeTempandNumber'));
-            getTempNumberStatData('bike_temp_numberstats1.csv');
+            getCSVTempNumber('bike_temp_numbers1', $('#containerBikeTempandNumber'));
+            getTempNumberStatData('bike_temp_numberstats1');
             DEBUG(22);
         } else {
             DEBUG(33);
