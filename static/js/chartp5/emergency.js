@@ -1,7 +1,7 @@
 $(function() {
 
     var updateFlag = false;
-    var DEBUG_Log = false;
+    var DEBUG_Log = true;
     var addPointIndex = 50;
 
 
@@ -12,10 +12,10 @@ $(function() {
     }
 
 
-    $.get('/ajax_selectFilePart2/', {
+    $.get('/ajax_selectFilewithXaxis/', {
         'fileName': 'emergency.csv'
     }, function(respons) {
-        DEBUG("Server response the json data : ");
+        DEBUG("Server response the emergency data : ");
         DEBUG(respons);
         var len = respons.data[0].length;
         var h = respons.data.length;

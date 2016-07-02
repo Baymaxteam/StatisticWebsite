@@ -32,8 +32,8 @@ $(function() {
         ]
     ];
 
-    $.get('/ajax_selectFilePart2/', {
-        'fileName': 'PM2.5_data_combine.csv'
+    $.get('/getDB2/', {
+        'fileName': 'pm25_data_combine'
     }, function(respons) {
         // DEBUG("Server response the json data hr : ");
         // DEBUG(respons);
@@ -68,7 +68,7 @@ $(function() {
         MultiLineCompareChart($('#containerCityCondition'), DataSetCity1, groupingUnits)
     });
 
-    getCityStatData('PM2.5_data_combine_Stat1.csv');
+    getCityStatData('pm25_data_combine_stat1');
 
     $("#btnUpdateCity").click(function() {
         var CategoryX = $('#P11listCity').val();
@@ -76,16 +76,16 @@ $(function() {
         DEBUG(CategoryX);
         if (CategoryX == 0) {
             MultiLineCompareChart($('#containerCityCondition'), DataSetCity1, groupingUnits);
-            getCityStatData('PM2.5_data_combine_Stat1.csv');
+            getCityStatData('pm25_data_combine_stat1');
             
             DEBUG(11);
         } else if (CategoryX == 1) {
             MultiLineCompareChart($('#containerCityCondition'), DataSetCity2, groupingUnits);
-            getCityStatData('PM2.5_data_combine_Stat2.csv');
+            getCityStatData('pm25_data_combine_stat2');
             DEBUG(22);
         } else {
             MultiLineCompareChart($('#containerCityCondition'), DataSetCity3, groupingUnits);
-            getCityStatData('PM2.5_data_combine_Stat3.csv');
+            getCityStatData('pm25_data_combine_stat3');
             DEBUG(33);
         }
         
@@ -215,7 +215,7 @@ function MultiLineCompareChart(DOM, plotData, plotXgroupingUnits) {
 
 function getCityStatData(csvFileName) {
 
-    $.get('/ajax_selectFilePart2/', {
+    $.get('/getDB2/', {
         'fileName': csvFileName
     }, function(respons) {
         var titleList = respons.title;

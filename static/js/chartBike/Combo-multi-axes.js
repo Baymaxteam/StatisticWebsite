@@ -7,13 +7,13 @@ $(function() {
    
         DEBUG(CategoryX);
         if (CategoryX == 0) {
-            getCSVTempNumber('Bike_temp_numberS0.csv', $('#containerBikeTempandNumber'));
-            getTempNumberStatData('Bike_temp_numberStatS0.csv');
+            getCSVTempNumber('bike_temp_numbers0', $('#containerBikeTempandNumber'));
+            getTempNumberStatData('bike_temp_numberstats0');
             
             DEBUG(11);
         } else if (CategoryX == 1) {
-            getCSVTempNumber('Bike_temp_numberS1.csv', $('#containerBikeTempandNumber'));
-            getTempNumberStatData('Bike_temp_numberStatS1.csv');
+            getCSVTempNumber('bike_temp_numbers1', $('#containerBikeTempandNumber'));
+            getTempNumberStatData('bike_temp_numberstats1');
             DEBUG(22);
         } else {
             DEBUG(33);
@@ -26,7 +26,7 @@ $(function() {
 });
 
 function getCSVTempNumber(csvName, DOM) {
-    $.get('/ajax_selectFilePart2/', {
+    $.get('/getDB2/', {
         'fileName': csvName
     }, function(respons) {
         // DEBUG("Server response the json data hr : ");
@@ -165,7 +165,7 @@ function MultiLineTempNumberChart(DOM, plotData, plotXgroupingUnits) {
 
 function getTempNumberStatData(csvFileName) {
 
-    $.get('/ajax_selectFilePart2/', {
+    $.get('/getDB2/', {
         'fileName': csvFileName
     }, function(respons) {
         var titleList = respons.title;

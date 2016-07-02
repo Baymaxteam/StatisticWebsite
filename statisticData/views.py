@@ -135,6 +135,34 @@ def ajax_selectFile(request):
 	statList = calStatistics(wholeData)
 	return JsonResponse({'title':header, 'data':wholeData , 'statList': statList})
 
+
+# django part2 0626 
+def ajax_selectFilewithXaxis(request):
+	respons = request.GET #return QueryDict
+	fileName = respons.get('fileName') #return value
+	CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfileP2",fileName)
+	# 先嘗試UTF-8去讀 出錯則換成Big5
+	try:
+		f = open(CSVfile_Path,  encoding = 'Big5')
+		reader = csv.reader(f)
+		data = [row for row in reader]
+	except UnicodeDecodeError:
+		f = open(CSVfile_Path)
+		reader = csv.reader(f)
+		data = [row for row in reader]
+	header = data.pop(0) #取出header
+	header.remove(header[0])
+	XaxisData = [row[0] for row in data] # read the first colume
+	wholeData = [list(map(num,row)) for row in data ] # transfer to 2D array
+	wholeData = [x[1:] for x in wholeData if len(x)>0] # don't read the first colume
+	statList = calStatistics(wholeData)
+	print(header) 
+	print(XaxisData) 
+	print(wholeData) 
+
+	return JsonResponse({'title':header,'Xaxis':XaxisData, 'data':wholeData , 'statList': statList})
+
+
 # django part2 0510 
 def ajax_selectFilePart2(request):
 	respons = request.GET #return QueryDict
@@ -335,3 +363,17 @@ def getDB(request):
 	statList = calStatistics(wholeData)
 	return JsonResponse({'title':header, 'data':wholeData , 'statList': statList})
 
+
+def getDBpart2(request):
+	# # 檢查是否存在該table
+	# # return table所有資料
+	respons = request.GET #return QueryDict
+	fileName = respons.get('fileName') #return value
+	print(fileName)
+	cursor = connection.cursor()
+	cursor.execute("SELECT * FROM %s;" % (fileName)) #列表所有TableName
+	rows =  cursor.fetchall() #取得回傳訊息，會以tuple回傳
+	header = [x for x in rows.pop(0)]
+	wholeData = [list(map(num,x)) for x in rows ] # transfer to 2D array
+	statList = calStatistics(wholeData)
+	return JsonResponse({'title':header, 'data':wholeData , 'statList': statList})
