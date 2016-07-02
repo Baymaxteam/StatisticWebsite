@@ -18,6 +18,7 @@ $(function () {
     }, function(respons) {
         DEBUG("Server response the json data : ");
         DEBUG(respons);
+
         var len = respons.data[0].length;
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
@@ -49,7 +50,7 @@ $(function () {
         data22 = [];
 
         // 整理sensor data
-        for (i = 1; i < len; i++) {
+        for (i = 2; i < len; i++) {
             data1.push(sensorData[0][i]);
             data2.push(sensorData[1][i]);
             data3.push(sensorData[2][i]);
@@ -74,7 +75,8 @@ $(function () {
             data22.push(sensorData[21][i]);
         };
         data.push(data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16,data17,data18,data19,data20,data21,data22);
-
+        DEBUG("sensorStatList");
+        DEBUG(sensorStatList);
         healthcare($('#container11'), data);
 
         var SelectTableHeader = [];

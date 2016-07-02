@@ -18,30 +18,19 @@ $(function() {
         DEBUG("Server response the json data : ");
         DEBUG(respons);
         var len = respons.data[0].length;
+        var h = respons.data.length;
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
         var titleList = respons.title;
         var sensorData = respons.data;
         var sensorStatList = respons.statList;
-        var data = [];
-        data1 = [],
+        var data = [],
+            data1 = [],
             data2 = [],
             data3 = [],
             data4 = [],
-            data5 = [],
-            timeData = [
-                1072947600000,
-                1104570000000,
-                1136192400000,
-                1167814800000,
-                1199437200000,
-                1231059600000,
-                1262682000000,
-                1294304400000,
-                1325926800000,
-                1357549200000,
-                1389171600000
-            ];
+            data5 = [];
+        var data_left_name = [];
 
         var SelectTableHeader = [];
         SelectTableHeader.push({ title: '統計量' });
@@ -54,16 +43,20 @@ $(function() {
             SelectTableHeader1.push({ title: titleList[i] });
         };
         // 整理sensor data
-        for (i = 0; i < len; i++) {
-            data1.push([timeData[i], sensorData[0][i]]);
-            data2.push([timeData[i], sensorData[1][i]]);
-            data3.push([timeData[i], sensorData[2][i]]);
-            data4.push([timeData[i], sensorData[3][i]]);
-            data5.push([timeData[i], sensorData[4][i]]);
+        for (i = 1; i < len; i++) {
+            data1.push([sensorData[0][i], sensorData[1][i]]);
+            data2.push([sensorData[0][i], sensorData[2][i]]);
+            data3.push([sensorData[0][i], sensorData[3][i]]);
+            data4.push([sensorData[0][i], sensorData[4][i]]);
+            data5.push([sensorData[0][i], sensorData[5][i]]);
         };
+        for(i = 1; i<h ; i++)
+        {
+            data_left_name.push(sensorData[i][0]);
+        }
         data.push(data1, data2, data3, data4, data5);
 
-        emergency($('#container7'), data);
+        emergency($('#container7'), data, data_left_name);
 
 
         //統計圖表
@@ -95,7 +88,7 @@ $(function() {
 });
 
 
-function emergency(DOM, data) {
+function emergency(DOM, data, data_left_name) {
     // Create the chart
     DOM.highcharts('StockChart', {
         exporting: {
@@ -117,31 +110,31 @@ function emergency(DOM, data) {
         },
 
         series: [{
-            name: '台北市',
+            name: data_left_name[0],
             data: data[0],
             tooltip: {
                 valueDecimals: 0
             }
         }, {
-            name: '台中市',
+            name: data_left_name[1],
             data: data[1],
             tooltip: {
                 valueDecimals: 0
             }
         }, {
-            name: '高雄市',
+            name: data_left_name[2],
             data: data[2],
             tooltip: {
                 valueDecimals: 0
             }
         }, {
-            name: '新北市',
+            name: data_left_name[3],
             data: data[3],
             tooltip: {
                 valueDecimals: 0
             }
         }, {
-            name: '花蓮市',
+            name: data_left_name[4],
             data: data[4],
             tooltip: {
                 valueDecimals: 0

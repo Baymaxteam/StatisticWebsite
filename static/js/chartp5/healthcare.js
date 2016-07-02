@@ -1,6 +1,6 @@
 $(function () {
     var updateFlag = false;
-    var DEBUG_Log = true;
+    var DEBUG_Log = false;
     var addPointIndex = 50;
     
 
@@ -18,64 +18,38 @@ $(function () {
     }, function(respons) {
         DEBUG("Server response the json data : ");
         DEBUG(respons);
-        var len = respons.data[0].length;
+        var len_width = respons.data[0].length;
+        var len_height = respons.data.length;
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
         
         var sensorData = respons.data;
         var sensorStatList = respons.statList;
-        var data = [];
-        data1 = [],
-        data2 = [],
-        data3 = [],
-        data4 = [],
-        data5 = [],
-        data6 = [],
-        data7 = [],
-        data8 = [],
-        data9 = [],
-        data10 = [],
-        data11 = [],
-        data12 = [],
-        data13 = [],
-        data14 = [],
-        data15 = [],
-        data16 = [],
-        data17 = [],
-        data18 = [],
-        data19 = [],
-        data20 = [],
-        data21 = [],
-        data22 = [];
-
+        var titleList = respons.title;
+        var data = [],
+            data1 = [],
+            data_left_name = [],
+            data_top_name = [];
         // 整理sensor data
-        for (i = 1; i < len; i++) {
-            data1.push(sensorData[0][i]);
-            data2.push(sensorData[1][i]);
-            data3.push(sensorData[2][i]);
-            data4.push(sensorData[3][i]);
-            data5.push(sensorData[4][i]);
-            data6.push(sensorData[5][i]);
-            data7.push(sensorData[6][i]);
-            data8.push(sensorData[7][i]);
-            data9.push(sensorData[8][i]);
-            data10.push(sensorData[9][i]);
-            data11.push(sensorData[10][i]);
-            data12.push(sensorData[11][i]);
-            data13.push(sensorData[12][i]);
-            data14.push(sensorData[13][i]);
-            data15.push(sensorData[14][i]);
-            data16.push(sensorData[15][i]);
-            data17.push(sensorData[16][i]);
-            data18.push(sensorData[17][i]);
-            data19.push(sensorData[18][i]);
-            data20.push(sensorData[19][i]);
-            data21.push(sensorData[20][i]);
-            data22.push(sensorData[21][i]);
-        };
-        data.push(data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16,data17,data18,data19,data20,data21,data22);
+        for(i = 0; i< len_height; i++)
+        {
+            data_left_name.push(sensorData[i][0]);
+            for (j = 2; j < len_width; j++) 
+            {
+                data1.push(sensorData[i][j]);
+                if (i ==0)
+                    data_top_name[j-2] = titleList[j];
+            };
+            data.push(data1);
+            data1=[];
+        }
 
-        healthcare($('#container11'), data);
+        // for (i = 2; i < len_width; i++) 
+        // {
+        //     data_top_name.push(sensorData[0][i]);
+        // };
+
+        healthcare($('#container11'), data, data_left_name, data_top_name);
 
         var SelectTableHeader = [];
         SelectTableHeader.push({ title: '統計量' });
@@ -102,34 +76,10 @@ $(function () {
 
 });
 
-function healthcare(DOM, data)
+function healthcare(DOM, data, left_name, top_name)
 {
-    var names =
-    [
-        '臺北市',
-        '臺中市',
-        '臺南市',
-        '高雄市',
-        '基隆市',
-        '新竹市',
-        '嘉義市',
-        '新北市',
-        '桃園市',
-        '新竹縣',
-        '宜蘭縣',
-        '苗栗縣',
-        '彰化縣',
-        '南投縣',
-        '雲林縣',
-        '嘉義縣',
-        '屏東縣',
-        '澎湖縣',
-        '花蓮縣',
-        '臺東縣',
-        '金門縣',
-        '連江縣',
+    var names = left_name;
 
-    ];
     DOM.highcharts({
         exporting: { 
             enabled: false 
@@ -141,35 +91,8 @@ function healthcare(DOM, data)
             text: '醫事人員數目'
         },
         xAxis: {
-            categories: 
-            [
-                '醫師', 
-                '中醫師',
-                '牙醫師',
-                '藥師',
-                '藥劑生',
-                '醫事檢驗師',
-                '醫事檢驗生',
-                '醫事放射師',
-                '醫事放射士',
-                '護理師',
-                '護士',
-                //'助產師',
-                //'助產士',
-                //'鑲牙生',
-                //'營養師',
-                //'物理治療師',
-                //'物理治療生',
-                //'職能治療師',
-                //'職能治療生',
-                //'臨床心理師',
-                //'諮商心理師',
-                //'呼吸治療師',
-                //'語言治療師',
-                //'聽力師',
-               // '牙體技術師',
-               // '牙體技術生'
-            ]
+            categories: top_name
+            
         },
         yAxis: {
             min: 0,

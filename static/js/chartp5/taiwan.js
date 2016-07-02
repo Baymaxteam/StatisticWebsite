@@ -74,6 +74,7 @@ $(function () {
         DEBUG("Server response the json data : ");
         DEBUG(respons);
         var len = respons.data.length;
+        var h = respons.data.length;
         var titleList = respons.title;
         // get current time, and the start time is the fifth point 
         // so startTime = currentTime - 50 point *1000ms + (UTC+8);
