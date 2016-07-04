@@ -29,6 +29,109 @@ def upload_file(request):
 	# return JsonResponse({'fileSize':f.size, 'fileName': f.name, 'Type:':f.content_type})
 	return HttpResponseRedirect('/P1/')
 
+def upload_file_tool_counter(request):
+	try:
+		f = request.FILES['CSVfiles'] 
+	except MultiValueDictKeyError:
+		return HttpResponseRedirect('/P6/')
+	CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfileTool",f.name)
+	wf = open(CSVfile_Path,'bw+')
+	wf.write(f.read())
+	wf.close()
+
+	try:
+		f = open(CSVfile_Path,  encoding = 'Big5')
+		reader = csv.reader(f)
+		data = [row for row in reader]
+	except UnicodeDecodeError:
+		f = open(CSVfile_Path)
+		reader = csv.reader(f)
+		data = [row for row in reader]
+	header = data.pop(0) #取出header
+	
+	sortingRawData = sorted(data)
+	XaxisData = [row[0] for row in data] # read the first colume
+	wholeData = [list(map(num,row)) for row in data ] # transfer to 2D array
+	wholeData = [x[1:] for x in wholeData if len(x)>0] # don't read the first colume
+	# print(header) 
+
+
+	a = {}
+	for i in XaxisData:
+	    if XaxisData.count(i)>1:
+	        a[i] = XaxisData.count(i) 
+	counterLen = len(a)
+	# counterList = list(a)
+	# counterValueList = list(a.values())
+	# sortingcounterList = sorted(counterList)
+	# sortingcounterValueList = sorted(counterValueList)
+	# print(counterList)
+	# print(sortingcounterList)
+	# print(sortingcounterValueList)
+	
+	# print(sortingRawData)
+	
+	sortingcounterList = sorted(list(a.items()))
+	dataCounter = []
+	for i in sortingcounterList:
+	    dataCounter.append(i[1])
+
+	# print(sortingcounterList)
+	print(dataCounter)   
+	FinalData = []
+
+	for i in dataCounter
+
+
+	# # print(sortingarray)
+	# tmp = sortingarray[0][0]
+	# averageArray = []
+	# counter =  []
+	# index = 0
+	# print(tmp)
+
+	# for RowData in sortingarray:
+		
+	# 	if (RowData[0] != tmp):
+	# 		index +=  1
+	# 	# else:
+	# 	# 	counter[index] += 1
+	# print(index)	
+		
+		# for j in range(len(RowData)):
+		# 	averageArray[index][j] = RowData[j]
+
+		# print(averageArray)
+		# counter[index] += 1
+
+	
+
+	# # print (a.keys())		
+	# # print (a.values())
+	# testitems = a.items()
+	# data = "";
+	# for i in testitems:
+	# 	data += i[0] + "," + str(i[1]) + "\n"
+	# 	# print (i[0])
+	# 	# data.append(i[1])
+	# 	# print (i[1])
+
+	# print (data)	
+	# CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfileTool","counter.csv")
+	# print (CSVfile_Path)
+
+	# ff = open(CSVfile_Path , "wb")  
+	# ff.write(bytes(str(data), 'UTF-8'))
+	# ff.close() 
+
+
+ 
+
+	# return JsonResponse({'fileSize':f.size, 'fileName': f.name, 'Type:':f.content_type})
+	return HttpResponseRedirect('/P6/')
+
+
+
 def idvDBlist(request):
 	# 檢查idvFileList是否完整
 	# 使用raw SQL command
@@ -87,6 +190,9 @@ def calRTChart(request):
 
 def calDisease(request):
 	return render(request,'LayoutP5.html')
+
+def calStatTool(request):
+	return render(request,'LayoutP6.html')
 
 # part 2 django 0510
 def calBike(request):
