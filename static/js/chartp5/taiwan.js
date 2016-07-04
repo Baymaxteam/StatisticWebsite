@@ -53,9 +53,12 @@ var City_location_1 =1;
      tc_data21,tc_data22};   
 
     heavy_data_name = "Taipei";  
+var updateFlag = {
+    value : 1
+};
 
 $(function () {
-    var updateFlag = false;
+
     var DEBUG_Log = true;
     var addPointIndex = 50;
     
@@ -93,45 +96,63 @@ $(function () {
             SelectTableHeader1.push({ title: titleList[i] });
         }
         // 整理sensor data
-        for (i = 1; i < len; i++) {
-            heavy_l_data1.push(sensorData[i][0]);
-            heavy_l_data2.push(sensorData[i][1]);
-            heavy_l_data3.push(sensorData[i][2]);
-            heavy_l_data4.push(sensorData[i][3]);
-            heavy_l_data5.push(sensorData[i][4]);
-            heavy_l_data6.push(sensorData[i][5]);
-            heavy_l_data7.push(sensorData[i][6]);
-            heavy_l_data8.push(sensorData[i][7]);
-            heavy_l_data9.push(sensorData[i][8]);
-            heavy_l_data10.push(sensorData[i][9]);
-            heavy_l_data11.push(sensorData[i][10]);
-            heavy_l_data12.push(sensorData[i][11]);
-            heavy_l_data13.push(sensorData[i][12]);
-            heavy_l_data14.push(sensorData[i][13]);
-            heavy_l_data15.push(sensorData[i][14]);
-            heavy_l_data16.push(sensorData[i][15]);
-            heavy_l_data17.push(sensorData[i][16]);
-            heavy_l_data18.push(sensorData[i][17]);
-            heavy_l_data19.push(sensorData[i][18]);
-            heavy_l_data20.push(sensorData[i][19]);
-            heavy_l_data21.push(sensorData[i][20]);
-            heavy_l_data22.push(sensorData[i][21]);
+        for (i = 1; i < h; i++) {
+            heavy_l_data1.push(sensorData[i][1]);
+            heavy_l_data2.push(sensorData[i][2]);
+            heavy_l_data3.push(sensorData[i][3]);
+            heavy_l_data4.push(sensorData[i][4]);
+            heavy_l_data5.push(sensorData[i][5]);
+            heavy_l_data6.push(sensorData[i][6]);
+            heavy_l_data7.push(sensorData[i][7]);
+            heavy_l_data8.push(sensorData[i][8]);
+            heavy_l_data9.push(sensorData[i][9]);
+            heavy_l_data10.push(sensorData[i][10]);
+            heavy_l_data11.push(sensorData[i][11]);
+            heavy_l_data12.push(sensorData[i][12]);
+            heavy_l_data13.push(sensorData[i][13]);
+            heavy_l_data14.push(sensorData[i][14]);
+            heavy_l_data15.push(sensorData[i][15]);
+            heavy_l_data16.push(sensorData[i][16]);
+            heavy_l_data17.push(sensorData[i][17]);
+            heavy_l_data18.push(sensorData[i][18]);
+            heavy_l_data19.push(sensorData[i][19]);
+            heavy_l_data20.push(sensorData[i][20]);
+            heavy_l_data21.push(sensorData[i][21]);
+            heavy_l_data22.push(sensorData[i][22]);
         };
         heavy_l_array.push(heavy_l_data1,heavy_l_data2,heavy_l_data3,heavy_l_data4,heavy_l_data5,heavy_l_data6,heavy_l_data7,heavy_l_data8,heavy_l_data9,heavy_l_data10,heavy_l_data11,heavy_l_data12,heavy_l_data13,heavy_l_data14,heavy_l_data15,heavy_l_data16,heavy_l_data17,heavy_l_data18,heavy_l_data19,heavy_l_data20,heavy_l_data21,heavy_l_data22);
         DEBUG("heavy_l_data");
         DEBUG(heavy_l_data);
 
         var k = 0;
+
+
+        $("#btnStartFlag").click(function() {
+            updateFlag.value = 1;
+            //console.log(updateFlag)
+        });
+        $("#btnStopFlag").click(function() {
+            updateFlag.value = 0;
+            //console.log(updateFlag)
+        });
+
         taiwan($('#container'), heavy_l_array, len);
+
 
         setInterval(function () 
         {
+            if(updateFlag.value == 1)
+            {
+                data_shift(k,sensorData,len);
+                k = k+1;
+                if (k==(len-12))
+                    k = 0;
+                taiwancompare($('#container1'), data_array);
+            }
+            else if (updateFlag.value == 0)
+            {
 
-            data_shift(k,sensorData,len);
-            k = k+1;
-            if (k==(len-12))
-                k = 0;
-            taiwancompare($('#container1'), data_array);
+            }
         }, 3000);
 
         //統計圖表
@@ -374,20 +395,27 @@ function taiwan(DOM, data_1, week)
         {   var week=0;        
             if (!chart.renderer.forExport) 
             {
+
                 setInterval(function () 
                 {
                     var point = chart.series[0].points[0],
                         newVal = 0;
-                    for(loop = 0; loop< 22; loop++)
+                    if(updateFlag.value == 1)
                     {
-                        point = chart.series[0].points[loop];
-                        newVal = data_1[loop][week];
-                        point.update(newVal);
+                        for(loop = 0; loop< 22; loop++)
+                        {
+                            point = chart.series[0].points[loop];
+                            newVal = data_1[loop][week];
+                            point.update(newVal);
+                        }
+                        week++;
+                        if (week == 82)
+                            week = 0;
                     }
-                    week++;
-                    if (week == 82)
-                        week = 0;
-                    }, 3000);
+                    
+                }, 3000);
+                
+
             }
         }
     );
