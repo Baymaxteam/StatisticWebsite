@@ -15,7 +15,7 @@ import statistics
 from scipy import stats
 from difflib import Differ
 from django.utils import timezone
-
+import numpy as np
 
 def upload_file(request):
 	try:
@@ -77,10 +77,42 @@ def upload_file_tool_counter(request):
 	    dataCounter.append(i[1])
 
 	# print(sortingcounterList)
+	# print(type(sortingcounterList))
+	# print(sortingcounterList[0][0])
+	print(sortingRawData)
+	print(sortingcounterList)
 	print(dataCounter)   
-	FinalData = []
 
-	for i in dataCounter
+	oneDataSize = len(sortingRawData[0])
+	totalDataSize = len(dataCounter)
+	print(oneDataSize)
+	print(totalDataSize)
+	tmp = sortingRawData[0][0]
+	bufferData = []
+	k = 0
+	sortingRawData2 = [x[1:] for x in wholeData if len(x)>0] # don't read the first colume
+
+	# x = np.array(['1.1', '2.2', '3.3'], dtype='|S4')
+	# y = x.astype(np.float)
+
+	print(sortingRawData2)
+    bufferData.append(x[:] for x in sortingRawData2 if len(x)<dataCounter[0])
+	print(bufferData)
+	# # y = sortingRawData[0].astype(np.float)
+	# print(y)
+	# for i in range(0, totalDataSize):
+	# 	for j in range(0, oneDataSize):
+	# 		if (tmp == sortingRawData[i][0]):
+	# 			bufferData[k][j] += float(sortingRawData[i][j])
+	# 			# print(sortingRawData[i][j])
+	# 			# print(type(sortingRawData[i][j]))
+	# 		else:
+	# 			tmp = sortingRawData[i][0]
+	# 			k += 1
+
+
+
+	# print(bufferData)
 
 
 	# # print(sortingarray)
