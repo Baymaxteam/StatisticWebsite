@@ -55,109 +55,84 @@ def upload_file_tool_counter(request):
 	wholeData = [x[1:] for x in wholeData if len(x)>0] # don't read the first colume
 	# print(header) 
 
-
 	a = {}
 	for i in XaxisData:
 	    if XaxisData.count(i)>1:
 	        a[i] = XaxisData.count(i) 
 	counterLen = len(a)
-	# counterList = list(a)
-	# counterValueList = list(a.values())
-	# sortingcounterList = sorted(counterList)
-	# sortingcounterValueList = sorted(counterValueList)
-	# print(counterList)
-	# print(sortingcounterList)
-	# print(sortingcounterValueList)
-	
-	# print(sortingRawData)
-	
+ 
 	sortingcounterList = sorted(list(a.items()))
 	dataCounter = []
 	for i in sortingcounterList:
 	    dataCounter.append(i[1])
-
+ 
+	# print("sortingRawData")
+	# print(sortingRawData)
 	# print(sortingcounterList)
-	# print(type(sortingcounterList))
-	# print(sortingcounterList[0][0])
-	print(sortingRawData)
-	print(sortingcounterList)
-	print(dataCounter)   
+	# print(dataCounter)   
 
 	oneDataSize = len(sortingRawData[0])
-	totalDataSize = len(dataCounter)
-	print(oneDataSize)
-	print(totalDataSize)
+	totalDataSize = len(sortingRawData)
+	# print(oneDataSize)
+	# print(totalDataSize)
+
 	tmp = sortingRawData[0][0]
-	bufferData = []
-	k = 0
+	bufferData = [0 for i in range(oneDataSize+1)]  
+	counter = 0
 	sortingRawData2 = [x[1:] for x in wholeData if len(x)>0] # don't read the first colume
+	Result = []	
 
-	# x = np.array(['1.1', '2.2', '3.3'], dtype='|S4')
-	# y = x.astype(np.float)
-
-	print(sortingRawData2)
-    bufferData.append(x[:] for x in sortingRawData2 if len(x)<dataCounter[0])
-	print(bufferData)
-	# # y = sortingRawData[0].astype(np.float)
-	# print(y)
-	# for i in range(0, totalDataSize):
-	# 	for j in range(0, oneDataSize):
-	# 		if (tmp == sortingRawData[i][0]):
-	# 			bufferData[k][j] += float(sortingRawData[i][j])
-	# 			# print(sortingRawData[i][j])
-	# 			# print(type(sortingRawData[i][j]))
-	# 		else:
-	# 			tmp = sortingRawData[i][0]
-	# 			k += 1
-
-
-
+	# print(sortingRawData2) 
 	# print(bufferData)
 
+	for i in range(0, totalDataSize):
+		if (tmp == sortingRawData[i][0]):
+			bufferData = [sum(x) for x in zip(bufferData, sortingRawData2[i])]	 
+			counter += 1
 
-	# # print(sortingarray)
-	# tmp = sortingarray[0][0]
-	# averageArray = []
-	# counter =  []
-	# index = 0
-	# print(tmp)
+			if (i == (totalDataSize-1)):
+				bufferData[:] = [x / counter for x in bufferData]
+				bufferData.insert(0, counter)
+				bufferData.insert(0, tmp)
+				Result.append(bufferData)
+			# print(bufferData)
+		else: 
+			# print(i)
+			# print(bufferData)	
+			bufferData[:] = [x / counter for x in bufferData]
+			bufferData.insert(0, counter)
+			bufferData.insert(0, tmp)
+			# print(bufferData)
 
-	# for RowData in sortingarray:
-		
-	# 	if (RowData[0] != tmp):
-	# 		index +=  1
-	# 	# else:
-	# 	# 	counter[index] += 1
-	# print(index)	
-		
-		# for j in range(len(RowData)):
-		# 	averageArray[index][j] = RowData[j]
+			# get the same header / average	 
+			Result.append(bufferData)
+			
+			counter = 1
+			tmp = sortingRawData[i][0]
+			# this time data
+			bufferData = sortingRawData2[i]	
+ 		
+	# print(Result)				
+	header.insert(1, "次數")
 
-		# print(averageArray)
-		# counter[index] += 1
+	data = ""
+	for element in header:
+		data += str(element) + ","
+	data = data[:-1]	
+	data += "\n"
 
-	
+	for oneData in Result:
+		for element in oneData:
+			data += str(element) + ","
 
-	# # print (a.keys())		
-	# # print (a.values())
-	# testitems = a.items()
-	# data = "";
-	# for i in testitems:
-	# 	data += i[0] + "," + str(i[1]) + "\n"
-	# 	# print (i[0])
-	# 	# data.append(i[1])
-	# 	# print (i[1])
-
+		data = data[:-1]	
+		data += "\n"				
 	# print (data)	
-	# CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfileTool","counter.csv")
-	# print (CSVfile_Path)
 
-	# ff = open(CSVfile_Path , "wb")  
-	# ff.write(bytes(str(data), 'UTF-8'))
-	# ff.close() 
-
-
- 
+	CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfileTool","counter.csv")
+	ff = open(CSVfile_Path , "wb")  
+	ff.write(bytes(str(data), 'UTF-8'))
+	ff.close() 
 
 	# return JsonResponse({'fileSize':f.size, 'fileName': f.name, 'Type:':f.content_type})
 	return HttpResponseRedirect('/P6/')
