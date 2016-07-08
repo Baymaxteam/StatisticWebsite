@@ -60,7 +60,7 @@
                                 </h1>
                                 <!-- 1019 Sam added : upload file-->
                                 <h4>從電腦中選擇檔案(CSV檔)進行上傳</h4>
-                                <form action="/tool_counter/" method="post" enctype="multipart/form-data" id="CSV-upload-form">
+                                <form action="/tool_counter_upload/" method="post" enctype="multipart/form-data" id="CSV-upload-form">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <input type="file" name="CSVfiles">
@@ -69,13 +69,17 @@
                                         <!-- multiple> -->
                                     </div>
                                 </form>
+                                <form action="/tool_counter_download/" method="get" enctype="multipart/form-data" id="CSV-download-form">
+                                   <!--  {% csrf_token %} -->
+                                    <div class="form-group">
+                                         <br>
+                                        <button type="submit" class="btn btn-success btn-lg">下載(CSV檔)檔案</button>
+                                        <!-- multiple> -->
+                                    </div>
+                                </form>
                                 <!--  -->
                                 <br>
-                                <table class="table table-bordered table-condensed text-center">
-                                    <thead></thead>
-                                    <tbody></tbody>
-                                    <tfoot></tfoot>
-                                </table>
+                                
                                 
                             </div>
                         </div>

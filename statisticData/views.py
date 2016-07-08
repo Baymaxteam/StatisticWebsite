@@ -133,11 +133,26 @@ def upload_file_tool_counter(request):
 	ff = open(CSVfile_Path , "wb")  
 	ff.write(bytes(str(data), 'UTF-8'))
 	ff.close() 
-
+	
 	# return JsonResponse({'fileSize':f.size, 'fileName': f.name, 'Type:':f.content_type})
 	return HttpResponseRedirect('/P6/')
 
+def download_file_tool_counter(request):
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="Counter_Avg.csv"'
 
+    CSVfile_Path = os.path.join(settings.BASE_DIR, "CSVfileTool","counter.csv")
+    writer = csv.writer(response)
+    print(CSVfile_Path)
+
+    f = open(CSVfile_Path, encoding='UTF-8')
+    reader = csv.reader(f)
+    for row in reader:
+    	writer.writerow(row)
+
+    f.close
+    return response
 
 def idvDBlist(request):
 	# 檢查idvFileList是否完整
